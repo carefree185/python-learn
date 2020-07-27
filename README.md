@@ -9,7 +9,7 @@ python学习笔记
 
 ### 1.1.2 [字符串](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
 
-### 1.1.3 列表和元组
+### 1.1.3 [列表和元组](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%88%97%E8%A1%A8%E5%92%8C%E5%85%83%E7%BB%84.md)
 
 ### 1.1.4 集合和字典
 
