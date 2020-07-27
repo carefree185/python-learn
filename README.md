@@ -4,7 +4,7 @@
 python学习笔记
 
 # 一、python基础
-## 1.1 数据类型
+## 1.1 [数据类型](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 
 ## 1.2 控制流程
 
