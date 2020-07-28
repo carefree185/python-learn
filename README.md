@@ -22,6 +22,6 @@ python学习笔记
 
 ### 1.2.2 [条件分支语句](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5.md)
 
-### 1.2.3 for循环
+### 1.2.3 [for循环](https://gitee.com/duyupeng36/python-learn/blob/master/for%E5%BE%AA%E7%8E%AF.md)
 
 ### 1.2.4 while循环
