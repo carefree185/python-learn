@@ -24,4 +24,4 @@ python学习笔记
 
 ### 1.2.3 [for循环](https://gitee.com/duyupeng36/python-learn/blob/master/for%E5%BE%AA%E7%8E%AF.md)
 
-### 1.2.4 while循环
+### 1.2.4 [while循环](https://gitee.com/duyupeng36/python-learn/blob/master/while%E5%BE%AA%E7%8E%AF.md)
