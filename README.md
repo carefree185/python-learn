@@ -13,7 +13,7 @@ python学习笔记
 
 #### 补充: [可变与不可变数据类型](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B.md)
 
-### 1.1.4 集合和字典
+### 1.1.4 [集合和字典](https://gitee.com/duyupeng36/python-learn/blob/master/%E9%9B%86%E5%90%88%E4%B8%8E%E5%AD%97%E5%85%B8.md)
 
 
 ## 1.2 控制流程
