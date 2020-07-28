@@ -20,7 +20,7 @@ python学习笔记
 
 ### 1.2.1 [关系运算符](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6.md)
 
-### 1.2.2 判断分支语句
+### 1.2.2 [条件分支语句](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5.md)
 
 ### 1.2.3 for循环
 
