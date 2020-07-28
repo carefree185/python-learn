@@ -27,7 +27,7 @@ python学习笔记
 ### 1.2.4 [while循环](https://gitee.com/duyupeng36/python-learn/blob/master/while%E5%BE%AA%E7%8E%AF.md)
 
 ## 1.3 文件操作
-### 1.3.1 [文件对象](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C.md)
+### 1.3.1 [文件对象](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C--%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1.md)
 ### 1.3.2 [文件描述符](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C.md)
 
 ## 1.4 函数
