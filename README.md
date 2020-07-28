@@ -31,7 +31,7 @@ python学习笔记
 ### 1.3.2 [文件描述符](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C.md)
 
 ## 1.4 函数
-### 1.4.1 函数基础
+### 1.4.1 [函数的定义、调用、参数](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%87%BD%E6%95%B0--%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E8%B0%83%E7%94%A8%E3%80%81%E5%8F%82%E6%95%B0.md)
 ### 1.4.2 闭包函数、回调函数、函数递归
 ### 1.4.3 装饰器
 ### 1.4.4 内置函数
