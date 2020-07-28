@@ -18,7 +18,7 @@ python学习笔记
 
 ## 1.2 控制流程
 
-### 1.2.1 关系运算符
+### 1.2.1 [关系运算符](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6.md)
 
 ### 1.2.2 判断分支语句
 
