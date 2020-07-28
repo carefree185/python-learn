@@ -11,7 +11,7 @@ python学习笔记
 
 ### 1.1.3 [列表和元组](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%88%97%E8%A1%A8%E5%92%8C%E5%85%83%E7%BB%84.md)
 
-#### 补充: [可变与不可变数据类型]()
+#### 补充: [可变与不可变数据类型](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%8F%AF%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B.md)
 
 ### 1.1.4 集合和字典
 
