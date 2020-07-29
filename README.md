@@ -34,6 +34,6 @@ python学习笔记
 ### 1.4.1 [函数的定义、调用、参数](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%87%BD%E6%95%B0--%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E8%B0%83%E7%94%A8%E3%80%81%E5%8F%82%E6%95%B0.md)
 ### 1.4.2 [名称空间和作用域](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F.md)
 ### 1.4.3 [闭包函数、回调函数、函数递归](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%87%BD%E6%95%B0--%E9%97%AD%E5%8C%85%E5%87%BD%E6%95%B0%E3%80%81%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E3%80%81%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92.md)
-### 1.4.4 [装饰器]()
+### 1.4.4 [装饰器](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%87%BD%E6%95%B0--%E8%A3%85%E9%A5%B0%E5%99%A8.md)
 ### 1.4.5 [迭代器和生成器]()
 ### 1.4.5 [内置函数]()
