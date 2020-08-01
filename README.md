@@ -36,4 +36,4 @@ python学习笔记
 ### 1.4.3 [闭包函数、回调函数、函数递归](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%87%BD%E6%95%B0--%E9%97%AD%E5%8C%85%E5%87%BD%E6%95%B0%E3%80%81%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E3%80%81%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92.md)
 ### 1.4.4 [装饰器](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%87%BD%E6%95%B0--%E8%A3%85%E9%A5%B0%E5%99%A8.md)
 ### 1.4.5 [迭代器和生成器](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%87%BD%E6%95%B0--%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8.md)
-### 1.4.5 [内置函数]()
+### 1.4.5 [编程范式与内置函数](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.md)
