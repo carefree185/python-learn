@@ -39,7 +39,7 @@ python学习笔记
 ### 1.4.5 [编程范式与内置函数](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.md)
 
 ## 1.5 面向对象编程
-### 1.5.1 [类和对象]()
+### 1.5.1 [类和对象](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB.md)
 ### 1.5.2 [封装]()
 ### 1.5.3 [继承和派生]()
 ### 1.5.4 [多态性和鸭子类型]()
