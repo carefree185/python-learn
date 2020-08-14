@@ -42,7 +42,7 @@ python学习笔记
 ### 1.5.1 [类和对象](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB.md)
 ### 1.5.2 [封装](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%B0%81%E8%A3%85.md)
 ### 1.5.3 [继承和派生](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BB%A7%E6%89%BF%E5%92%8C%E6%B4%BE%E7%94%9F.md)
-### 1.5.4 [多态性和鸭子类型]()
+### 1.5.4 [多态性和鸭子类型](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%A4%9A%E6%80%81%E5%92%8C%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B.md)
 ### 1.5.5 [反射和特殊方法]()
 ### 1.5.6 [元类]()
 
