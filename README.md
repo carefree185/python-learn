@@ -46,7 +46,7 @@ python学习笔记
 ### 1.5.4 [多态性和鸭子类型](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%A4%9A%E6%80%81%E5%92%8C%E9%B8%AD%E5%AD%90%E7%B1%BB%E5%9E%8B.md)
 ### 1.5.5 [绑定方法与非绑定方法](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95%E4%BA%8E%E9%9D%9E%E7%BB%91%E5%AE%9A%E6%96%B9%E6%B3%95.md)
 ### 补充: [面向对象--选课系统]()
-### 1.5.6 [反射和特殊方法]()
+### 1.5.6 [反射和特殊方法](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%8F%8D%E5%B0%84%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95.md)
 ### 1.5.7 [元类]()
 
 
