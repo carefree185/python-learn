@@ -50,7 +50,7 @@ python学习笔记
 ### 1.5.7 [元类](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%85%83%E7%B1%BB.md)
 
 ## 1.6 异常处理
-### 1.6.1 [异常处理]()
+### 1.6.1 [异常处理](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.md)
 
 ## 1.7 网络编程
 ### 1.7.1 [`CS`架构和`BS`架构]()
