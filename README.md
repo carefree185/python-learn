@@ -49,5 +49,11 @@ python学习笔记
 ### 1.5.6 [反射和特殊方法](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%8F%8D%E5%B0%84%E5%92%8C%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95.md)
 ### 1.5.7 [元类](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%85%83%E7%B1%BB.md)
 
+## 1.6 异常处理
+### 1.6.1 [异常处理]()
+
+## 1.7 网络编程
+### 1.7.1 [`CS`架构和`BS`架构]()
+### 1.7.2 [`OSI`七层模型]()
 
 
