@@ -53,7 +53,7 @@ python学习笔记
 ### 1.6.1 [异常处理](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.md)
 
 ## 1.7 网络编程
-### 1.7.1 [`CS`架构和`BS`架构]()
+### 1.7.1 [`CS`架构和`BS`架构](https://gitee.com/duyupeng36/python-learn/blob/master/CS%E6%9E%B6%E6%9E%84%E5%92%8CBS%E6%9E%B6%E6%9E%84.md)
 ### 1.7.2 [`OSI`七层模型]()
 
 
