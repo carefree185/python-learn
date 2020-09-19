@@ -55,5 +55,5 @@ python学习笔记
 ## 1.7 网络编程
 ### 1.7.1 [`CS`架构和`BS`架构](https://gitee.com/duyupeng36/python-learn/blob/master/CS%E6%9E%B6%E6%9E%84%E5%92%8CBS%E6%9E%B6%E6%9E%84.md)
 ### 1.7.2 [`OSI`七层模型](https://gitee.com/duyupeng36/python-learn/blob/master/OSI%E4%B8%83%E5%B1%82%E5%8D%8F%E8%AE%AE.md)
-
+### 1.7.3 [`socket`编程](https://gitee.com/duyupeng36/python-learn/blob/master/socket%E7%BC%96%E7%A8%8B.md)
 
