@@ -119,4 +119,8 @@ OSI七层协议数据传输的封包与解包过程
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0919/181349_a66d7b2a_7841459.png "小结.png")
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0919/181415_e7d64b31_7841459.gif "小结2.gif")
 
+## 40.2 `DNS`(域名解析服务器)
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0919/183534_1783f31e_7841459.png "DNS.png")
+
+
 
