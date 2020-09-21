@@ -58,8 +58,8 @@ python学习笔记
 ### 1.7.3 [`socket`编程](https://gitee.com/duyupeng36/python-learn/blob/master/socket%E7%BC%96%E7%A8%8B.md)
 
 ## 1.8 并发编程
-### 1.8.1 [操作系统发展和多道技术]()
-### 1.8.2 [进程]()
+### 1.8.1 [操作系统发展和多道技术](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E4%B8%8E%E5%A4%9A%E9%81%93%E6%8A%80%E6%9C%AF.md)
+### 1.8.2 [进程](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%9B%E7%A8%8B.md)
 
 
 
