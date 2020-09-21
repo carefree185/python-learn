@@ -57,3 +57,9 @@ python学习笔记
 ### 1.7.2 [`OSI`七层模型](https://gitee.com/duyupeng36/python-learn/blob/master/OSI%E4%B8%83%E5%B1%82%E5%8D%8F%E8%AE%AE.md)
 ### 1.7.3 [`socket`编程](https://gitee.com/duyupeng36/python-learn/blob/master/socket%E7%BC%96%E7%A8%8B.md)
 
+## 1.8 并发编程
+### 1.8.1 [操作系统发展和多道技术]()
+### 1.8.2 [进程]()
+
+
+
