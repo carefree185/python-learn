@@ -61,7 +61,7 @@ python学习笔记
 ### 1.8.1 [操作系统发展和多道技术](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E5%B1%95%E4%B8%8E%E5%A4%9A%E9%81%93%E6%8A%80%E6%9C%AF.md)
 ### 1.8.2 [进程一--进程的概念](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%9B%E7%A8%8B.md)
 ### 1.8.3 [进程二--创建进程](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%88%9B%E5%BB%BA%E8%BF%9B%E7%A8%8B.md)
-### 1.8.4 [进程三--进程对象的方法]()
+### 1.8.4 [进程三--进程对象的方法](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%9B%E7%A8%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95.md)
 ### 1.8.5 [进程四--僵尸进程、孤儿进程和守护进程]()
 ### 1.8.6 [进程五--进程间的通信]()
 
