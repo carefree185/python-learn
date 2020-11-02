@@ -63,5 +63,5 @@ python学习笔记
 ### 1.8.3 [进程二--创建进程](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%88%9B%E5%BB%BA%E8%BF%9B%E7%A8%8B.md)
 ### 1.8.4 [进程三--进程对象的方法](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%9B%E7%A8%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95.md)
 ### 1.8.5 [进程四--僵尸进程、孤儿进程和守护进程](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B%EF%BC%8C%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B.md)
-### 1.8.6 [进程五--进程间的通信]()
+### 1.8.6 [进程五--进程间的通信](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.md)
 
