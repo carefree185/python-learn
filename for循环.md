@@ -23,6 +23,7 @@ else:
 > 7. `range(1, 5, 3)`: 最终数据`1, 4`
 
 **九九乘法表**
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/004023_efd923d6_7841459.png "屏幕截图.png")
 ```python
 for i in range(1, 10):
     for j in range(1, i+1):
