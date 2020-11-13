@@ -70,6 +70,8 @@ python学习笔记
 ### 2.2.9 [线程三--线程对象的方法](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BA%BF%E7%A8%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95.md)
 ### 2.2.10 [线程四--线程间的通信](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1.md)
 ****
+### 了解[死锁、递归锁、信号量、Event事件和线程`q`](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%AD%BB%E9%94%81%E3%80%81%E9%80%92%E5%BD%92%E9%94%81%E3%80%81%E4%BF%A1%E5%8F%B7%E9%87%8F%E3%80%81Event%E4%BA%8B%E4%BB%B6%E5%92%8C%E7%BA%BF%E7%A8%8B%60q%60.md)
+****
 ### 2.2.11 [进程池](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%9B%E7%A8%8B%E6%B1%A0.md)
 ### 2.2.12 [线程池](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BA%BF%E7%A8%8B%E6%B1%A0.md)
 
