@@ -76,4 +76,5 @@ python学习笔记
 ### 2.2.12 [线程池](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BA%BF%E7%A8%8B%E6%B1%A0.md)
 
 ### 2.2.13 [协程](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%8D%8F%E7%A8%8B.md)
+### 2.2.14 [io模型](https://gitee.com/duyupeng36/python-learn/blob/master/io%E6%A8%A1%E5%9E%8B.md)
 
