@@ -88,6 +88,7 @@ while True:
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1116/225232_982b574c_7841459.gif "IO多路复用模型.gif")
 
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1117/011126_b31b2097_7841459.png "屏幕截图.png")
 
 ### 64.3.1 **`select`机制** 
 python内置`select`模块提供
@@ -146,6 +147,7 @@ while True:
 1. `select`机制：存在与windows和linux系统
 2. `poll`机制：只在linux系统上有效
 3. `epoll`机制：只在linux系统上有效
+    ![epoll工作机制](https://images.gitee.com/uploads/images/2020/1117/011201_ed8a12dd_7841459.png "屏幕截图.png")
 > 1. `select/poll`机制存在缺陷，当监测对象的量过大时，会造成较大的延时
 > 2. `epoll`机制是较为完美的机制, 基于 **惰性** 的 **事件回调机制**； **惰性的事件回调** 是由用户自己调用的，操作系统只起到通知的作用
 
