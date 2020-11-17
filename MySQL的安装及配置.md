@@ -154,13 +154,26 @@ service mysql restart
 2. 解压到位置
 3. 将`bin`目录添加到系统`Path`变量中
 4. 将`mysql`服务端配置为系统服务
-```
-# 默认配置文件配置为服务
-mysqld --install
-
-# 删除服务
-mysqld --remove
-```
+> 1. 在mysql的安装目录下新建`my.ini`文件
+>    ```
+>    [client]
+>    # 设置mysql客户端默认字符集
+>    default-character-set=utf8
+>     
+>    [mysqld]
+>    # 设置3306端口
+>    port = 3306
+>    # 设置mysql的安装目录
+>    basedir=C:\\mysql
+>    # 设置data目录
+>    datadir=C:\\mysql\\data
+>    # 服务端使用的字符集默认为8比特编码的latin1字符集
+>    character-set-server=utf8
+>    ```
+> 2. 打开管理员的cmd输入: `mysqld install`将MySQL配置为系统服务
+> 3. 启动服务: `net start mysql`
+> 4. 删除服务: `mysqld --remove`
+> 5. 如果MySQL服务端被删除，删除服务执行: `sc delete 服务名称` 
 
 
 
