@@ -78,3 +78,18 @@ python学习笔记
 ### 2.2.13 [协程](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%8D%8F%E7%A8%8B.md)
 ### 2.2.14 [io模型](https://gitee.com/duyupeng36/python-learn/blob/master/io%E6%A8%A1%E5%9E%8B.md)
 
+****
+## 网络编程和并发编程[阶段项目实战](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%92%8C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.md)
+****
+
+
+
+
+
+
+
+
+
+
+
+
