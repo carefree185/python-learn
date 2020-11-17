@@ -23,3 +23,9 @@ exit  --
 quit  --
 \q    
 ```
+
+# 四、设置MySQL用户密码
+在`CMD`或在终端输入:
+
+`mysqladmin -uUserName -pOldPassword password new_password`
+
