@@ -82,16 +82,8 @@ python学习笔记
 ## 网络编程和并发编程[阶段项目实战](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%92%8C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.md)
 ****
 # 三、MySQL数据库
-## 3.1 [MySQL及SQL语句介绍]()
-## 3.2 [MySQL安装及文件介绍]()
-## 3.3 [MySQL基础配置]()
-## 3.4 [库、表、数据的增删查改语句]()
-## 3.5 [创建表的详细SQL语句]()
-## 3.6 [约束条件和表关系]()
-## 3.7 [表修改和复制表]()
-## 3.8 [查询语句详细]()
-## 3.9 [pymysql基本使用]()
-## 3.10 [SQL注入及解决方法]()
+## 3.1 简介
+### 3.1.1 [数据库发展简介](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%91%E5%B1%95%E7%AE%80%E4%BB%8B.md)
 
 
 
