@@ -82,11 +82,13 @@ python学习笔记
 ## 网络编程和并发编程[阶段项目实战](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%92%8C%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98.md)
 ****
 # 三、MySQL数据库
-## 3.1 
+## 3.1 安装和配置
 ### 3.1.1 [数据库发展简介](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%91%E5%B1%95%E7%AE%80%E4%BB%8B.md)
 ### 3.1.2 [MySQL简介](https://gitee.com/duyupeng36/python-learn/blob/master/MySQL%E7%AE%80%E4%BB%8B.md)
 ### 3.1.3 [MySQL安装和相关配置](https://gitee.com/duyupeng36/python-learn/blob/master/MySQL%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE.md)
 
+## 3.2 基本`SQL`语句
+### 3.2.1 [基本命令](https://gitee.com/duyupeng36/python-learn/blob/master/MySQL%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4.md)
 
 
 
