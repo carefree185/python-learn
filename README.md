@@ -87,9 +87,9 @@ python学习笔记
 ### 3.1.2 [MySQL简介](https://gitee.com/duyupeng36/python-learn/blob/master/MySQL%E7%AE%80%E4%BB%8B.md)
 ### 3.1.3 [MySQL安装和相关配置](https://gitee.com/duyupeng36/python-learn/blob/master/MySQL%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE.md)
 
-## 3.2 基本`SQL`语句
+## 3.2 `SQL`语句
 ### 3.2.1 [基本命令](https://gitee.com/duyupeng36/python-learn/blob/master/MySQL%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4.md)
-
+### 3.2.1 [基础sql语句](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%9F%BA%E7%A1%80SQL%E8%AF%AD%E5%8F%A5.md)
 
 
 
