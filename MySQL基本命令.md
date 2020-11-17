@@ -29,3 +29,23 @@ quit  --
 
 `mysqladmin -uUserName -pOldPassword password new_password`
 
+# 五、跳过授权表并从新设置密码
+MySQL登录是将mysql客户端发送到服务端的用户名和密码在某个位置进行比对。
+> 校验密码的本质就可以看成一个登录认证装饰器
+
+**跳过验证**
+1. 关闭MySQL服务
+2. 在命令行启动(跳过认证): `mysqld --skip-grant-tables`
+3. 此时客户端连接就不用在输入密码
+4. 修改当前用户密码: 
+   > ```sql
+   > update mysql.user set password=password(new_password) where user='root'and host='localhost'
+   > flush privileges;
+   > ```
+5. 关闭当前服务端，然后重新启动(通过校验)
+
+
+
+
+
+
