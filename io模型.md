@@ -208,14 +208,51 @@ while True:
         callback(sock)  # 将连接传入回调函数，调用函数
 ```
 
+## 64.4 `Asynchronous IO`异步`IO`模型
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1117/084247_6f8acf46_7841459.png "屏幕截图.png")
+
+当应用程序调用`aio_read`时，内核一方面去 **取数据报内容** 返回，另一方面进程将 **程序控制权还给应用** ，应用进程继续处理其他事情，是一种非阻塞的状态。
+
+当内核中有数据报就绪时，由内核将数据报拷贝到应用程序中，返回`aio_read`中定义好的函数处理程序。
+> 1. 异步IO模型是效率最高的模型
+> 2. 原生python代码是无法实现异步IO模型的，需要内置模块`asyncio`和异步框架(`sanic`, `tornado`, `twisted`)提供支持
 
 
+### 64.4.1 `asyncio`模块
+```python
+import asyncio
 
 
+@asyncio.coroutine  # 将要被删除 使用async/await代替
+def hello():
+    print("hello world")
+    yield from asyncio.sleep(1)
+    print("hello again")
 
 
+loop = asyncio.get_event_loop()  # 监测事件
+tasks = [hello(), hello()]  # 任务列表
+loop.run_until_complete(asyncio.wait(tasks))  # asyncio.wait(tasks)等待任务
+loop.close()
+``` 
+
+* **`async/await`**原生协程实现异步`IO`
+```python
+import asyncio
+
+async def hello():  # 此处将@asyncio.coroutine 修改为async
+    print("hello world")
+    await asyncio.sleep(1)   # 将yield from修改为await
+    print("hello again")
 
 
+loop = asyncio.get_event_loop()  # 监测事件
+tasks = [hello(), hello()]  # 任务列表
+loop.run_until_complete(asyncio.wait(tasks))  # asyncio.wait(tasks)等待任务
+loop.close()
+
+```
 
 
 
