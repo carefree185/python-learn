@@ -1,4 +1,4 @@
-MySql
+# 一、Linux下的MySQL安装
 
 1. 安装
 os：Ubuntu18.04
@@ -144,3 +144,25 @@ default-character-set=utf8
 service mysql restart
 ```
 配置完成
+
+# 二、Windows下MySQL的安装
+
+## **下载`.msi`文件按照引导下一步安装发安装** 
+
+## 下载编译好的二进制文件:https://dev.mysql.com/downloads/mysql/
+1. 下载好文件
+2. 解压到位置
+3. 将`bin`目录添加到系统`Path`变量中
+4. 将`mysql`服务端配置为系统服务
+```
+# 默认配置文件配置为服务
+mysqld --install
+
+# 删除服务
+mysqld --remove
+```
+
+
+
+
+
