@@ -88,4 +88,82 @@ delete from tb_name;  -- 删除tb_name表中的所有数据
 delete from tb_name where conditions;  -- 满足条件删除数据
 ```
 
+**使用**
+```sql
+mysql> show databases;   -- 查看存在的数据库
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> create database learndb charset=utf8;  -- 创建数据库
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| learndb            |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use learndb  -- 进入数据库
+Database changed
+mysql> create table t1(id int, name varchar(20));  -- 创建表
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into t1 values(0, "小芳"),(1, "小南");  -- 插入数据到表
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from t1;  -- 全字段查询
++------+--------+
+| id   | name   |
++------+--------+
+|    0 | 小芳   |
+|    1 | 小南   |
++------+--------+
+2 rows in set (0.01 sec)
+
+mysql> delete from t1 where id = 0;  -- 删除表中的数据
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from t1;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | 小南   |
++------+--------+
+1 row in set (0.00 sec)
+
+mysql> desc t1;  -- 查看表的结构
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | YES  |     | NULL    |       |
+| name  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.03 sec)
+
+mysql> show create table t1;  -- 查看创建表的sql语句
++-------+-------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                            |
++-------+-------------------------------------------------------------------------------------------------------------------------+
+| t1    | CREATE TABLE `t1` (
+  `id` int(11) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 |
++-------+-------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.01 sec)
+```
+
 
