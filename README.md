@@ -93,7 +93,7 @@ python学习笔记
 ### 3.2.3 [存储引擎介绍与数据类型](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 ### 3.2.4 [约束条件与表关系](https://gitee.com/duyupeng36/python-learn/blob/master/%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6%E4%B8%8E%E8%A1%A8%E5%85%B3%E7%B3%BB.md) 
 ### 3.2.5 [更多查询语句](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%9B%B4%E5%A4%9A%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5.md)
-
+### 3.2.6 [MySQL查询练习题目与pymysql](https://gitee.com/duyupeng36/python-learn/blob/master/MySQL%E6%9F%A5%E8%AF%A2%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE%E4%B8%8Epymysql.md)
 
 
 
