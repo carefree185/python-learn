@@ -223,9 +223,21 @@ cursor.scroll(1, "absolute")  # 相对于数据的开头向后移动
 
 
 # 三、sql注入问题
+利用编程语言拼接sql语句，使执行sql语句时出现条件 **恒为真** 或者 **条件丢失**导致数据库被入侵.
 
+**常见的sql注入方法** 
+1. 恒为真条件(`or 1 = 1`恒真条件)
+    ```sql
+    select * from user where useid="xxx" or 1=1;
+    ```
+2. 条件缺少(`--`sql注释语法)
+    ```sql
+    select * from user where user="xxx" -- and password="yyy";
+    ``` 
 
-
+**问题解决**
+1. 尽量不使用编程语句进行sql语句拼接
+2. 使用SQL参数
 
 
 
