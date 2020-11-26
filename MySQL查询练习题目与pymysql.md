@@ -198,7 +198,7 @@ select class.cname, student.sname from class INNER JOIN student on class.cid = s
 * 建立游标
   > 游标是用于操作数据、光标和执行sql语句
   ```python
-  cursor = connection.cursor()  # 建立游标
+  cursor = connection.cursor(cursor=pymysql.cursors.DictCursor)  # 建立游标,将查询结果以字典形式返回
   ```
 
 * 执行`sql`语句
@@ -219,8 +219,9 @@ select class.cname, student.sname from class INNER JOIN student on class.cid = s
     ```python
     cursor.scroll(-1, "relative")  # 相对于光标所在位置向前移动
     cursor.scroll(1, "absolute")  # 相对于数据的开头向后移动
-    ```
-    
+    ```    
+
+
 
 # 三、sql注入问题
 利用编程语言拼接sql语句，使执行sql语句时出现条件 **恒为真** 或者 **条件丢失**导致数据库被入侵.
