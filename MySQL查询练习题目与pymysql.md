@@ -154,3 +154,89 @@ insert into score values(12,'109','6-166','81');
     			teacher.tname = "王萍" 
     		));
     ```
+4. 查询没有同时选修计算机导论和数字电路的学生姓名
+    ```sql
+    -- 4. 查询没有同时选修计算机导论和数字电路的学生姓名
+    -- 第一步、先查询出计算机导论和数字电路课程id号
+    SELECT course.cno FROM course WHERE course.cname in ("计算机导论", "数字电路");
+    -- 第二步、获取选了计算机导论和数字电路学生的数据
+    SELECT * FROM score WHERE score.cno in (SELECT course.cno FROM course WHERE course.cname in ("计算机导论", "数字电路"));
+    -- 第三步、按照学生分组 筛选出之选了一门可的学生id，获取学生姓名
+    SELECT student.sname from student where student.sno in (SELECT score.sno FROM score WHERE score.cno in (SELECT course.cno FROM course WHERE course.cname in ("计算机导论", "数字电路")) GROUP BY score.sno HAVING count(score.cno) = 1);
+    ```
+5. 查询出分数低于70分的学生姓名和班级
+```sql
+-- 5. 查询出超过两门分数分数低于80分的学生姓名和班级
+-- 第一步、查询出分数低于80分的数据
+select * from score WHERE score.degree < 80;
+-- 第二步、按学生分组，获取
+select * from score WHERE score.degree < 80 GROUP BY score.sno HAVING COUNT(score.cno) >= 2;
+-- 第三步、查询出班级
+select class.cname, student.sname from class INNER JOIN student on class.cid = student.class_id WHERE student.sno in (select score.sno from score WHERE score.degree < 80 GROUP BY score.sno HAVING COUNT(score.cno) >= 2);
+```
+
+# 二、PyMySQL操作数据库
+
+* 下载数据库接口
+
+  ```shell
+  pip install pymysql
+  ```
+
+* 链接数据库
+    ```python
+    connection = pymysql.connect(
+        host="127.0.0.1",
+        port=3306,
+        user="root",
+        password="dyp1996",
+        charset="utf8",
+        db="db_seacher"
+    )  # 连接数据库，生成连接对象
+    ```
+
+* 建立游标
+  > 游标是用于操作数据、光标和执行sql语句
+  ```python
+  cursor = connection.cursor()  # 建立游标
+  ```
+
+* 执行`sql`语句
+
+  ```python
+  excutes = cursor.execute(sql)  # 不会返回结果，但是会返回影响数据的条数
+  ```
+
+* 查询`sql`语句执行结果
+
+  ```python
+  value = cursor.fetchone()  # 获取一条数据
+  value = cursor.fetchmany(size)  # 获取size条数据
+  value = cursor.fetchall()  # 获取所有数据
+  ```
+
+* 光标移动
+```sql
+cursor.scroll(-1, "relative")  # 相对于光标所在位置向前移动
+cursor.scroll(1, "absolute")  # 相对于数据的开头向后移动
+```
+
+
+# 三、sql注入问题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
