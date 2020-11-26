@@ -221,7 +221,16 @@ select class.cname, student.sname from class INNER JOIN student on class.cid = s
     cursor.scroll(1, "absolute")  # 相对于数据的开头向后移动
     ```    
 
-
+**pymysql补充**
+* 在数据库操作中，增加数据、删除数据、修改数据的操作在pymysql中需要二次确认
+    ```sql
+    connection.commit()
+    ```
+* 添加多条数据
+    ```sql
+    sql = "insert into class values (%s, %s)"
+    cursor.executemany(sql, [(.., ..),(.., ..),(.., ..),...,(.., ..)])
+    ```
 
 # 三、sql注入问题
 利用编程语言拼接sql语句，使执行sql语句时出现条件 **恒为真** 或者 **条件丢失**导致数据库被入侵.
@@ -235,6 +244,7 @@ select class.cname, student.sname from class INNER JOIN student on class.cid = s
     ```sql
     select * from user where user="xxx" -- and password="yyy";
     ``` 
+
 
 **问题解决**
 1. 尽量不使用编程语句进行sql语句拼接
