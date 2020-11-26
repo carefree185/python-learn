@@ -219,16 +219,49 @@ select class.cname, student.sname from class INNER JOIN student on class.cid = s
     ```python
     cursor.scroll(-1, "relative")  # 相对于光标所在位置向前移动
     cursor.scroll(1, "absolute")  # 相对于数据的开头向后移动
-    ```    
+    ```
+    
+* 事务
+
+  `pymysql`会主动开启一个事务，执行与修改数据相关的`sql`语句不会主动提交
+
+  * 提交事务
+
+    ```python
+    connection.commit()  # 用连接生成的对象调用
+    ```
+
+  当发生错误时，有必要对事务进行回滚
+
+  * 回滚
+
+    ```python
+    connection.rollback()  # 用连接生成的对象调用
+    ```
+
+* 关闭游标
+
+  ```python
+  cursor.close() 
+  ```
+
+* 关闭连接
+
+  ```python
+  connection.close()
+  ```
+
 
 **pymysql补充**
 * 在数据库操作中，增加数据、删除数据、修改数据的操作在pymysql中需要二次确认
     ```sql
     connection.commit()
     ```
+
 * 添加多条数据
     ```sql
     sql = "insert into class values (%s, %s)"
+
     cursor.executemany(sql, [(.., ..),(.., ..),(.., ..),...,(.., ..)])
     ```
 
