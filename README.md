@@ -100,11 +100,11 @@ python学习笔记
 # 四、web前端
 ## 4.0 [前端简介](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%89%8D%E7%AB%AF%E7%AE%80%E4%BB%8B.md)
 
-## 4.1 [HTML超文本标记语言]()
+## 4.1 [HTML超文本标记语言](https://gitee.com/duyupeng36/python-learn/blob/master/html%E8%B6%85%E6%96%87%E6%9C%AC%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80.md)
 
-## 4.2 [CSS层叠样式表]()
+## 4.2 [CSS层叠样式表](https://gitee.com/duyupeng36/python-learn/blob/master/css%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8.md)
 
-## 4.3 [JavaScript]()
+## 4.3 [JavaScript](https://gitee.com/duyupeng36/python-learn/blob/master/javascript.md)
 
 
 
