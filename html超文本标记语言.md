@@ -146,12 +146,12 @@
 
 ## 5.2 图片标签(img)
 ```html
-<img src="图片的目录或网址" alt="图片渲染失败后显示的内容" title="鼠标悬停时展示的文本" height="高度" weight="宽度">
+<img src="图片的目录或网址" alt="图片渲染失败后显示的内容" title="鼠标悬停时展示的文本" height="高度" width="宽度">
 ```
 > 1. `src`: 图片地址
 > 2. `alt`: 图片渲染失败后显示的文本
 > 3. `title`: 鼠标悬浮的时后展示的信息
-> 4. `height | weight`: 高度和宽度，只修改一个时，另外一个参数会等比例缩放
+> 4. `height | width`: 高度和宽度，只修改一个时，另外一个参数会等比例缩放
 
 ## 5.3 超链接标签(a)
 ```html
@@ -222,6 +222,258 @@
 ```
 > **默认效果**<br>
 > ![输入图片说明](https://images.gitee.com/uploads/images/2020/1129/192801_c23341f7_7841459.png "屏幕截图.png")
+
+## 5.5 表格标签
+```html
+<table>
+    <caption>学生表</caption> <!--表格标题-->
+    <thead><!--表头 存放字段信息-->
+        <tr> <!--一对tr标签表示一行-->
+            <th>姓名</th> <!--加粗th标签内的数据-->
+            <th>学号</th>
+            <th>性别</th>
+        </tr>
+    </thead>
+
+    <tbody> <!--表单， 存放数据-->
+        <tr> <!--一对tr标签表示一行-->
+            <td>小明</td>  <!--正常文本-->
+            <td>001</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>小芳</td>
+            <td>002</td>
+            <td>女</td>
+        </tr>
+    </tbody>
+
+</table>
+```
+
+**表格说明** 
+* `<table> </table>`标签 声明一个列表
+  * 常用属性
+  
+    |属性|描述|说明|
+    |:---:|:---:|:---:|
+    |`width`|表格的宽度||
+    |`height`|表格的高度||
+    |`align`|表格的水平对齐方式||
+    |`background`|表格的背景图片||
+    |`bgcolor`|表格的背景颜色||
+    |`border`|表的边框(以像素为单位)|默认无边框|
+    |`bordercolor`|表格边框颜色|border属性值大于1时生效|
+    |`cellspacing`|单元格之间的距离||
+    |`cellpadding`|单元格内容与单元个边框之间的距离||
+    
+* `<tr> </tr>`标签 表示一行 只能包含`<td>`和`<th>`标签
+  * 常用属性
+      
+    |属性|描述|
+    |:---:|:---:|
+    |`height`|行高|
+    |`align`|行内容的水平对齐方式|
+    |`valign`|行内容的垂直对齐方式|
+    |`bgcolor`|行背景颜色|
+
+* `<td> </td>`标签 表示一个单元格
+  * 常用属性
+      
+    |属性|描述|
+    |:---:|:---:|
+    |`width`|单元格宽|
+    |`height`|单元格高|
+    |`align`|单元格内元素水平对齐方式|
+    |`valign`|单元格内元素垂直对齐方式|
+    |`bgcolor`|单元格背景颜色|
+    |`colspan`|单元格跨列|
+    |`rowspan`|单元格跨行|
+    
+  * 单元格合并
+      * 合并行
+        * 即跨行合并
+        * 设置属性 `rowspan="n"` n表示合并n行
+      * 合并列
+        * 即跨列合并
+        * 设置属性 `colspan="n"` n表示合并n列
+      * 注意：合并后要将多余的单元格删除
+  
+* `<th> </th>`标签 表示每一列的字段
+* `<thead> </thead>`标签 表头
+* `<tbody> </tbody>`标签 表体
+* `<tfoot> </tfoot>`标签 表尾
+
+**表格通常使用前端框架的样式**
+
+## 5.6 表单
+获取前端用户输入的数据，基于网络发送数据给服务端
+
+### 5.6.1 表单域标签
+`<form></form>`表单, 接受用户输入的信息，并将信息提交到服务器。
+要提交到服务器里面的数据都需要包含在form表单里面。
+语法：`<form action="url" method="get|post" name=""> </form>`
+表单是由窗体和控件组成，一个表单应该包含用户填写信息的**输入框**
+提交**按钮**等；这些输入框，按钮称为**控件**；表单就像容器来容纳这些控件
+```html
+<form action="" method="" name="">  <!--表单域标签-->
+    <!--此标签中的数据，都会被捕获，然后提交到服务器-->
+    <!--
+    action：数据提交到的服务端路径
+        1. action=""：向当前页面的url提交数据
+        2. action="url"：向指定的url提交数据
+        3. action="/路径"：自动拼接当前服务端的ip和port
+     -->
+</form>
+```
+> **form表单域表的属性**
+> * `action`: 指定表单域内数据提交的位置
+>     1. action=""：向当前页面的`url`提交数据
+>     2. action="url"：向指定的`url`提交数据
+>     3. action="/路径"：自动拼接当前服务端的`ip`和`port`
+> * `method`: 提交数据的方法(get或post)
+>     1. `get`: `get`提交的数据可以在`url`中查看
+>     2. `post`: `post`提交数据较大
+> * `name`: 为表单域命名，用于区别没有页面中的多个表单域
+
+一个完整的表单包含以下三个部分：
+* 表单标签
+  * 包含在from标签中的标签
+* 表单域
+  * form标签包含的区域
+* 表单按钮
+  * 用来提交表单内容到服务器中。
+  
+**表单域和表单按钮都是表单元素**
+
+
+### 5.6.2 input标签
+`input`标签是一个行内标签，通常配合`label`标签一起使用
+
+```html
+<label for="">
+    提示信息: <input type="" id="" name="" value="" placeholder="提示信息">
+</label>
+<label for="password">提示信息：</label>
+<input type="" id="" name="" value="">
+```
+> 1. `label`标签配合`input`使用提高用户的使用体验
+> 2. `for`: 填写`input`标签的`id`值，当点击被`label`标签包含的为位置是，选中输入框
+
+**input标签的常用属性**
+* `type`: 更改形状，
+* `name`: 定义输入内容的变量名(提交数据时的`key`)
+* `value`: 指定控件的初始值(默认值), `input`输入的值都是保存在`value`属性中(提交数据时的`value`)
+* `placeholder`: 提示信息
+* `multiple`: 多值输入，逗号(`,`)隔开;常用在`email`和`url`的输入 无须赋值
+* `autofocus`: 自动获取焦点 一个页面只能加一个 无须赋值
+* `required`: 防止域为空时提交表单 无须赋值
+* `checked`: 默认选中数据
+* `minlength` 和 `maxlength`: 元素允许的最小字符和最大字符个数
+
+#### 5.6.2.1 文本框(`type="text"` 默认属性)
+```html
+<input type="text" name="username" value="如果不输入，使用值为默认值" placeholder="请输入用户名">  <!--输入用户名-->
+```
+
+#### 5.6.2.2 密文框(`type="password"`) 
+```html
+<input type="text" name="username" placeholder="请输入密码"> <!--输入密码-->
+```
+
+#### 5.6.2.3 日期域(`type="date"`)
+```html
+<input type="date" name="birthday"> <!--选择日期-->
+```
+
+#### 5.6.2.4 单选选按钮(`type="radio"`)
+```html
+<ul type="none">
+    <li>
+        <label for="boy">男</label>
+        <input type="radio" name="gender" value="0" id="boy" checked>
+    </li>
+
+    <li>
+        <label for="girl">女</label>
+        <input type="radio" name="gender" value="1" id="girl">
+    </li>
+</ul>
+```
+> 1. `name`: 每个选项都必须用相同的`name`属性值(提交时的`key`)
+> 2. `value`: 每个选项要不同的`value`属性值(提交时的`value`)
+> 3. `checked|checked="checked"`: 默认选择，属性名和属性值一样时，只需要写属性名即可
+
+#### 5.6.2.5 复选框(`type="checkbox"`)
+```html
+<ul type="none">
+    <li>
+        <label for="sing">唱歌</label>
+        <input type="checkbox" name="hobby" value="sing" id="sing">
+    </li>
+    <li>
+        <label for="dance">跳舞</label>
+        <input type="checkbox" name="hobby" value="dance" id="dance">
+    </li>
+    <li>
+        <label for="game">打游戏</label>
+        <input type="checkbox" name="hobby" value="game" id="game">
+    </li>
+</ul>
+```
+> 1. `name`: 每个选项都必须用相同的`name`属性值(提交时的`key`)
+> 2. `value`: 每个选项要不同的`value`属性值(提交时的`value`)
+
+
+#### 5.6.2.6 按钮
+1. 普通按钮(`type="button"`)
+    ```html
+    <input type="button" value="普通按钮">
+    ```
+    > * 点击按钮时，无任何事件执行
+
+2. 提交按钮(`type="submit"`)
+    ```html
+    <input type="submit" value="提交">
+    ```
+    > * 点击按钮时，触发提交数据事件
+
+3. 重置按钮(`type="reset"`)
+    ```html
+    <input type="reset" value="重置">
+    ```
+    > * 点击按钮时，触发清空输入数据事件
+
+4. 按钮标签(`<button type="submit|reset|button"></button>`)
+    ```html
+    <button type="submit">提交按钮</button>
+    <button type="reset">重置按钮</button>
+    <button type="button">普通按钮</button>
+    ```
+
+5. 图片按钮(`type="image"`)
+    ```html
+    <input type="image" src="url">
+    ```
+    > * `src: 用于引用图片
+    > * 点击按钮时，触发提交数据事件
+
+
+#### 5.6.2.7 隐藏域(`type="hidden"`)
+```html
+<input type="hidden"
+```
+
+#### 5.6.2.8 文件上传(`type="file"`)
+```html
+<input type="file" name="file">
+```
+
+### 5.6.3 下拉框(`select`标签)
+```html
+
+```
+
 
 
 
