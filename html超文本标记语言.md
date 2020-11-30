@@ -471,9 +471,35 @@
 
 ### 5.6.3 下拉框(`select`标签)
 ```html
-
+<ul>
+    <li>
+        <label for="province">省份：</label>
+        <select name="" id="province">
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+            <option value="3">广州</option>
+            <option value="4">深圳</option>
+            <option value="5">四川</option>
+        </select>
+    </li>
+</ul>
 ```
 
+**`select`标签也需要配合`label`标签使用**
+* `select`标签，`<select name="" id="">`常用属性
+    * `name`: 指定select标签提交数据时的`key`值
+    * `size`: 指定展示数据的条数
+    * `multiple`: 指定下拉框为多选下拉框，默认为单选
+    * `disabled`: 禁用下拉列表
+* `option`选项标签，`<option value=""></option>`; 写在`select`标签内的标签，表示一个选项。常用参数如下
+    * `value: 提交到服务器的值
+    * `selected`: 默认选中
+* `optgroup`选项组标签`<optgroup label=""></optgroup>`
+    * 选项组里放option标签
 
-
+### 5.6.4 文本域(`textarea`标签)
+```html
+<label for="introduce">自我介绍</label>
+<textarea name="introduce" id="introduce" cols="30" rows="10"></textarea>
+```
 
