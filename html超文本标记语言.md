@@ -468,6 +468,8 @@
 ```html
 <input type="file" name="file">
 ```
+> **注意**
+> * form标签的属性必须为: `method="post" enctype="multipart/form-data"`
 
 ### 5.6.3 下拉框(`select`标签)
 ```html
