@@ -324,10 +324,18 @@ display: inline|block|inline-block|none
 ## 5.7 盒子模型
 ![盒子模型](https://images.gitee.com/uploads/images/2020/1201/002457_42ed1df8_7841459.png "屏幕截图.png")
 
-> * `Margin（外边距）`: 清除边框区域。Margin 没有背景颜色，它是完全透明
-> * `Border（边框）`: 边框周围的填充和内容。边框是受到盒子的背景颜色影响
-> * `Padding（内边距）`: 清除内容周围的区域。会受到框中填充的背景颜色影响
-> * `Content（内容）`: 盒子的内容，显示文本和图像
+> * `Margin(外边距)[标签与标签之间的距离]`: 清除边框区域。Margin 没有背景颜色，它是完全透明
+>     1. **一般情况下，设置所有标签的`margin`值为0**
+>     2. `margin: arg1`, 控制上下左右的外边距为`arg1`
+>     3. `margin: arg1 arg2`, 上下：`arg1`，左右：`arg2`
+>     4. `margin: arg1 agr2 arg3`, 上: `arg1`, 左右: `arg2`, 下: `arg3`
+>     5. `margin: arg1 arg2 arg3 arg4`, 上: `arg1` 右: `arg2`, 下: `arg3`, 左:``arg4` 
+> * `Border(边框)`: 边框周围的填充和内容。边框是受到盒子的背景颜色影响
+> * `Padding(内边距)[边框与内容的距离]`: 清除内容周围的区域。会受到框中填充的背景颜色影响
+> * `Content(内容)`: 盒子的内容，显示文本和图像
+
+ 
+
 
 
 
