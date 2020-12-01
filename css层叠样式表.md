@@ -321,7 +321,7 @@ display: inline|block|inline-block|none
 > 3. `inline-block`: 让标签同时具有行内标签和块标签的性质。（占一行且可以设置长宽）
 > 4. `none`: 隐藏标签，不展示
 
-## 5.7 盒子模型
+## 5.7 盒子模型(`margin`, `border`, `padding`, `content`)
 ![盒子模型](https://images.gitee.com/uploads/images/2020/1201/002457_42ed1df8_7841459.png "屏幕截图.png")
 
 > * `Margin(外边距)[标签与标签之间的距离]`: 清除边框区域。Margin 没有背景颜色，它是完全透明
@@ -329,12 +329,248 @@ display: inline|block|inline-block|none
 >     2. `margin: arg1`, 控制上下左右的外边距为`arg1`
 >     3. `margin: arg1 arg2`, 上下：`arg1`，左右：`arg2`
 >     4. `margin: arg1 agr2 arg3`, 上: `arg1`, 左右: `arg2`, 下: `arg3`
->     5. `margin: arg1 arg2 arg3 arg4`, 上: `arg1` 右: `arg2`, 下: `arg3`, 左:``arg4` 
+>     5. `margin: arg1 arg2 arg3 arg4`, 上: `arg1` 右: `arg2`, 下: `arg3`, 左:``arg4`
+>     6. 当相邻两个标签均设置了`margin`，两标签的间隔为最大值(`margin`不叠加)
+>     
 > * `Border(边框)`: 边框周围的填充和内容。边框是受到盒子的背景颜色影响
 > * `Padding(内边距)[边框与内容的距离]`: 清除内容周围的区域。会受到框中填充的背景颜色影响
+>     1. 设置`padding`参照`margin`的设置
 > * `Content(内容)`: 盒子的内容，显示文本和图像
 
- 
+## 5.8 浮动属性(`float`)
+涉及到页面布局，使用浮动来完成布局。使标签脱离文档流。
+```css
+float: right; /*向右浮动*/
+float: left; /*向左浮动*/
+```
+1. 当元素浮动后，元素所在的父级标签可能会发生塌陷。
+    * 父级标签没有设置`height`属性, 如果设置了，则会塌陷到指定的`height`
+
+**解决浮动后父元素塌陷方案**
+> 1. `clear`属性：属性值为`left|right|both`表示它的左右两边不能有浮动元素
+> 2. 为父级标签添加如下`CSS`样式，同于清除浮动(那个标签塌陷就给那个标签添加)
+>    ```css
+>    .clearfix:after { /*clearfix类的伪元素after*/
+>        content: "";
+>        display: block;
+>        clear: both;
+>    }
+>    ```
+
+## 5.9 溢出属性(`overflow`)
+```css
+overflow: visible|hidden|scroll|auto;
+```
+> 1. `visible`: 默认，溢出部分仍然展示
+> 2. `hidden`: 溢出部分不展示
+> 3. `scroll`: 滚动条形式
+> 4. `auto`: 滚动
+
+## 5.10 定位(``)
+0. 静态(`static`)
+    * 所有标签都是静态的，无法改变位置
+1. 相对定位(`relative`)
+    * 相对于标签的原来位置进行移动
+2. 绝对定位(`absolute`)
+    * 相对于已经定位过的父标签进行移动(如果没有父标签, 则相对于`body`标签进行移动)
+3. 固定定位(``)
+    * 相对于浏览器固定窗口进行定位
+
+### 5.10.1 相对定位`position:relative;`
+**标签不会脱离文档流**
+
+```css
+#d1 {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    position: relative; /* 默认为static无法修改位置 修改标签为以定位标签*/
+    /*relative 相对定位*/
+    left: 50px; /*从左向右移动*/
+    top: 50px; /*从上向下移动*/
+}
+```
+```html
+<div id="d1"></div>
+```
+
+
+> **一旦设置了`position`属性值，则修改了标签的定位属性**
+
+### 5.10.2 绝对定位`position:absolute`
+> 1. 浏览器会优先展示文本内容
+> 2. **使标签脱离文档流** 
+> 3. 没有父标签参照`body`标签
+```css
+#d2 {
+    height: 100px;
+    width: 200px;
+    background-color: red;
+    position: relative;  /*修改父标签为已定位标签*/
+}
+
+#d3 {
+    height: 200px;
+    width: 400px;
+    background-color: yellowgreen;
+    position: absolute;  /*相对于父标签进行绝对定位*/
+    left: 200px;
+    top: 100px;
+}
+```
+```html
+<div id="d2">
+
+    <div id="d3"></div>
+
+</div>
+```
+
+### 5.10.3 固定定位`position:fixed`
+`fixed`会根据浏览器的窗口定位
+> **会使标签脱离文档流**
+
+```css
+#d4 {
+    position: fixed; /*固定定位*/
+    bottom: 10px;
+    right: 20px;
+    height: 50px;
+    width: 100px;
+    background-color: wheat;
+    border: 3px solid greenyellow;
+}
+```
+
+```html
+<div id="d4"></div>
+```
+
+## 5.11 `z-index`模态框
+`z-index`值越大离用户就越近。
+
+```css
+.cover {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(127,127,127, 0.5);
+    z-index: 99;
+}
+.modal {
+    background-color: white;
+    height: 200px;
+    width: 300px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 999;
+    margin-left: -150px;
+    margin-top: -100px;
+}
+```
+**示例**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .cover {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(127,127,127, 0.5);
+            z-index: 99;
+        }
+        .modal {
+            background-color: white;
+            height: 200px;
+            width: 300px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            margin-left: -150px;
+            margin-top: -100px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>正常内容</h1>
+    <a href="">hello</a>
+</div>
+<div class="cover"></div>
+
+<div class="modal">
+    <h1>登录页面</h1>
+    <p>username: <input type="text"></p>
+    <p>password: <input type="password"></p>
+
+</div>
+
+</body>
+</html>
+```
+
+
+## 5.12 透明度`opacity: 0~1;`
+修改颜色、字体的透明度
+```css
+#p1 {
+    background-color: rgba(0, 0, 0, 0.3); /*只影响颜色*/
+}
+
+#p2 {
+    background-color: rgb(0, 0, 0);
+    color: red;
+    opacity: 0.2; /*会让整个标签元素都变为透明*/
+}
+```
+
+**示例**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #p1 {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        #p2 {
+            background-color: rgb(0, 0, 0);
+            color: red;
+            opacity: 0.2; /*会让整个标签元素都变为透明*/
+        }
+
+    </style>
+</head>
+<body>
+
+    <p id="p1">第一个</p>
+    <p id="p2">第二个</p>
+
+</body>
+</html>
+```
+
+
+
+
+
 
 
 
