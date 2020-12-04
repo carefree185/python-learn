@@ -326,7 +326,123 @@ var func3 = (arg1, arg2) => arg1 + arg2;
 > **全局变量与局部变量**: 与`python`变量名查找顺序一致。
 
 # 六、BOM操作
+> **浏览器对象模型: 使用js代码操作浏览器** 
 
+**window对象**: 浏览器窗口对象
+```js
+window.innerHeight;  // 当前窗口的高度
+
+window.innerWidth; // 当前窗口的宽度
+
+window.open(url,target,features); // 新建浏览器窗口，打开指定url, tartget="", features="height=200px,width=100px"
+
+window.close(); // 关闭当前网页
+```
+**window.navigator对象**
+```js
+window.navigator.appName;  // 
+
+window.navigator.appVersion; // 浏览器版本
+
+window.navigator.userAgent; // 标识当前是否为浏览器
+
+window.navigator.platform; // 平台信息
+```
+> **window的子对象，可以省略window不写**
+
+**window.history对象**
+```js
+window.history.back();  // 回退到上一次请求页面
+
+window.history.forward();  //前进
+```
+
+**window.location对象**
+![](https://images.gitee.com/uploads/images/2020/1204/112051_3b67b5b9_7841459.png "屏幕截图.png")
+```js
+window.location.href; // 获取当前页面的url
+window.location.href=url; // 页面跳转到url
+window.location.reload();  // 刷新页面
+```
+
+**弹框**
+```js
+/*警告框*/
+alert("你不要过来啊");
+/*确认框*/
+confirm("你确定码？");
+/*输入提示框*/
+prompt("输入号码", "默认值")
+```
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1204/112914_fe8a7305_7841459.png "屏幕截图.png")
+
+**计时器**
+```js
+/*过一段时间后触发一次*/
+function func1() {
+    alert(123);
+}
+
+let t = setTimeout(func1, 3000);  // 3秒后执行func1函数
+
+clearTimeout(t); // 取消定时任务
+
+/*每隔一段时间触发(循环)*/
+function func2() {
+    alert(123)
+}
+function show() {
+    let t = setInterval(func2, 3000);  // 每隔三秒执行一次func2(循环定时任务)
+    function inner() {
+        clearInterval(t);
+    }
+    setTimeout(inner, 9000);  // 九秒后触发inner函数
+}
+show()
+```
+
+# 七、DOM操作
+> 1. **文档对象模型: 使用js代码操作html页面** 
+> 2. **document关键字**
+
+## 7.1 查找标签
+**直接查找**
+```js
+document.getElementById("d1"); // 通过id查找元素
+document.getElementsByClassName("c1"); // 通过class查找元素
+document.getElementsByTagName("div"); // 通过标签名查找元素
+```
+![](https://images.gitee.com/uploads/images/2020/1204/115240_409207ee_7841459.png "屏幕截图.png")
+> **使用变量接收标签对象时，通常命名为`xxxEle`**
+
+
+**间接查找**
+```js
+标签对象.parentElement; // 获取父标签
+标签对象.children;  // 获取子代标签，返回数组
+标签对象.firstElementChild;  // 获取第一个子代标签
+标签对象.lastElementChild; // 获取最后一个子代标签
+标签对象.nextElementSibling;  // 获取相邻的下一个兄弟标签
+标签对象.previousElementSibling;  // 获取相邻的上一个兄弟标签
+```
+![](https://images.gitee.com/uploads/images/2020/1204/120635_f17a387c_7841459.png "屏幕截图.png")
+
+## 7.2 节点操作
+1. 创建标签，并添加属性，插入到html文档
+```js
+let imgEle = document.createElement("img");  // 创建标签
+
+imgEle.src="喜羊羊.png"; // 添加默认属性
+
+imgEle.setAttribute("username", "dyp"); // 设置属性，可以是自定义属性
+
+imgEle.setAttribute("title", "喜羊羊"); // 设置属性，也可以是默认属性
+
+let divEle=document.getElementById("d1"); // 获取要插入标签的位置
+
+divEle.appendChild(imgEle)  // 添加子代标签
+```
+![](https://images.gitee.com/uploads/images/2020/1204/121639_d7185c30_7841459.png "屏幕截图.png")
 
 
 
