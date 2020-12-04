@@ -496,10 +496,43 @@ divEle.classList.toggle("bg_red")  // 无指定类属性则添加
 
 ![](https://images.gitee.com/uploads/images/2020/1204/154320_90d9cb3e_7841459.png "屏幕截图.png")
 
-## 7.3 事件
+# 八、js事件
 一些列的动作，在一定的条件执行执行。
 
-### 7.3.1 绑定事件的方法
+**常用 _鼠标_ 事件**
+|事件|描述|
+|:---:|:---:|
+|`onclick`|点击某个对象时触发|
+|`ondblclick`|双击某个对象时触发|
+|`onmouseover`|鼠标移入某个元素时触发|
+|`onmouseout`|鼠标移出某个元素时触发|
+|`onmouseenter`|鼠标进入某个元素时触发|
+|`onmouseleave`|鼠标离开某个元素时触发|
+|`onmousedown`|鼠标按下时触发|
+|`onmouseup`|鼠标抬起时触发|
+|`onmousemove`|鼠标被移动时触发|
+|`onwheel`|鼠标滚轮滚动时触发|
+|`oncontextmenu`|点击鼠标右键时触发|
+
+**常用 _键盘_ 事件**
+|事件|描述|
+|:---:|:---:|
+|`onkeydown`|键盘的键按下时触发|
+|`onkeyup`|键盘的键放开时触发|
+|`onkeypress`|按下或按住键盘键时触发|
+
+**常用 _表单_ 事件**
+|事件|描述|
+|:---:|:---:|
+|`onfocus`|元素获得焦点时触发|
+|`onblur`|元素失去焦点时触发|
+|`onchange`|元素内容改变时触发|
+|`oninput`|元素获取用户输入时触发|
+|`onsubmit`|提交按钮时触发|
+|`onreset`|重置按钮时触发|
+|`onselect`|文本被选中时触发|
+
+## 8.1 绑定事件的方法
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -533,7 +566,200 @@ divEle.classList.toggle("bg_red")  // 无指定类属性则添加
 >    }
 >```
 
+## 8.2 js事件示例
+1. 变色示例
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>变色示例</title>
+        <style>
+            .c1 {
+                height: 400px;
+                width: 400px;
+                border-radius: 50%;
+            }
+    
+            .bg_green {
+                background-color: greenyellow;
+            }
+    
+            .bg_red {
+                background-color: red;
+            }
+    
+            #d2 {
+                height: 30px;
+                width: 100px;
+            }
+    
+        </style>
+    
+    </head>
+    <body>
+    
+    <div id="d1" class="c1 bg_green bg_red"></div>
+    
+    <button id="d2">变色</button>
+    
+    <script>
+        let btnEle = document.getElementById("d2")
+        let divEle = document.getElementById("d1")
+        btnEle.onclick = function () {  // 绑定点击事件
+            /*动态设置类属性*/
+            divEle.classList.toggle("bg_red")
+        }
+    </script>
+    
+    </body>
+    </html>
+    ```
+    
+2. input框获取焦点失去焦点案例
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    
+    </head>
+    <body>
+    <input type="text" value="输入" id="d1">
+    
+    <script>
+        let iptEle = document.getElementById("d1")
+        // 获取焦点事件
+        iptEle.onfocus = function () {
+            // 取出input框value值去除
+            iptEle.value = " ";
+        }
+        // 失去焦点事件
+        iptEle.onblur = function () {
+            iptEle.value = "输入"
+        }
+    
+    </script>
+    
+    </body>
+    </html>
+    ```
 
+3. 实时展示当前事件
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>实时展示时间</title>
+        <style>
+            #d1 {
+                height: 50px;
+                width: 200px;
+                border: green solid 2px;
+                line-height: 50px;
+                text-align: center;
+            }
+            button {
+                width: 50px;
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <p id="d1"></p>
+    
+    <button id="start">开始</button>
+    <button id="end">结束</button>
+    
+    <script>
+        // 访问页面后将时间展示出来
+        let pEle = document.getElementById("d1");
+        let startButton = document.getElementById("start");
+        let endButton = document.getElementById("end");
+        let t = null  // 用于接受定时器
+        function showTime() {
+            let currentTime = new Date();
+            pEle.innerText = currentTime.toLocaleString();
+        }
+        showTime();
+        startButton.onclick = function () {
+            // t = setInterval(showTime, 1000)  // 动态展示时间
+            // 每次点击都会有定时器，t只接收了最后一个。会造成定时器不能清除的bug
+            if (!t) {
+                t = setInterval(showTime, 1000);  // 动态展示时间
+            }
+        }
+        endButton.onclick = function () {
+            clearInterval(t);  // 清除事件
+            t = null;  // 解决停止后不能再次开始记时的问题
+        }
+    
+    </script>
+    </body>
+    </html>
+    ```
 
-
+4. 省市联动
+    ```js
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>省市联动</title>
+    </head>
+    <body>
+    <select name="pro" id="d1"></select>
+    <label for="d1">省</label>
+    
+    <select name="city" id="d2"></select>
+    <label for="d2">市/区</label>
+    
+    
+    <script>
+    
+        let proEle = document.getElementById("d1");
+        let cityEle = document.getElementById("d2");
+    
+        data = {
+            "上海": ["浦东", "静安", "黄埔"],
+            "深圳": ["南山", "宝安", "福田"],
+            "北京": ["朝阳", "海淀", "昌平"]
+        }
+        // 获取省
+        proEle.innerHTML = "<option disabled selected>--请选择--</option>"; // 直接添加一个标签
+        for(let key in data) {
+            // 将省份信息做成option标签，插入select标签中
+            // 1. 创建option标签
+            let optEle = document.createElement("option");
+            optEle.innerText = key;
+            optEle.value = key;
+            proEle.appendChild(optEle); // 2. 添加标签
+        }
+        // 文本域变化事件
+        proEle.onchange = function () {
+            cityEle.innerHTML = "";  // 清空city select标签中的option标签
+            cityEle.innerHTML = "<option disabled selected>--请选择--</option>"
+            let currentValue = proEle.value;
+            let cityArray = data[currentValue];
+    
+            for(let i = 0; i < cityArray.length; i++) {
+                let currentCity = cityArray[i]
+                let optEle = document.createElement("option");
+                optEle.innerText = currentCity;
+                optEle.value = currentCity;
+                cityEle.appendChild(optEle);
+            }
+    
+        }
+    
+    
+    
+    </script>
+    
+    </body>
+    </html>
+    ```
 
