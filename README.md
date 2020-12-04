@@ -107,6 +107,6 @@ python学习笔记
 
 ## 4.3 [JavaScript](https://gitee.com/duyupeng36/python-learn/blob/master/javascript.md)
 
-
+## 4.4 [JQuery](https://gitee.com/duyupeng36/python-learn/blob/master/JQuery.md)
 
 
