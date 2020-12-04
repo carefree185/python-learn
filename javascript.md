@@ -428,7 +428,7 @@ document.getElementsByTagName("div"); // 通过标签名查找元素
 ![](https://images.gitee.com/uploads/images/2020/1204/120635_f17a387c_7841459.png "屏幕截图.png")
 
 ## 7.2 节点操作
-1. 创建标签，并添加属性，插入到html文档
+1. 创建标签，并添加属性，插入到某个标签的后面的文档
 ```js
 let imgEle = document.createElement("img");  // 创建标签
 
@@ -444,7 +444,94 @@ divEle.appendChild(imgEle)  // 添加子代标签
 ```
 ![](https://images.gitee.com/uploads/images/2020/1204/121639_d7185c30_7841459.png "屏幕截图.png")
 
+2. 创建标签，并添加属性，添加文本内容，插入到某个标签的上边的文档
+```js
+let aEle=document.createElement("a"); //
 
+aEle.href="https://www.baidu.com"; // 给标签添加默认属性
+
+aEle.innerText="百度"; // 给标签添加文本内容
+
+let divEle=document.getElementById("d1"); //
+
+let pEle=document.getElementById("d2");  //
+
+divEle.insertBefore(aEle, pEle);  // 插入标签到div内部的p标签之前
+```
+![](https://images.gitee.com/uploads/images/2020/1204/151352_d5f039d8_7841459.png "屏幕截图.png")
+
+* `innerText`: 获取到的是标签中的文本。对其进行赋值时，只会识别为文本。
+* `innerHTML`: 获取到的标签。对其进行赋值时，会识别标签。
+* **如果对其进行赋值，会覆盖原来的内容**
+
+3. 获取值操作
+```js
+标签对象.属性名;  // 获取属性值
+标签对象.files[0];  // 获取文件
+```
+![](https://images.gitee.com/uploads/images/2020/1204/152718_2336ffb3_7841459.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1204/152948_5adffa32_7841459.png "屏幕截图.png")
+
+4. 属性操作
+```js
+let divEle = document.getElementById("d1")
+
+divEle.classList;  // 获取标签的类属性，类属性值
+
+divEle.classList.remove("bg_red")  // 移除类属性值
+
+divEle.classList.add("bg_red") // 添加类属性值
+
+divEle.classList.contains("c1") // 判断是否包含类属性值
+
+divEle.classList.contains("c2")  
+
+divEle.classList.toggle("bg_red")  // 有指定类属性则删除
+
+divEle.classList.toggle("bg_red")  // 无指定类属性则添加
+
+标签对象.style.CSS属性名="属性值";  // 修改标签的css属性
+```
+![](https://images.gitee.com/uploads/images/2020/1204/153819_1605e223_7841459.png "屏幕截图.png")
+
+![](https://images.gitee.com/uploads/images/2020/1204/154320_90d9cb3e_7841459.png "屏幕截图.png")
+
+## 7.3 事件
+一些列的动作，在一定的条件执行执行。
+
+### 7.3.1 绑定事件的方法
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+
+</head>
+<body>
+<button onclick="func()">点击弹出123</button> <!--通过标签绑定事件-->
+<button id="d1">点击弹出456</button>
+
+<script>
+    function func() {
+        alert(123)
+    }
+
+    /*第二种绑定事件 获取标签绑定事件*/
+    let btnEle = document.getElementById("d1")
+    btnEle.onclick = function () {
+        alert(456)
+    }
+</script>
+</body>
+</html>
+```
+> **`script`标签通常放在`body`标签的最底部**
+> ```js
+>    window.onload = function () {
+>        /*等待浏览器窗口加载完毕后执行*/
+>    }
+>```
 
 
 
