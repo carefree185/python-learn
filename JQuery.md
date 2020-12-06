@@ -177,16 +177,117 @@ $("selector").outerWidth([options]);  // 文本宽度+padding+border
 ## 4.5 文本操作
 |js操作|jQuery操作|
 |:---:|:---:|
-|`标签对象.innerText()`|`$(selector).text()`|
-|`标签对象.innerHtml()`|`$(selector).html()`|
-
+|`标签对象.innerText()`|`$(selector).text(val)`|
+|`标签对象.innerHtml()`|`$(selector).html(val)`|
+|`标签对象.files[0]`|`$(selector)[index].files[1]`|
+|`标签对象.value`|`$(selector).val(val)`|
 ```js
 $(selector).html([val|fn]);  // 取得第一个匹配元素的html内容
 $(selector).text([val|fn]);  // 取得所有匹配元素的内容。
-$(selector).val([val|fn|arr]); // 获得匹配元素的当前值
+```js
+$(selector).val([val|fn|arr]); // 获取文本框中的值，或设置文本框的值(value属性的)
+$(selector)[index].files[0]; // 获取文件对象
 ```
+
 > 1. 无参数表示获取值
 > 2. 有参数表示修改值
+
+## 4.6 属性操作
+|js操作|jQuery操作|
+|:---:|:---:|
+|`标签对象.setAttribute()`|`$(selector).attr(name, value)`|
+|`标签对象.getAttribute()`|`$(selector).attr(name)`|
+|`标签对象.removeAttribute()`|`$(selector).removeAttr(name)`|
+
+```js
+
+```
+> **针对用户选择的标签`checkbox` `select`使用`$(selector).prop(name, value)`进行操作**
+
+## 4.7 文档处理
+|js操作|jQuery操作|
+|:---:|:---:|
+|`createElement("标签名")`|`$("标签")`|
+|内部添加||
+|`appendChild(标签对象)`|`$(selector).append(content|fn)`|
+||`$("标签").appendTo($(selector))`|
+|``|`$(selector).prepend(content|fn)`|
+||`$("标签").prependTo($(selector))`|
+|外部添加||
+||`$(selector).after(content|fn)`|
+||`$("标签").insertAfter($(selector))`|
+||`$(selector).before(content|fn)`|
+||`$("标签").insertBefore($(selector))`|
+|删除标签||
+||`$(selector).empty()`|
+||`$(selector).remove([expr])`|
+||`$(selector).detach([expr])`|
+
+![](https://images.gitee.com/uploads/images/2020/1206/224310_d150100d_7841459.png "屏幕截图.png")
+
+# 五、事件操作
+**jquery中的事件** 
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1206/230312_3339b21f_7841459.png "屏幕截图.png")
+
+## 5.1 jQuery事件的绑定
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+</head>
+<body>
+<button id="d1">第一种</button>
+<button id="d2">第二种</button>
+
+<script>
+    // 第一种
+    $("#d1").click(function () {
+            alert("不要说话");
+        }
+    );
+    // 第二种
+    $("#d2").on("click", function () {
+        alert("来跳舞");
+    });
+</script>
+</body>
+</html>
+```
+
+## 5.2 事件实例
+
+**点击复制**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件实例</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+</head>
+<body>
+<button id="d1">点击复制</button>
+
+<script>
+
+    $("#d1").on("click", function () {
+        let $btnEle = $(this).clone(true);  // 克隆一份, 默认至克隆html和css，不克隆事件, true指定克隆事件
+        $btnEle.insertAfter("body");
+    })
+
+</script>
+
+</body>
+</html>
+```
+> 1. `this`: 当前操作的标签对象
+> 2. `$(selector).clone(false)`: 克隆一份，默认不复制事件。true: 复制事件
+
+****
 
 
 
