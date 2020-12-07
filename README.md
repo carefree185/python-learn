@@ -112,3 +112,10 @@ python学习笔记
 ## 4.5 [Bootstrip](https://gitee.com/duyupeng36/python-learn/blob/master/BootStrip.md)
 
 ### 补充: [图书管理系统](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.md)
+
+# 五、Django框架
+## 5.1 [web框架开发示例](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%89%8B%E5%86%99web%E6%A1%86%E6%9E%B6.md)
+## 5.2 [Django简介](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E7%AE%80%E4%BB%8B.md)
+
+
+
