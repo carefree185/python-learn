@@ -110,3 +110,5 @@ python学习笔记
 ## 4.4 [JQuery](https://gitee.com/duyupeng36/python-learn/blob/master/JQuery.md)
 
 ## 4.5 [Bootstrip](https://gitee.com/duyupeng36/python-learn/blob/master/BootStrip.md)
+
+### 补充: [图书管理系统](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.md)
