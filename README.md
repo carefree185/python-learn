@@ -115,7 +115,9 @@ python学习笔记
 
 # 五、Django框架
 ## 5.1 [web框架开发示例](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%89%8B%E5%86%99web%E6%A1%86%E6%9E%B6.md)
+
 ## 5.2 [Django简介](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E7%AE%80%E4%BB%8B.md)
 
+## 5.3 [Django创建项目](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.md)
 
 
