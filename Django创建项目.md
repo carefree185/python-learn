@@ -40,6 +40,20 @@ python manage.py startapp app_name  # app_name注意见名知义
 > 会在项目目录下新建一个文件夹，命名为`app_name`, `app_name`下的文件结构如下
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1207/231749_56b17718_7841459.png "屏幕截图.png")
 
+* **注册app**
+    > 应用创建`app`后，要去`settings.py`中注册
+    >    ```python
+    >    INSTALLED_APPS = [
+    >        'django.contrib.admin',
+    >        'django.contrib.auth',
+    >        'django.contrib.contenttypes',
+    >        'django.contrib.sessions',
+    >        'django.contrib.messages',
+    >        'django.contrib.staticfiles',
+    >        'app01.apps.App01Config',  # 简写 直接写app01
+    >    ]
+    >    ```
+
 
 ## 1.5 主要文件及文件夹介绍
 ```
@@ -73,7 +87,7 @@ python manage.py startapp app_name  # app_name注意见名知义
 # 二、使用pycharm自动创建Django项目
 ![](https://images.gitee.com/uploads/images/2020/1207/234422_56bef2d6_7841459.png "屏幕截图.png")
 > 1. 会自动创建`templates`文件夹, 且在配置文件中添加对应的`templates`路径
-
+> 2. 可以自动创建一个`app`, 并自动注册
 
 
 
