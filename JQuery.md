@@ -586,6 +586,7 @@ $(selector)[index].files[0]; // 获取文件对象
 </body>
 </html>
 ```
+
 **键盘按下事件**
 ```html
 <!DOCTYPE html>
@@ -605,6 +606,174 @@ $(selector)[index].files[0]; // 获取文件对象
 </body>
 </html>
 ```
+
+**阻止后续事件执行**
+```html
+<form action="">
+    <span id="d1" style="color:red;"></span>
+    <input type="submit" id="d2">
+</form>
+
+<script>
+    $("#d2").click(function (event) {
+        $("#d1").text("提交完成")
+        // 阻止标签后续事件执行
+        // 方式1
+        // return false
+        // 方式2
+        event.preventDefault()
+
+    })
+</script>
+```
+
+**阻止事件冒泡**
+```html
+<div id="d1"> div
+    <p id="d2"> p
+        <span id="d3">span</span>
+    </p>
+</div>
+
+<script>
+    // 对于标签的某一个事件被触发，会寻找其父标签对应事件，并执行
+    $("#d1").click(function () {
+        alert("div")
+    })
+
+    $("#d2").click(function (e) {
+        alert("p")
+        e.stopPropagation()  // 阻止事件冒泡
+    })
+
+    $("#d3").click(function () {
+        alert("span")
+        return false // 阻止事件冒泡
+    })
+</script>
+```
+
+**事件委托**
+```html
+<button>委托</button>
+
+<script>
+    /*
+    // 给button绑定点击事件
+    $("button").click(function () {
+            alert(123)
+        }
+    )
+    // 动态创建的button没有点击事件
+    let $btnEle = $("<button>")
+    $btnEle.text("你好啊")
+    $("body").append($btnEle)
+    */
+
+    // 事件委托
+    $("body").on("click", "button", function () {
+        alert(123)
+    });  // 将body中所有的click事件委托给button按钮出发
+    // 无论是动态创建的还是写好的都可以触发。
+
+</script>
+```
+
+**页面加载**
+```html
+<script>
+    $(document).ready(function () {
+        
+    })  // 等待document加载完毕后执行function
+    $(function () {
+        // js代码
+    }) // 等待页面加载完毕执行
+</script>
+```
+
+# 六、动画效果
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面动画</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+    <style>
+        #d1 {
+            background-color: red;
+            width: 20%;
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1"></div>
+
+<script>
+    let $divEle = $("#d1");
+    $divEle.hide(5000);  // 5秒后隐藏
+    $divEle.show(5000);  // 5秒后展示
+    $divEle.slideUp(5000);  // 5秒后向上消失
+    $divEle.slideDown(5000);  // 5秒后向下出现
+    $divEle.fadeOut(5000); // 5秒渐变消失
+    $divEle.fadeIn(5000);  // 5秒渐变出现
+    $divEle.fadeTo(5000, 0.4);  // 5秒渐变到0.4透明度
+</script>
+</body>
+</html>
+```
+
+**补充**
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each函数</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+    <style>
+        #d1 {
+            background-color: red;
+            width: 20%;
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    
+    $("div").each(function (index, obj) {
+        console.log(index, obj)
+    })
+    
+    $.each([1,2,3,4,5], function (index, obj) {
+        console.log(index, obj)
+    })
+    
+</script>
+</body>
+</html>
+```
+> **each相当于一个for循环**
+
+
+```js
+$("div").data("info", "你快回来"); // 临时存储数据，用户不能看见
+$("div").first().data("info") // 获取数据
+$("div").first().removeData("info");  // 删除数据
+```
+
 
 
 
