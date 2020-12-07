@@ -287,7 +287,325 @@ $(selector)[index].files[0]; // 获取文件对象
 > 1. `this`: 当前操作的标签对象
 > 2. `$(selector).clone(false)`: 克隆一份，默认不复制事件。true: 复制事件
 
-****
+**模态框的出现与消失**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .cover {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(127,127,127, 0.5);
+            z-index: 999;
+        }
+        .modal {
+            background-color: white;
+            height: 200px;
+            width: 300px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            margin-left: -150px;
+            margin-top: -100px;
+
+        }
+        .hide {
+            display: none;
+        }
+
+    </style>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+</head>
+<body>
+
+<div>
+    <h1>正常内容</h1>
+    <a href="">hello</a>
+</div>
+<button id="show">出现</button>
+<div class="cover hide"></div>
+
+<div class="modal hide">
+    <h1>登录页面</h1>
+    <p>username: <label>
+        <input type="text">
+    </label></p>
+    <p>password: <label>
+        <input type="password">
+    </label></p>
+    <input type="button" value="提交" id="submit">
+    <input type="button" value="取消" id="cancel">
+</div>
+
+<script>
+    let $coverEle = $(".cover")
+    let $modalEle = $(".modal")
+    // 出现模态框
+    $("#show").on("click", function () {
+        $coverEle.removeClass("hide")
+        $modalEle.removeClass("hide")
+    })
+
+    // 取消模态框
+    $("#cancel").click(function () {
+        $coverEle.addClass("hide")
+        $modalEle.addClass("hide")
+    })
+
+</script>
+
+</body>
+</html>
+```
+
+**点击某个标签展示其下面的内容**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小标题</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .left {
+            float: left;
+            background-color: darkgray;
+            width: 20%;
+            height: 100%;
+            position: fixed;
+        }
+        .title {
+            font-size: 28px;
+            color: white;
+            text-align: center;
+        }
+        .items {
+            border: 1px solid black;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="left">
+
+    <div class="menu">
+        <div class="title">一
+            <div class="items hide">111</div>
+            <div class="items hide">222</div>
+            <div class="items hide">333</div>
+        </div>
+
+        <div class="title">二
+            <div class="items hide">111</div>
+            <div class="items hide">222</div>
+            <div class="items hide">333</div>
+        </div>
+
+        <div class="title">三
+            <div class="items hide">111</div>
+            <div class="items hide">222</div>
+            <div class="items hide">333</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(".title").click(function () {
+        $(".items").addClass('hide')
+        $(this).children().removeClass("hide")
+    })
+</script>
+</body>
+</html>
+```
+
+**返回顶部**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+    <style>
+        .hide {
+            display: none;
+        }
+
+        #d1 {
+            position: fixed;
+            background-color: black;
+            right: 20px;
+            bottom: 20px;
+            height: 50px;
+            width: 100px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<a href="" id="d1" class="hide">回到顶部</a>
+<div style="height: 500px; background-color: rebeccapurple"></div>
+<div style="height: 500px; background-color: gray"></div>
+<div style="height: 500px; background-color: greenyellow"></div>
+
+
+<script>
+    let $window = $(window);
+    let $aEle = $("#d1");
+    $window.scroll(function () {
+        if($window.scrollTop() > 500) {
+            $aEle.removeClass("hide")
+        }else {
+            $aEle.addClass("hide")
+        }
+        console.log($window.scrollTop())
+    })
+    $aEle.click(function () {
+        $window.scrollTop(0);
+        console.log($window.scrollTop())
+    })
+
+</script>
+</body>
+</html>
+```
+**自定义登录校验**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+</head>
+<body>
+<p>
+    username: <input type="text" id="username">
+    <span style="color: red"></span>
+</p>
+<p>
+    password:<input type="password" id="password">
+    <span style="color: red"></span>
+</p>
+<p><input type="button" id="btn" value="提交"></p>
+
+<script>
+    let $userName = $("#username");
+    let $passWord = $("#password");
+    $("#btn").click(function () {
+        // 获取用户输入的用户名和密码
+        let userName = $userName.val();
+        let passWord = $passWord.val();
+
+        if (!userName) {
+            $userName.next().text("用户名不能为空");
+        } else {
+            $userName.next().text("")
+        }
+
+        if(!passWord) {
+            $passWord.next().text("密码不能为空");
+        } else {
+            $passWord.next().text("")
+        }
+
+    })
+    $("input").focus(function () {
+        $(this).next().text("")
+    })
+
+</script>
+
+</body>
+</html>
+```
+
+**input框实时监控**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框实时监控</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+</head>
+<body>
+<input type="text" id="d1">
+
+<script>
+    $("#d1").on("input",function () {
+        console.log(this.value)
+    })
+    
+</script>
+
+</body>
+</html>
+```
+
+**hover事件**
+> 内部封装了两个事件: `鼠标移入悬停，鼠标移出`
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hover事件</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+</head>
+<body>
+<p id="d1">hello world</p>
+
+<script>
+    $("#d1").hover(function () {
+        console.log("鼠标悬停")
+    }, function () {
+        console.log("鼠标移出")
+    })
+</script>
+
+</body>
+</html>
+```
+**键盘按下事件**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘按下事件</title>
+    <script src="../JavaScript/JQuery-3.5.1.js"></script>
+</head>
+<body>
+
+<script>
+    $(window).keydown(function (event) {
+        console.log(event.keyCode); // keyCode对应字符的ascii码
+    });
+</script>
+</body>
+</html>
+```
+
 
 
 
