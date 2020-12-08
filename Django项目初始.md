@@ -191,8 +191,6 @@ def login(request):
     * 获取用户提交的数据与`post`方式一模一样
     * `get`请求提交的数据是有大小限制的
 
-
-****
 ```python
 def login(request):
     """
@@ -215,5 +213,42 @@ def login(request):
 
     return render(request, "login.html")
 ```
+
+## 4.4 借助`pymysql`实现用户登录
+```python
+def login(request):
+    """
+    登录功能
+    :param request:
+    :return:
+    """
+    print(request.method)  # 获取请求方式，返回的是字符串，全大写
+    if request.method == "POST":
+        # 获取post方式提交数据
+        print(request.POST)  # 获取post提交的数据，不包含文件，返回的是一个字典<QueryDict: {'username': ['dyp'], 'password': ['111']}>
+        username = request.POST.get("username")  # 只获取username对应列表的最后一个值
+        password = request.POST.get("password")  # 获取password对应列表的最后一个值
+        conn = pymysql.connect(
+            host="127.0.0.1",
+            port=3306,
+            charset="utf8",
+            user="root",
+            password="dyp1996",
+            database="djangodb",
+            autocommit=True
+        )
+
+        cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
+        sql = "select * from user where username=%s and password=%s"
+        cursor.execute(sql, (username, password))
+        res_list = cursor.fetchall()
+        if res_list:
+            return HttpResponse("登录成功")
+        return HttpResponse("用户名或密码错误")
+    return render(request, "login.html")
+```
+
+
+
 
 
