@@ -122,3 +122,11 @@ python学习笔记
 
 ## 5.4 [Django项目初始](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B.md)
 
+## 5.5 [Django ORM](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20ORM.md)
+
+
+
+
+
+
+
