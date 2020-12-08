@@ -62,7 +62,9 @@ def template_render(request):
     return HttpResponse(html)
 ```
 
-
+## render函数向模板传值方式
+1. `render(request, template, {key: value})`: 在模板中获取到`key`对应的`value`值
+2. `render(request, template, locals())`: 将当前作用域中的变量全部传入到模板中，适用于模板使用后端数据较多的情况
 
 
 
