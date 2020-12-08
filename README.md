@@ -124,6 +124,7 @@ python学习笔记
 
 ## 5.5 [Django ORM](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20ORM.md)
 
+## 5.6 [Django简单操作数据库](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93.md)
 
 
 
