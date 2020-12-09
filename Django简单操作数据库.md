@@ -182,8 +182,43 @@ def delete_user(request):
     return redirect('/userlist/')
 ```
 # 四、Django表关系创建
+**以图书管理系统为例**
+> 1. 图书表
+> 2. 出版社表
+> 3. 作者表
+> 4. 作者详情表
 
-```
+```python
+# 图书管理系统表
+class Book(models.Model):
+    """
+    图书表
+    """
+    title = models.CharField(max_length=32, verbose_name='书名')
+    price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="价格")  # 总共8位，小数占2位
 
+
+class Publish(models.Model):
+    """
+    出版社表
+    """
+    name = models.CharField(max_length=32, verbose_name='出版社名')
+    addr = models.CharField(max_length=108, verbose_name='出版社地址')
+    
+    
+class Author(models.Model):
+    """
+    作者表
+    """
+    name = models.CharField(max_length=20, verbose_name='作者名')
+    age = models.IntegerField(verbose_name='年龄')
+
+
+class AuthorDetail(models.Model):
+    """
+    作者详情表
+    """
+    phone = models.CharField(max_length=12, verbose_name='电话号码')
+    addr = models.CharField(max_length=108, verbose_name='地址')
 ```
 
