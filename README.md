@@ -128,6 +128,6 @@ python学习笔记
 
 ## 5.7 [Django请求声明周期流程](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E8%AF%B7%E6%B1%82%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F%E6%B5%81%E7%A8%8B.md)
 
-
+## 5.8 [Django路由配置](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE.md)
 
 
