@@ -182,12 +182,41 @@ def delete_user(request):
     return redirect('/userlist/')
 ```
 # 四、Django表关系创建
-**以图书管理系统为例**
-> 1. 图书表
-> 2. 出版社表
-> 3. 作者表
-> 4. 作者详情表
+**以图书管理系统为例**，我们要使用到如下几张数据表
+1. 图书表：存放图书的信息，包括书名、书架
+2. 出版社表：存放出版社名及出版社地址
+3. 作者表：作者姓名年龄
+4. 作者详情表：作者联系方式和联系地址等详细数据
 
+**表关系的确定**：对于以上4张表，分析得出下列关系 
+> 1. 图书只能在一个出版社里面出版，但是出版社可以出版许多图书。**出版社与图书是一对多关系** 
+> 2. 一个作者可以编著多部图书，一部图书也可以由多个作者编著。**图书与作者是多对多关系**
+> 3. 作者和作者详情只能是一对一关系
+
+**Django orm创建表关系**：在`Django1.x`外键都是级联更新级联删除
+* 一对多
+    ```python
+    from django.db import models
+    foreign_field = models.ForeignKey(to="一对多外键关联的表类", to_field="关联的字段") # to_field默认关联的是id字段。id字段orm会自动创建
+    ```
+    * `ForeignKey`： 自动给字段添加`_id`后缀
+
+* 一对一
+    ```python
+    from django.db import models
+    foreign_field = models.OneToOneField(to="一对一关联的表类", to_field="关联的字段")
+    ```
+    * `OneToOneField`: 自动给字段添加`_id`后缀
+
+* 多对多，创建多对多关系有很多。
+    * 在经常被查询的表中添加如下字段，这个字段是一个虚拟字段，用于标识使的`orm`自动创建第三张多对多关系表
+    ```python
+    virtual_field = models.ManyToManyField(to="多对多关联的表类", to_field="关联的字段")
+    ```
+
+
+
+**图书管理系统数据创建表的代码**
 ```python
 # 图书管理系统表
 class Book(models.Model):
@@ -196,6 +225,10 @@ class Book(models.Model):
     """
     title = models.CharField(max_length=32, verbose_name='书名')
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="价格")  # 总共8位，小数占2位
+    # 一部图书只能由一个出版社出版，但是出版社可以出版多部图书，出版社与图书是一对多关系
+    publish_id = models.ForeignKey(to="Publish")  # 外键约束，一对多
+    # 一部图书可以由多个作者编著，一个作者也可以编著多半图书，图书与作者是多对多关系
+    authors = models.ManyToManyField(to="Author")  # 虚拟字段，主要是用来使orm自动创建第三张关系表
 
 
 class Publish(models.Model):
@@ -212,6 +245,8 @@ class Author(models.Model):
     """
     name = models.CharField(max_length=20, verbose_name='作者名')
     age = models.IntegerField(verbose_name='年龄')
+    # 作者与作者详情是一对一关系
+    detail = models.OneToOneField(to="AuthorDetail")  # 建立一对一外键关系
 
 
 class AuthorDetail(models.Model):
