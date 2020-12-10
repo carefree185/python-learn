@@ -75,7 +75,91 @@ request.get_full_path()  # 获取url后缀及其携带的参数
     url(r"^login/", views.Login.as_view())
     ```
 
+## 5.1 CBV内部源码
+```python
+url(r"^login/", views.Login.as_view())  # 第一步，Django启动时就会执行，查看as_view方法。 执行结果变为url(r"^login/", views.view)
+##############################################
+class View(object):
+    """
+    Intentionally simple parent class for all views. Only implements
+    dispatch-by-method and simple sanity checking.
+    """
 
+    http_method_names = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options', 'trace']
+
+    def __init__(self, **kwargs):
+        """
+        Constructor. Called in the URLconf; can contain helpful extra
+        keyword arguments, and other things.
+        """
+        # Go through keyword arguments, and either save their values to our
+        # instance, or raise an error.
+        for key, value in six.iteritems(kwargs):
+            setattr(self, key, value)
+
+    @classonlymethod
+    def as_view(cls, **initkwargs):  # 第一步执行
+        """
+        Main entry point for a request-response process.
+        """
+        for key in initkwargs:
+            if key in cls.http_method_names:
+                raise TypeError("You tried to pass in the %s method name as a "
+                                "keyword argument to %s(). Don't do that."
+                                % (key, cls.__name__))
+            if not hasattr(cls, key):
+                raise TypeError("%s() received an invalid keyword %r. as_view "
+                                "only accepts arguments that are already "
+                                "attributes of the class." % (cls.__name__, key))
+
+        def view(request, *args, **kwargs): # 第二步执行
+            self = cls(**initkwargs)  # Login(**initkwargs)
+            if hasattr(self, 'get') and not hasattr(self, 'head'):
+                self.head = self.get
+            self.request = request
+            self.args = args
+            self.kwargs = kwargs
+            return self.dispatch(request, *args, **kwargs)  # 调用了一个函数，返回
+        view.view_class = cls
+        view.view_initkwargs = initkwargs
+
+        # take name and docstring from class
+        update_wrapper(view, cls, updated=())
+
+        # and possible attributes set by decorators
+        # like csrf_exempt from dispatch
+        update_wrapper(view, cls.dispatch, assigned=())
+        return view  # 第一步执行结果，返回内部函数名
+
+    def dispatch(self, request, *args, **kwargs): # self=Login(**initkwargs)
+        # Try to dispatch to the right method; if a method doesn't exist,
+        # defer to the error handler. Also defer to the error handler if the
+        # request method isn't on the approved list.
+        if request.method.lower() in self.http_method_names:  # 获取到请求方式，判断方式是否合法。合法执行下面代码
+            handler = getattr(self, request.method.lower(), self.http_method_not_allowed)  # 反射操作, 获取到与请求方式同名的方法名
+        else:
+            handler = self.http_method_not_allowed
+        return handler(request, *args, **kwargs)  # 执行方法
+
+    def http_method_not_allowed(self, request, *args, **kwargs):
+        logger.warning(
+            'Method Not Allowed (%s): %s', request.method, request.path,
+            extra={'status_code': 405, 'request': request}
+        )
+        return http.HttpResponseNotAllowed(self._allowed_methods())
+
+    def options(self, request, *args, **kwargs):
+        """
+        Handles responding to requests for the OPTIONS HTTP verb.
+        """
+        response = http.HttpResponse()
+        response['Allow'] = ', '.join(self._allowed_methods())
+        response['Content-Length'] = '0'
+        return response
+
+    def _allowed_methods(self):
+        return [m.upper() for m in self.http_method_names if hasattr(self, m)]
+```
 
 
 
