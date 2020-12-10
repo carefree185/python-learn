@@ -131,3 +131,5 @@ python学习笔记
 ## 5.8 [Django路由配置](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE.md)
 
 ## 5.9 [Django视图配置](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E8%A7%86%E5%9B%BE%E9%85%8D%E7%BD%AE.md)
+
+## 5.10 [Django模板语法](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95.md)
