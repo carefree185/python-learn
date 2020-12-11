@@ -133,3 +133,7 @@ python学习笔记
 ## 5.9 [Django视图配置](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E8%A7%86%E5%9B%BE%E9%85%8D%E7%BD%AE.md)
 
 ## 5.10 [Django模板语法](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95.md)
+
+## 5.11 [Django ORM查询](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20ORM%E6%9F%A5%E8%AF%A2.md)
+
+## 5.12 []
