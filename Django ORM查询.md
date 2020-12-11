@@ -454,5 +454,221 @@ book.authors.clear()
     print(res)
     ```
 
+# 五、聚合和分组查询
+## 5.1 聚合查询
+* 第一步，导入聚合函数
+    ```python
+    from django.db.models import Max, Min, Sum, Count, Avg
+    ```
+* 第二步，单独使用聚合函数(aggregate)
+    ```python
+    # 1. 统计书的平均价格
+    res = models.Book.objects.aggregate(Avg("price"))
+    print(res)
+    
+    # 2. 一次性使用
+    res = models.Book.objects.aggregate(Max("price"), Min("price"), Sum("price"), Count("pk"), Avg("price"))
+    print(res)
+    ```
+
+## 5.2 分组查询
+1. 统计每一本书籍的作者个数
+    ```python
+    # res = models.Book.objects.annotate()  # 按书籍分组
+    res = models.Book.objects.annotate(author_num=Count("authors__pk")).values("title", "author_num")  # 按书籍分组
+    print(res)
+    ```
+    > * `author_num`: 别名
+
+2. 统计每个出版社买的最便宜的书的价格
+    ```python
+    res = models.Publish.objects.annotate(min_price=Min("book__price")).values("name", "book__title", "min_price")
+    print(res)
+    ```
+3. 统计不只一个作者的图书
+    ```python
+    res = models.Book.objects.annotate(author_num=Count("authors")).filter(author_num__gt=1).values("title", "author_num")
+    print(res)
+    ```
+4. 查询每个作者出的书的总价格
+    ```python
+    res = models.Author.objects.annotate(total_price=Sum("book__price")).values("name", "total_price")
+    print(res)
+    ```
+
+**指定字段分组**
+```python
+models.Author.objects.values("name").annotate()
+```
+# 六、F查询与Q查询
+```python
+from django.db.models import F, Q
+```
+> `F(field)`: 直接获取表中的字段值
+> `Q(field)`: 
+## 6.1 F查询
+1. 查询卖出数(`sale`)大于库存数(stock)的书籍
+    ```python
+    res = models.Book.objects.filter(sale__gt=F('stock'))
+    print(res)
+    ```
+2. 将所有书籍的价格提升50
+    ```python
+    res = models.Book.objects.update(price=F('price')+500)
+    print(res)
+    ```
+3. 将所有书籍的名称加上`爆款`(修改字符串)`
+    ```python
+    from django.db.models.functions import Concat
+    from django.db.models import Value
+    models.Book.objects.update(title=Concat("title", Value("爆款")))
+    ```
+## 6.2 Q查询
+1. 查询出卖出数大于100或者价格小于600的书籍
+    ```python
+    # res = models.Book.objects.filter(sale__gt=100, price__lt=600)
+    res = models.Book.objects.filter(Q(sale__gt=100) | Q(price__lt=600))
+    print(res.query)
+    print(res)
+    ```
+    > * `|`: or关系
+    > * `~`: not关系
+    > * `&`: and关系
+2. Q的高级用法，查询条件的变量变为字符串
+    ```python
+    # Q的高阶用法, 能将查询条件的变量名变为字符串
+    q = Q()  # 第一步，创建一个空的Q对象
+    q.connector = 'or'   # 修改逻辑关系为`or`， 默认为`and`
+    q.children.append(("sale__gt", 100))  # 添加条件
+    q.children.append(("price__lt", 600))
+    res = models.Book.objects.filter(q)  # 查询时可以传入q对象
+    print(res.query)
+    print(res)
+    ```
+
+# 七、Django中的事务
+**事务**: 开启一个事务，可以包含多条sql语句, 要么同时成功，要么都不成功 , 事务 原子性
+
+**事务特性**
+> A: 原子性, 一个事务时一个不可分隔的单位，事务中包含的操作 要么同时成功要么同时失败
+> C: 一致性, 事务必须是时数据库 从一个一致性变到另一个一致性状态
+> I: 隔离性, 一个事务的执行，不能被其他事务干扰
+> D: 持久性, 一个事务一旦提交执行成功, 对数据库中的数据修改是永久的。之后的操作或故障不应该对其有影响
+
+**在Django中开启事务** 
+```python
+from django.db import transaction
+with transaction.atomic():
+    """
+    sql语句
+    """
+    # 在with代码块内书写的orm操作都属于同一个事务
+```
+
+# 八、Django ORM中的字段类型和参数
+| 数据库字段数据类型 | `django`模型字段数据类型 |   解释   |
+| :----------------: | :----------------------: | :------: |
+|       `int`        |      `IntegerField`      |   整数   |
+|     `varchar`      |       `CharField`        |  字符串  |
+|     `longtext`     |       `TextField`        |  长文本  |
+|       `date`       |       `DateField`        |   日期   |
+|     `datetime`     |     `DateTimeField`      | 时间日期 |
+
+1. `models.AutoField(primary_key=True)`: 创建主键
+
+2. `models.CharField(max_length, verbose_name)`: 原生`sql`的`varchar(max_length)`类型
+    * `max_length`: 最大长度
+    * `verbose_name`: 字段的注释
+
+3. `models.IntegerField(verbose_name)`: 原生`sql`的`int`类型
+
+4. `models.BigIntegerField()`:  原生`sql`的`bigint`类型
+
+5. `models.DecimalField(max_digits, decimal_places)`:
+    * `max_digits`：数据宽度
+    * `decimal_places`: 保留的小数位数
+
+6. `models.EmailField()`: 原生类型的varchar(254)
+
+7. `models.DateField(auto_now, auto_now_add)`和`models.DateTimeField(auto_now, auto_now_add)`: 原生类型的date和datetime
+    * `auto_now`: 每次操作数据的时候，会自动更新当前时间
+    * `auto_now_add`: 创建数据时，会自动将当前时间记录，后续不再自动修改
+
+8. `models.BooleanField()`: 布尔类型
+    * 该字段传值True或False, 数据库存放1或0
+
+9. `models.TextField()`:  文本类型
+    * 可以存放大段的内容， **没有字数限制** 
+
+10. `models.FileField(upload_to)`: 原生为字符串
+    * `upload_to`: 文件保存的路径
+    *  存放文件路径
+    * 该字段传值为文件对象
+
+## **可以自定义字段类型**
+```python
+# 自定义字段
+class MyCharField(models.Field):
+    def __init__(self, max_length, *args, **kwargs):
+        self.max_length = max_length
+        super(MyCharField, self).__init__(max_length=max_length, *args, **kwargs)
+    
+    def db_type(self, connection):
+        return "char({})".format(self.max_length)  # 返回数据类型和约束条件
+```
+
+## 常见字段的参数
+
+|     参数     |             解释              |
+| :----------: | :---------------------------: |
+| primary_key  |        指定是否为主键         |
+|    unique    |         指定是否唯一          |
+|     null     | 指定是否非空，默认非空(False) |
+|    blank     |                               |
+|   default    |          设置默认值           |
+|   auto_now   |    每次修改都会更新时间。     |
+| auto_now_add |    第一次添加时设置时间。     |
+|db_index|是否为该字段创建索引|
+
+【注意】`auto_now` `auto_now_add` 是`DateField` 和`DateTimeField`字段的参数。
+
+`auto_now`只有调用`QuerySet.save()`方法才不会执行
+
+
+## 外键字段参数
+* 一对一： `models.OneToOneField` == `models.ForeigenKey(unique=True)` 
+
+| 参数 | 解释|
+| :---:| :---: |
+|`to`|设置要关联的表|
+|`to_field`|设置要关联的字段，默认关联另一张表主键字段|
+|`on_delete`|当删除关联表中的数据时，当前表与其关联表的行为，`models.CASECADE`|
+
+
+
+# 九、数据库查询优化
+
+Django ORM语句特点: 
+> 惰性查询机制，如果仅仅只是书写了`orm`语句，没有使用到该语句查询出来的数据，`orm`将不执行该`orm`语句
+
+## 9.1 `only`与`defer`
+1. `only(*fields)`: 通过`only`查询时仅仅只拿到包含`fields`中指定的字段的数据，如果要获取`fields`之外的字段，将从新在数据库中查询, 对应的`all`将不会从新在数据库中查询
+
+2. `defer(*fields)`: 通过`defer`查询时仅仅只拿到不包含在`fields`中指定的字段的数据，如果获取`fields`内的数据，将从新在数据库中查询。与`only`相反
+
+## 9.2 `select_related`与`prefetch_related`, 与跨表操作相关
+1. `select_related(外键字段)`: 先将表进行连接(`inner join`)，然后将所有的字段数据都封装给数据对象，之后的获取字段值则不会在从数据库中查找 
+
+    * ** 只能放一对一、一对多的外键字段** 
+
+2. `prefetch_related(外键字段)`: 内部进行封装的时子查询，将子查询和查询出来的字段数据都封装给了数据对象，之后的获取字段值则不会在从数据库中查找 
+
+
+
+
+
+
+
+
 
 
