@@ -136,4 +136,6 @@ python学习笔记
 
 ## 5.11 [Django ORM查询](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20ORM%E6%9F%A5%E8%AF%A2.md)
 
-## 5.12 []
+## 5.12 [Django BMS图书管理系统](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20BMS%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.md)
+
+
