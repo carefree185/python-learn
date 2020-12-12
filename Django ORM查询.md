@@ -34,6 +34,28 @@ class User(models.Model):
 > 1. auto_now: 记录每次操作数据的时间
 > 2. auto_now_add: 记录数据创建或修改的时间
 
+**控台显示sql语句**
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+    }
+}
+```
+
+
 ## 2.1 增加数据的两种方式
 1. 调用`objects`的`create`方法增加数据，该方法会直接将数据写入数据库，并返回创建的数据对象.
     ````python
