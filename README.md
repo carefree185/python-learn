@@ -138,4 +138,5 @@ python学习笔记
 
 ## 5.12 [Django BMS图书管理系统](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20BMS%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.md)
 
+## 5.13 [Django数据库设计范式](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E8%8C%83%E5%BC%8F.md)
 
