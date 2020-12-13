@@ -713,6 +713,62 @@ Django ORM语句特点:
 * 如果存放的数据没有对应关系，那么调用数据对象的`get_fieldName_display()`方法就直接返回保存的数据
 
 
+# 十一、补充、多对多关系的创建方式
+* 方式一、`ManyToManyField`自动创建中间表
+    * 操作方便，`orm`提供了操作中间表的方法
+    * 中间表的扩展性比较差，内有办法额外添加字段
+
+* 方式二、自己创建中间表，由`ForeignKye`指定关系
+    ```python
+    class Student(models.Model):
+        name = models.CharField(max_length=20)
+        age = models.SmallIntegerField()
+        sex = models.SmallIntegerField(default=0)
+        c_time = models.DateTimeField(auto_now_add=True)
+    
+        def __repr__(self):
+            return 'Student(name={},age={},sex={},c_time={})'\
+                .format(self.name, self.age, self.sex, self.c_time)
+    
+    class Course(models.Model):
+        name = models.CharField('课程名称', max_length=20)
+    
+    class Enroll(models.Model):
+        student = models.ForeignKey('Student', on_delete=models.CASCADE)
+        course = models.ForeignKey('Course', on_delete=models.CASCADE)
+        c_time = models.DateTimeField('报名时间',auto_now_add=True)
+        pay = models.FloatField('缴费金额', default=0)
+    ```
+    * 需要写的代码比较多, 所有的操作都需要自己编程
+    * 中间表字段完全由自己定义
+
+* 方式三、自己创建中间表，然后由`ManyToManyField`指定关联中间表，不在自动创建中间表。只需要在 **`ManyToManyField`指定`through='中间表名'`和`through_fields=("中间表的字段名1", "中间表的字段名2")`** 即可
+    ```python
+    class Student(models.Model):
+        name = models.CharField(max_length=20)
+        age = models.SmallIntegerField()
+        sex = models.SmallIntegerField(default=0)
+        c_time = models.DateTimeField(auto_now_add=True)
+        Course = models.ManyToManyField(to='Course', through='Coure2Student', through_fields=("student", "course")) # 指定中间表        
+
+        def __repr__(self):
+            return 'Student(name={},age={},sex={},c_time={})'\
+                .format(self.name, self.age, self.sex, self.c_time)
+    
+    class Course(models.Model):
+        name = models.CharField('课程名称', max_length=20)
+        # student = models.ManyToManyField(to='Student', through='Coure2Student', through_fields=("course", "student")) # 指定中间表
+        
+    class Coure2Student(models.Model):
+        student = models.ForeignKey('Student', on_delete=models.CASCADE)
+        course = models.ForeignKey('Course', on_delete=models.CASCADE)
+        c_time = models.DateTimeField('报名时间',auto_now_add=True)
+        pay = models.FloatField('缴费金额', default=0)
+    ```
+
+    * `through_fields=("中间表的字段名1", "中间表的字段名2")`: 字段顺序确定，通过中间表，查询外键字段所在表时通过中间表的那个字段，就将那个字段写在最前面。**外键字段所在表，就将与其关联的字段写在最前面(第一个位置存放的是中间表的字段，这个字段是关联外键字段所在的表)**
+    
+    * 可以使用`orm`的正反向查询，但是不能使用操作中间表的方法    
 
 
 
