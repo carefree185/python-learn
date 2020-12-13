@@ -140,3 +140,14 @@ python学习笔记
 
 ## 5.13 [Django数据库设计范式](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E8%8C%83%E5%BC%8F.md)
 
+## 5.14 [Ajax](https://gitee.com/duyupeng36/python-learn/blob/master/Ajax.md)
+
+
+
+
+
+
+
+
+
+
