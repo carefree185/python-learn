@@ -142,7 +142,7 @@ python学习笔记
 
 ## 5.14 [Ajax](https://gitee.com/duyupeng36/python-learn/blob/master/Ajax.md)
 
-## 5.15 [Django 组件](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20%E7%BB%84%E4%BB%B6.md)
+## 5.15 [Django自带序列化组件](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E8%87%AA%E5%B8%A6%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%84%E4%BB%B6.md)
 
 
 
