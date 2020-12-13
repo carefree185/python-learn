@@ -142,7 +142,7 @@ python学习笔记
 
 ## 5.14 [Ajax](https://gitee.com/duyupeng36/python-learn/blob/master/Ajax.md)
 
-
+## 5.15 [Django 组件](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20%E7%BB%84%E4%BB%B6.md)
 
 
 
