@@ -144,7 +144,7 @@ python学习笔记
 
 ## 5.15 [Django自带序列化组件与分页操作](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E8%87%AA%E5%B8%A6%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%84%E4%BB%B6.md)
 
-## 5.16 []()
+## 5.16 [Django forms组件](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20forms%E7%BB%84%E4%BB%B6.md)
 
 
 
