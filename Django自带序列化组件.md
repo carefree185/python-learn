@@ -135,6 +135,7 @@ def pagination(request):
 ```
 
 ## 3.3 自定义分页器
+在项目根目录下(`应用目录下`)创建一个`utils`文件夹，在创建一个`python`文件，写入如下代码
 ```python
 class Pagination(object):
     def __init__(self, current_page, all_count, per_page_num=2, pager_count=11):
@@ -235,5 +236,15 @@ class Pagination(object):
                                        ''')
         return ''.join(page_html_list)
 ```
+> 1. 将分页的样式也已经封装到了里面
 
+## 3.4 自定义分页器使用
+* 后端
+    ```python
+    page_obj = Pagination(current_page=current_page,all_count=all_count,per_page_num=10)  # 生成一个分页器对象，然后传递到模板中
+    ```
+* 后端
+    ```django
+     {{ page_obj.page_html|safe }}  {# 使用前端传过来的分页器获取页面 #}
+    ```
 
