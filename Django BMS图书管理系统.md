@@ -431,7 +431,68 @@ url(r"^book/delete/(\d+)", views.book_delete, name="book_delete")
 > ```
 
 ## 5.2 书籍信息删除后端逻辑(视图函数)
-```python
+> 1. 点击删除后，弹出弹窗确认，发送ajax请求
+> 2. 在后端完成数据删除
 
+### 5.2.1 sweetalter弹窗确认
+```js
+<script>
+    $('.cancel').click(function () {
+        var $aEle = $(this);    {#  this 指代当前点击对象  #}
+        swal({
+              title: "你确定要删嘛?",
+              text: "你如果删了，你就要准备跑路了",
+              type: "warning",
+              showCancelButton: true,
+              confirmButtonClass: "btn-danger",
+              confirmButtonText: "是，老子就是要删!",
+              cancelButtonText: "惹不起惹不起!",
+              closeOnConfirm: false,
+              closeOnCancel: false,
+              showLoaderOnConfirm: true   // 确认延迟参数
+        },
+        function(isConfirm) {
+          if (isConfirm) {
+              // 发送ajax请求
+            $.ajax({
+                url:'/book/delete/',
+                type:'post',
+                data:{'delete_id':$aEle.attr('data_id')},
+                success:function (data) {   // 回调函数会自动将二进制的json格式数据 解码并反序列成js中的数据类型
+                    if (data.code === 1000){
+                        swal("删了!", "你可以跑路了.", "success");
+                        // 方式一 页面刷新
+                        window.location.reload()
+                        // 方式二 DOM操作动态修改
+                        {#$aEle.parent().parent().remove()#}
+                    }else{
+                        swal('发生了未知的错误','error')    // 将标签直接移除
+                    }
+                }
+            });
+          } else {
+            swal("怂逼", "你成功的刷新我对你的认知 :)", "error");
+          }
+        });
+    })
+</script>
+```
+### 5.2.2 后端逻辑
+```python
+def book_delete(request):
+    """
+    删除书籍信息
+    :param request:
+    :return:
+    """
+    if request.method == 'POST':
+        time.sleep(0.5)  # 模拟延迟
+        back_dic = {'code': 1000, 'msg': ''}
+        delete_id = request.POST.get('delete_id')
+        Book.objects.filter(pk=delete_id).delete()  # 删除
+        back_dic['msg'] = '删除完成'
+        return JsonResponse(back_dic, json_dumps_params={"ensure_ascii": False})
+
+    return redirect(reverse('book_list'))
 ```
 
