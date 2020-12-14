@@ -146,7 +146,7 @@ python学习笔记
 
 ## 5.16 [Django forms组件](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20forms%E7%BB%84%E4%BB%B6.md)
 
-
+## 5.17 [Django cookie和session](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20cookie%E5%92%8Csession.md)
 
 
 
