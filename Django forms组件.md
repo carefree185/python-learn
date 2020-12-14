@@ -354,3 +354,145 @@ class RegForm(forms.Form):
             widget=forms.widgets.CheckboxSelectMultiple()
         )
     ```
+
+## 5.2 Django forms组件内置字段
+1. `Field`：所有字段的基类, 参数解释
+   
+    |参数|含义|
+    |:---:|:---:|
+    |`required=True`|是否允许为空|
+    |`widget=None`|HTML插件|
+    |`label=None`|用于生成Label标签或显示内容|
+    |`initial=None`|初始值|
+    |`help_text=''`|帮助信息(在标签旁边显示)|
+    |`error_messages=None`|错误信息`{'required': '不能为空','invalid': '格式错误'}`|
+    |`validators=[]`|自定义验证规则|
+    |`localize=False`|是否支持本地化|
+    |`disabled=False`|是否可以编辑|
+    |`label_suffix=None`| Label内容后缀|
+
+2. `CharField(Field)`: 字符串
+    
+    |参数|含义|
+    |:---:|:---:|
+    |`max_length=None`|最大长度|    
+    |`min_length=None`|最小长度|
+    |`strip=True`|是否移除用户输入空白|
+
+3. `IntegerField(Field)`: 整数
+
+    |参数|含义|
+    |:---:|:---:|
+    |`max_value=None`|最大值|
+    |`min_value=None`|最小值|
+
+4. `FloatField(IntegerField)`: 小数
+
+5. `DecimalField(IntegerField)`: 小数
+
+    |参数|含义|
+    |:---:|:---:|
+    |`max_value=None`|最大值|
+    |`min_value=None`|最小值|
+    |`max_digits=None`|总长度|
+    |`decimal_places=None`|小数位长度|
+
+6. `BaseTemporalField(Field)`: 时间类型的基类
+
+    |参数|含义|    
+    |`input_formats=None`|时间格式|
+    
+7. `DateField(BaseTemporalField)`: 格式：2015-09-01
+8. `TimeField(BaseTemporalField)`: 格式：11:12
+9. `DateTimeField(BaseTemporalField)`: 格式：2015-09-01 11:12
+
+10. `DurationField(Field)`: 时间间隔：%d %H:%M:%S.%f
+
+11. `RegexField(CharField)`: 正则字符串
+
+    |参数|含义|
+    |:---:|:---:|
+    |regex|自定制正则表达式|
+    |max_length=None|最大长度|
+    |min_length=None|最小长度|
+
+12. `EmailField(CharField)`: 邮箱格式
+
+13. `FileField(Field)`: 文件字段
+    
+    |参数|含义|
+    |:---:|:---:|
+    |allow_empty_file=False|是否允许空文件|
+
+14. `ImageField(FileField)`: 图片处理字段
+    * 注：需要PIL模块，`pip3 install Pillow`
+    * 以上两个字典使用时，需要注意两点：
+        * `form`表单中 `enctype="multipart/form-data"`
+        * `view`函数中 `obj = MyForm(request.POST, request.FILES)`
+
+15. `URLField(Field)`：url校验
+
+
+16. `BooleanField(Field)` 
+ 
+17. `NullBooleanField(BooleanField)`
+ 
+18. `ChoiceField(Field)`
+    * choices=(),                选项，如：choices = ((0,'上海'),(1,'北京'),)
+    * required=True,             是否必填
+    * widget=None,               插件，默认select插件
+    * label=None,                Label内容
+    * initial=None,              初始值
+    * help_text='',              帮助提示
+ 
+ 
+19. `ModelChoiceField(ChoiceField)`
+    * `django.forms.models.ModelChoiceField`
+    * `queryset`                 查询数据库中的数据
+    * `empty_label="---------"`  默认空显示内容
+    * `to_field_name=None`       HTML中value的值对应的字段
+    * `limit_choices_to=None`    ModelForm中对queryset二次筛选
+     
+20 `ModelMultipleChoiceField(ModelChoiceField)`
+    * django.forms.models.ModelMultipleChoiceField
+ 
+ 
+21. `TypedChoiceField(ChoiceField)`
+    * `coerce = lambda val: val`   对选中的值进行一次转换
+    * `empty_value= ''`            空值的默认值
+ 
+22. `MultipleChoiceField(ChoiceField)`
+
+23. `TypedMultipleChoiceField(MultipleChoiceField)`
+    * `coerce = lambda val: val `  对选中的每一个值进行一次转换
+    * `empty_value= ''`            空值的默认值
+ 
+24. `ComboField(Field)`
+    * `fields=()`使用多个验证
+    * 如下：即验证最大长度20，又验证邮箱格式
+        * `fields.ComboField(fields=[fields.CharField(max_length=20), fields.EmailField(),])`
+ 
+25. `MultiValueField(Field)`
+    * PS: 抽象类，子类中可以实现聚合多个字典去匹配一个值，要配合MultiWidget使用
+ 
+26. `SplitDateTimeField(MultiValueField)`
+    * `input_date_formats=None`  格式列表：['%Y--%m--%d', '%m%d/%Y', '%m/%d/%y']
+    * `input_time_formats=None`  格式列表：['%H:%M:%S', '%H:%M:%S.%f', '%H:%M']
+ 
+27. `FilePathField(ChoiceField)`: 文件选项，目录下文件显示在页面中
+    * `path`                   文件夹路径
+    * `match=None`             正则匹配
+    * `recursive=False`        递归下面的文件夹
+    * `allow_files=True`       允许文件
+    * `allow_folders=False     允许文件夹
+ 
+28. `GenericIPAddressField`
+    * `protocol='both'`      both,ipv4,ipv6支持的IP格式
+    * `unpack_ipv4=False `   解析ipv4地址，如果是::ffff:192.0.2.1时候，可解析为192.0.2.1， 
+    * PS：protocol必须为both才能启用
+ 
+29. `SlugField(CharField)`: 数字，字母，下划线，减号（连字符）
+ 
+30. `UUIDField(CharField)`: uuid类型
+
+
