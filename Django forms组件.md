@@ -399,7 +399,8 @@ class RegForm(forms.Form):
 
 6. `BaseTemporalField(Field)`: 时间类型的基类
 
-    |参数|含义|    
+    |参数|含义| 
+    |:---:|:---:|   
     |`input_formats=None`|时间格式|
     
 7. `DateField(BaseTemporalField)`: 格式：2015-09-01
@@ -494,5 +495,87 @@ class RegForm(forms.Form):
 29. `SlugField(CharField)`: 数字，字母，下划线，减号（连字符）
  
 30. `UUIDField(CharField)`: uuid类型
+
+
+# 六、Forms组件源码
+```python
+def is_valid(self):
+    """
+    Returns True if the form has no errors. Otherwise, False. If errors are
+    being ignored, returns False.
+    """
+    return self.is_bound and not self.errors
+
+self.is_bound = data is not None or files is not None  # 只要传值是True
+```
+**焦点聚焦到self.errors**
+```python
+@property
+def errors(self):
+    "Returns an ErrorDict for the data provided for the form"
+    if self._errors is None:
+        self.full_clean()
+    return self._errors
+
+self._errors = None  # 默认值
+```
+
+**forms组件功能出处**
+```python
+def full_clean(self):
+    """
+    Cleans all of self.data and populates self._errors and
+    self.cleaned_data.
+    """
+    self._errors = ErrorDict()
+    if not self.is_bound:  # Stop further processing.
+        return
+    self.cleaned_data = {}
+    # If the form is permitted to be empty, and none of the form data has
+    # changed from the initial data, short circuit any validation.
+    if self.empty_permitted and not self.has_changed():
+        return
+
+    self._clean_fields()  # 校验字段
+    self._clean_form()  # 校验form标签提交的数据
+    self._post_clean()
+```
+
+**校验字段**
+```python
+def _clean_fields(self):
+    for name, field in self.fields.items():
+        # value_from_datadict() gets the data from the data dictionaries.
+        # Each widget type knows how to retrieve its own data, because some
+        # widgets split data over several HTML fields.
+        if field.disabled:
+            value = self.get_initial_for_field(field, name)
+        else:
+            value = field.widget.value_from_datadict(self.data, self.files, self.add_prefix(name))  # 获取用户字段对应数据
+        try:
+            if isinstance(field, FileField):
+                initial = self.get_initial_for_field(field, name)
+                value = field.clean(value, initial)
+            else:
+                value = field.clean(value)  # 校验字段
+            self.cleaned_data[name] = value  # 将合法数据添加到字典
+            if hasattr(self, 'clean_%s' % name):  # 判断是否定义了局部钩子函数
+                value = getattr(self, 'clean_%s' % name)()  # 获取局部钩子函数，并调用
+                self.cleaned_data[name] = value  # 
+        except ValidationError as e:
+            self.add_error(name, e)  # 添加报错提示信息
+```
+
+****
+```python
+def _clean_form(self):
+    try:
+        cleaned_data = self.clean()  # 全局钩子函数，返回cleaned_data
+    except ValidationError as e:
+        self.add_error(None, e)
+    else:
+        if cleaned_data is not None:
+            self.cleaned_data = cleaned_data
+```
 
 
