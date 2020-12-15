@@ -464,7 +464,7 @@ class Comment(models.Model):
                     cleaned_data['avatar'] = file
                 # 操作数据库保存数据
                 models.UserInfo.objects.create_user(**cleaned_data)  # 创建用户，并刷新刷新到数据库
-                back_dic['url'] = '/login/'  # 注册成功后默认跳转到登录
+                back_dic['url'] = reverse('userapp:login')  # 注册成功后默认跳转到登录
             else:
                 back_dic['code'] = 2000  # 登录失败后的校验数据
                 back_dic['msg'] = reg_form_obj.errors
@@ -567,7 +567,7 @@ class Comment(models.Model):
     ```
 2. 视图函数
     ```python
-    from django.shortcuts import render
+    from django.shortcuts import render, reverse
     from django.http import JsonResponse
     from . import form, models
     
@@ -595,7 +595,7 @@ class Comment(models.Model):
                     cleaned_data['avatar'] = file
                 # 操作数据库保存数据
                 models.UserInfo.objects.create_user(**cleaned_data)  # 创建用户，并刷新刷新到数据库
-                back_dic['url'] = '/login/'  # 注册成功后默认跳转到登录
+                back_dic['url'] = reverse('userapp:login')  # 注册成功后默认跳转到登录
             else:
                 back_dic['code'] = 2000  # 登录失败后的校验数据
                 back_dic['msg'] = reg_form_obj.errors
@@ -717,6 +717,157 @@ class Comment(models.Model):
 ## 2.4 登录功能
 * 图片验证码(自定义)
 * Ajax
+### 2.4.1 前端模板的搭建，效果如下图
+![](https://images.gitee.com/uploads/images/2020/1216/002223_612d9f4b_7841459.png "屏幕截图.png")
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'js/JQuery-3.5.1.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>   <!--bootstrap依赖jQuery-->
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-sweetalert/dist/sweetalert.css' %}">
+    <script src="'{% static 'bootstrap-sweetalert/dist/sweetalert.js' %}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center">登录</h1>
+            <div class="form-group">
+                <label for="id_username">用户名</label>
+                <input type="text" id="id_username" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_password">密&emsp;码</label>
+                <input type="password" id="id_password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_code">验证码</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" name="code" id="id_code" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{% static 'image/default.png' %}" alt="" width="380px" height="34px" style="border-radius: 4px">
+                    </div>
+                </div>
+
+            </div>
+            <input type="button" class="btn btn-success" value="登录">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+```
+### 2.4.2 图片验证码
+1. 每次访问都需要展示不同的验证码，所以要在后端生成这个验证码。兴建一个生成验证码的`url`，对应的视图函数如下
+    ```python
+    from PIL import Image, ImageDraw, ImageFont
+    """
+    Image: 生成图片片
+    ImageDraw：绘画图片
+    ImageFont：控制字体样式
+    """
+    import random
+    from io import BytesIO, StringIO
+    """
+    BytesIOL: 临时在内存中存放数据， 二进制io
+    StringIO: 字符串io
+    """
+    def get_rgb():
+        """
+        生成颜色，三基色
+        :return:
+        """
+        return random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
+    
+    def get_code(request):
+        # 方式一、直接获取现成的图片数据
+        # with open(r'C:\Users\23219\Desktop\BBS\static\image\111.jpg', 'rb') as f:
+        #     data = f.read()
+    
+        # # 方式二、利用pillow模块产生图片(模式, 尺寸, 三基色)
+        # img_obj = Image.new('RGB', (380, 34), get_rgb())
+        # # 先将图片对象保存起来，在读取出来，
+        # with open('xxx.png', 'wb') as f1:
+        #     img_obj.save(f1, 'png')
+        #
+        # with open('xxx.png', 'rb') as f2:
+        #     data = f2.read()
+    
+        # 方式三、方式二的io操作太多，使用io模块
+        # img_obj = Image.new('RGB', (380, 34), get_rgb())
+        # io_obj = BytesIO()  # 看出一个文件句柄
+        # img_obj.save(io_obj, 'png')
+        # data = io_obj.getvalue()
+    
+        # 给图片写字
+        img_obj = Image.new('RGB', (380, 34), get_rgb())
+        img_draw = ImageDraw.Draw(img_obj)  # 产生画笔对象
+        img_font = ImageFont.truetype(r'C:\Users\23219\Desktop\BBS\static\fonts\杨任东竹石体-Extralight.ttf', 30)  # 字体样式，大小
+    
+        # 随机验证码(包含数字 大小写字母)
+        code = ''  # 随机验证码，登录视图函数，需要使用，其他地方也要获取到（session）
+        for i in range(5):
+            random_upper = chr(random.randint(65, 90))
+            random_lower = chr(random.randint(97, 122))
+            random_int = str(random.randint(0, 9))
+            # 从上面随机选择一个
+            tem = random.choice([random_upper, random_lower, random_int])
+            # 将产生的随机字符串写入图片, 生成好了之后无法控制间隙
+            img_draw.text((i*60+60, -1), tem, get_rgb(), img_font)
+            # 凭借随机字符串
+            code += tem
+        request.session['code'] = code  # 生成的验证码要在登录的视图函数中能获取，将它保存到session中
+        io_obj = BytesIO()  # 为了降低io操作，是同io模块让图片在内存进行生成
+        img_obj.save(io_obj, 'png')
+        data = io_obj.getvalue()   # 获取图片数据
+        return HttpResponse(data)
+    ```
+2. 修改登录页面的前端代码, 就是在`img`标签的`src`属性中使用反向解析得到产生图片的`url`
+    ```django
+    <div class="form-group">
+                    <label for="id_code">验证码</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" name="code" id="id_code" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="{% url 'userapp:get_code' %}" id="id_image" alt="" width="380px" height="34px" style="border-radius: 4px">
+                        </div>
+                    </div>
+                </div>
+    ```
+3. 如果验证码看不清除，就需要重写获取图片验证码。由于页面上的`url`发送变化使，浏览器会自动发送请求。可以给`img`标签绑定点击事件，修改`url`后缀
+    ```html
+    <script>
+        // 给标签绑定点击事件, 每次点击都获取一个图片
+        $('#id_image').click(function () {
+            let oldVal = $(this).attr('src')
+            let reg = /.*\?$/  // 生成一个正则对象，匹配默认是否含有?
+            if (reg.test(oldVal)) {
+                reg.lastIndex = 0
+                $(this).attr('src', oldVal.replace(/\?$/, ''))  // 如果有，将?替换为""
+            } else {
+                $(this).attr('src', oldVal+='?') // 没有，拼接一个?
+            }
+        })
+    </script>
+    ```
+
+### 2.4.3 后端数据校验
+```python
+
+```
+
+
 
 ## 2.5 首页搭建
 * 导航条根据用户是否登录展示不同的内容
