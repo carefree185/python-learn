@@ -149,6 +149,7 @@ python学习笔记
 ## 5.17 [Django cookie和session](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20cookie%E5%92%8Csession.md)
 
 ## 5.18 [Django 中间件与跨域请求](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%B8%8E%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82.md)
+### [补充模块](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%A1%A5%E5%85%85%E6%A8%A1%E5%9D%97.md)
 
 ## 5.19 [Django auth模块](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20auth%E6%A8%A1%E5%9D%97.md)
 
