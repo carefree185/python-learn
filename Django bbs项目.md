@@ -767,7 +767,7 @@ class Comment(models.Model):
 </html>
 ```
 ### 2.4.2 图片验证码
-1. 每次访问都需要展示不同的验证码，所以要在后端生成这个验证码。兴建一个生成验证码的`url`，对应的视图函数如下
+1. 每次访问都需要展示不同的验证码，所以要在后端生成这个验证码。兴建一个生成验证码的`url`，对应的视图函数如下。
     ```python
     from PIL import Image, ImageDraw, ImageFont
     """
@@ -861,18 +861,192 @@ class Comment(models.Model):
         })
     </script>
     ```
+* 给登录按钮绑定点击事件，向后端发送Ajax请求
+    ```js
+    // 点击发送ajax请求
+    $("#id_commit").click(function () {
+        $.ajax({
+            url:'',
+            type: 'post',
+            data:{
+                'username': $("#id_username").val(),
+                'password': $("#id_password").val(),
+                'code': $("#id_code").val(),
+                {#'csrfmiddlewaretoken':'{{ csrf_token }}', // 选择第三种方式#}
+            },
+            success: function (args) {
+                if(args.code === 1000) {
+                    // 跳转到后端返回的路由
+                    window.location.href = args.url
+                } else {
+                    $('#error').text(args.msg)
+                }
+    
+            }
+        })
+    })
+    ```
 
 ### 2.4.3 后端数据校验
 ```python
+def login(request):
+    """
+    登录功能
+    :param request:
+    :return:
+    """
+    back_dic = {'code': 1000, 'msg': ''}
+    if request.method == 'POST':  # post请求校验数据
+        username = request.POST.get("username")
+        password = request.POST.get('password')
+        coed = request.POST.get('code')  # 验证码
+        # 校验验证码是否正确 忽略大小写
+        if request.session.get('code', '').lower() == coed.lower():  # 将验证码转为小写进行比较
+            # 校验用户名密码是否正确
+            user = auth.authenticate(request, username=username, password=password)
+            if user:
+                # 保存用户状态
+                auth.login(request, user)
+                back_dic['url'] = '/'   # 登录成功跳转到首页
+            else:
+                back_dic['code'] = 2000
+                back_dic['msg'] = '用户名或密码错误'
+        else:
+            back_dic['code'] = 3000
+            back_dic['msg'] = '验证码错误'
+        return JsonResponse(back_dic)  # 给ajax返回响应数据
 
+    return render(request, 'login.html')  # get请求返回登录页面
 ```
 
-
-
 ## 2.5 首页搭建
+### 2.5.1 导航栏
 * 导航条根据用户是否登录展示不同的内容
-
-
-
+![](https://images.gitee.com/uploads/images/2020/1216/110947_f3e62174_7841459.png "屏幕截图.png")
+    * 当用户登录了，显示用户名和更多操作
+    * 用户没有登录，显示注册和登录
+    ```django
+    <ul class="nav navbar-nav navbar-right">
+        {% if request.user.is_authenticated %}
+              <li><a href="#">{{ request.user.username }}</a></li>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多操作 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="#">修改密码</a></li>
+                  <li><a href="#">修改头像</a></li>
+                  <li><a href="#">后台管理</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">注销</a></li>
+              </ul>
+            </li>
+        {% else %}
+            <li><a href="{% url 'userapp:register' %}">注册</a></li>
+            <li><a href="{% url 'userapp:login' %}">登录</a></li>
+        {% endif %}
+    </ul>
+    ```
+* 用户登录后修改密码和注销登录
+    * 前端使用模态框展示
+        ```html
+        <!-- Large modal -->
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+           <div class="modal-dialog modal-lg" role="document">
+               <div class="modal-content">
+                   <h1 class="text-center">修改密码</h1>
+                   <div class="row">
+                       <div class="col-md-8 col-md-offset-2">
+                           <div class="form-group">
+                               <label for="">用户名</label>
+                               <input type="text" disabled value="{{ request.user.username }}" class="form-control">
+                           </div>
+                           <div class="form-group">
+                               <label for="id_old_password">原密码</label>
+                               <input type="password" id="id_old_password" name="old_password" class="form-control">
+                           </div>
+                           <div class="form-group">
+                               <label for="id_new_password">新密码</label>
+                               <input type="password" id="id_new_password" name="new_password" class="form-control">
+                           </div>
+                           <div class="form-group">
+                               <label for="id_confirm_password">确认密码</label>
+                               <input type="password" id="id_confirm_password" name="confirm_password" class="form-control">
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">取消</button>
+                               <button type="button" class="btn btn-primary" id="id_edit">修改</button>
+                               <span id="set_error" style="color: red"></span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+        ```
+    * 后端修改密码和注销登录逻辑
+        ```python
+        @login_required
+        def set_password(request):
+            """
+            修改密码
+            :param request:
+            :return:
+            """
+            if request.is_ajax():
+                back_dic = {'code': 1000, 'msg': ''}
+                if request.method == 'POST':
+                    old_password = request.POST.get("old_password")
+                    new_password = request.POST.get("new_password")
+                    confirm_password = request.POST.get('confirm_password')
+                    is_right = request.user.check_password(old_password)  # 校验原密码是否正确
+                    if is_right:
+                        if new_password == confirm_password:
+                            request.user.set_password(new_password)
+                            request.user.save()
+                            back_dic['msg'] = '修改成功'
+                            back_dic['url'] = reverse('userapp:login')  # 修改成功跳转到登录页面
+                        else:
+                            back_dic['code'] = 2000
+                            back_dic['msg'] = '两次密码不一致'
+                    else:
+                        back_dic['code'] = 3000
+                        back_dic['msg'] = '原密码不正确'
+        
+                return JsonResponse(back_dic)
+        
+            return HttpResponse('ok')
+        
+        
+        @login_required
+        def logout(request):
+            """
+            退出登录
+            :param request:
+            :return:
+            """
+            auth.logout(request)
+            return redirect('/')  # 退出登录后定向到首页
+        ```
+    * 通过Ajax发送修改密码的请求
+        ```js
+        $('#id_edit').click(function () {
+            $.ajax({
+                url:'{% url "userapp:set_password" %}',
+                type: 'post',
+                data: {
+                    'old_password': $("#id_old_password").val(),
+                    "new_password": $("#id_new_password").val(),
+                    'confirm_password': $("#id_confirm_password").val(),
+                },
+                success: function (args) {
+                    if(args.code === 1000) {
+                        window.location.href = args.url
+                    }else {
+                        $("#set_error").text(args.msg)
+                    }
+        
+                }
+            })
+        })
+        ```
 
 
