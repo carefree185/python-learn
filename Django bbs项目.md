@@ -920,6 +920,11 @@ def login(request):
 ```
 
 ## 2.5 首页搭建
+首页整体样式
+![](https://images.gitee.com/uploads/images/2020/1216/173455_952437e8_7841459.png "屏幕截图.png")
+> 中间展示文章，两边展示其他内容或是广告等
+
+
 ### 2.5.1 导航栏
 * 导航条根据用户是否登录展示不同的内容
 ![](https://images.gitee.com/uploads/images/2020/1216/110947_f3e62174_7841459.png "屏幕截图.png")
@@ -1048,5 +1053,329 @@ def login(request):
             })
         })
         ```
+### 2.5.2 侧边栏搭建
+```html
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title">广告</h3>
+              </div>
+              <div class="panel-body">
+                  。。。。。
+              </div>
+            </div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title">广告</h3>
+              </div>
+              <div class="panel-body">
+                  。。。。。
+              </div>
+            </div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title">广告</h3>
+              </div>
+              <div class="panel-body">
+                  。。。。。
+              </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-8">文章</div>
+
+        <div class="col-md-2">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title">广告</h3>
+              </div>
+              <div class="panel-body">
+                  。。。。。
+              </div>
+            </div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title">广告</h3>
+              </div>
+              <div class="panel-body">
+                  。。。。。
+              </div>
+            </div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title">广告</h3>
+              </div>
+              <div class="panel-body">
+                  。。。。。
+              </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
+### 2.5.2 文章区域搭建
+**文章区域样式** 
+![](https://images.gitee.com/uploads/images/2020/1216/201226_5bf93ce3_7841459.png "屏幕截图.png")
+* 在搭建文章区域时，要使用数据，需要提前准备。
+* 使用`admin`后台管理系统可以方便的操作我们的数据表
+* 使用`admin`后台管理系统操作表，先到`app/admin.py`种绑定表
+    ```python
+    from django.contrib import admin
+    from . import models
+    
+    
+    # Register your models here.
+    
+    admin.site.register(models.UserInfo)
+    admin.site.register(models.Blog)
+    admin.site.register(models.Tag)
+    admin.site.register(models.Category)
+    admin.site.register(models.Article)
+    admin.site.register(models.Article2Tag)
+    admin.site.register(models.UpAndDown)
+    admin.site.register(models.Comment)
+    ```
+* `admin`后台展示的表名可以在模型类种定义如下类进行控制
+    ```python
+    class Meta:
+        verbose_name_plural = '用户表'  # 修改admin后台管理的表名
+    ```
+* 如何展示用户头像(开放更多的后台接口)
+    1. 配置`MEDIA_ROOT = os.path.join(BASE_DIR, 'media')`
+    2. 开放接口
+        ```python
+        from django.views.static import serve
+        # 开设后端自定文件夹资源
+        url(r'^media/(?P<path>.*)', serve, {'document_root': MEDIA_ROOT}),
+        ```
+        1. `serve`: 用于开放文件的访问
+        2. `{'document_root': MEDIA_ROOT}`: 指定开发文件的路径
+
+* 展示文章
+    1. 先查询出全部的文章（分页）返回到前端
+        ```python
+        article_queryset = models.Article.objects.all()
+        ```
+    2. 前端    
+        ```django
+        <ul class="media-list">
+            {% for article in article_queryset %}  <!--循环遍历获取文章数据对象-->
+                <li class="media">
+                    <h4 class="media-heading"><a href="#"><h4 class="media-heading">{{ article.title }}<!--文章标题--> </h4></a></h4>
+                    <div class="media-left">
+                      <a href="#">
+                        <img class="media-object" src="/media/{{ article.blog.userinfo.avatar }}" width="50px" height="50px" style="margin-left: 10px"><!--展示头像-->
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      {{ article.desc }} <!--文章简介-->
+                    </div>
+                    <br>
+                    <div>
+                        <span><a href="#">{{ article.blog.userinfo.username }}</a><!--文章作者--></span>&nbsp;&nbsp;
+                        <span>发布于</span>&nbsp;&nbsp;
+                        <span>{{ article.create_time|date:'Y-m-d' }}<!--文章发布事件--></span>&nbsp;&nbsp;
+                        <span><span class="glyphicon glyphicon-thumbs-up"> </span> 点赞 {{ article.up_num }}</span>&nbsp;&nbsp;
+                        <span><span class="glyphicon glyphicon-comment"> </span> 评论 {{ article.comment_num }}</span>&nbsp;&nbsp;
+        
+                    </div>
+                  </li>
+                <hr>
+            {% endfor %}
+        </ul>
+        ```
+## 2.6 个人站点搭建
+**个人站点页面** 在首页(其他页面)上点击用户名，直接跳转到站点首页
+![](https://images.gitee.com/uploads/images/2020/1216/214120_be8f02f3_7841459.png "屏幕截图.png")
+
+```python
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">{{ blog.site_title }}</a> <!--站点标题-->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">博客 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">文章</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+          {% if request.user.is_authenticated %}
+              <li><a href="#">{{ request.user.username }}</a></li>
+               <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多操作 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"  data-toggle="modal" data-target=".bs-example-modal-lg">修改密码</a></li>
+            <li><a href="#">修改头像</a></li>
+            <li><a href="#">后台管理</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="{% url 'userapp:logout' %}">注销</a></li>
+
+
+          </ul>
+           <!-- Large modal -->
+           <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+               <div class="modal-dialog modal-lg" role="document">
+                   <div class="modal-content">
+                       <h1 class="text-center">修改密码</h1>
+                       <div class="row">
+                           <div class="col-md-8 col-md-offset-2">
+                               <div class="form-group">
+                                   <label for="">用户名</label>
+                                   <input type="text" disabled value="{{ request.user.username }}" class="form-control">
+                               </div>
+                               <div class="form-group">
+                                   <label for="id_old_password">原密码</label>
+                                   <input type="password" id="id_old_password" name="old_password" class="form-control">
+                               </div>
+                               <div class="form-group">
+                                   <label for="id_new_password">新密码</label>
+                                   <input type="password" id="id_new_password" name="new_password" class="form-control">
+                               </div>
+                               <div class="form-group">
+                                   <label for="id_confirm_password">确认密码</label>
+                                   <input type="password" id="id_confirm_password" name="confirm_password" class="form-control">
+                               </div>
+                               <div class="modal-footer">
+                                   <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">取消</button>
+                                   <button type="button" class="btn btn-primary" id="id_edit">修改</button>
+                                   <span id="set_error" style="color: red"></span>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+        </li>
+          {% else %}
+              <li><a href="{% url 'userapp:register' %}">注册</a></li>
+              <li><a href="{% url 'userapp:login' %}">登录</a></li>
+          {% endif %}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>  <!--导航条-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">广告</h3>
+                  </div>
+                  <div class="panel-body">
+                      。。。。。
+                  </div>
+                </div>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">广告</h3>
+                  </div>
+                  <div class="panel-body">
+                      。。。。。
+                  </div>
+                </div>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">广告</h3>
+                  </div>
+                  <div class="panel-body">
+                      。。。。。
+                  </div>
+                </div>
+
+        </div>  <!--侧边栏-->
+        <div class="col-md-9">
+            <ul class="media-list">
+                {% for article in article_list %}  <!--站点文章-->
+                    <li class="media">
+                        <h4 class="media-heading"><a href="#"><h4 class="media-heading">{{ article.title }}</h4></a></h4>
+                        <div class="media-left">
+                          <a href="#">
+                            <img class="media-object" src="/media/{{ article.blog.userinfo.avatar }}" width="50px" height="50px" style="margin-left: 10px">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          {{ article.desc }}
+                        </div>
+                        <div class="pull-right">
+                            <span>posted</span>&nbsp;&nbsp;
+                            <span>&copy;</span>
+                            <span>{{ article.create_time|date:'Y-m-d' }}</span>&nbsp;&nbsp;
+                            <span>{{ article.blog.userinfo.username }}</span>&nbsp;&nbsp;
+                            <span>发布于</span>&nbsp;&nbsp;
+                            <span><span class="glyphicon glyphicon-thumbs-up"> </span> 点赞 {{ article.up_num }}</span>&nbsp;&nbsp;
+                            <span><span class="glyphicon glyphicon-comment"> </span> 评论 {{ article.comment_num }}</span>&nbsp;&nbsp;
+                            <span><a href="#">编辑</a></span>
+                        </div>
+                      </li>
+                    <hr>
+                {% endfor %}
+
+            </ul>  <!--个人站点中的文章-->
+        </div>
+    </div>
+</div>
+```
+
+**后端逻辑搭建**
+```python
+def site(request, username):
+    # 获取用户名，匹配站点，匹配成功，返回站点页面
+    user = models.UserInfo.objects.filter(username=username).first()
+    if not user:
+        # 用户不能存在，返回404页面
+        return render(request, 'error.html')
+
+    blog = user.blog  # 获取站点
+    article_list = models.Article.objects.filter(blog=blog)  # 筛选出当前用户站点的文章
+    return render(request, 'site.html', locals())
+```
+
+
+* 避免其他网站，通过`url`访问本网站资源
+    * 检查当前请求是否为本网站发起的请求(请求头中`refer`参数记录请求来自哪里)
+    * 可以通过修改请求头，或使用爬虫程序将资源下载到本地，用于解决无法访问的问题
+
+## 2.7 侧边栏展示搭建
+
+
+
+
+
 
 
