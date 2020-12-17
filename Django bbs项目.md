@@ -1366,12 +1366,213 @@ def site(request, username):
     return render(request, 'site.html', locals())
 ```
 
-
+**图片防盗链**
 * 避免其他网站，通过`url`访问本网站资源
     * 检查当前请求是否为本网站发起的请求(请求头中`refer`参数记录请求来自哪里)
     * 可以通过修改请求头，或使用爬虫程序将资源下载到本地，用于解决无法访问的问题
 
-## 2.7 侧边栏展示搭建
+## 2.7 个人站点的侧边栏跳转搭建
+
+对于侧边栏，是对文章的进一步筛选，不用在开始页面，直接使用`site`站点进行。可以在视图函数中，对文章进行更加严格的条件筛选。
+* `url`的搭建
+    ```python
+    url(r'^(?P<username>\w+)/(?P<condition>category|tag|archive)/(?P<param>.*)/', views.site),  # 侧边栏分类筛选功能
+    ```
+   ```django
+    "/{{ username }}/category/{{ category.2 }}"    <!--分类筛选-->
+    "/{{ username }}/tag/{{ tag.2 }}"              <!--标签筛选-->
+    "/{{ username }}/archive/{{ d.0|date:'Y-m' }}" <!--日期赛选-->
+   ```
+* 数据进一步分类
+    ```python
+    if kwargs:
+        # print(kwargs)  # {'condition': 'tag', 'param': '1'}
+        condition = kwargs.get('condition')
+        param = kwargs.get('param')
+        if condition == 'category':
+            article_list = article_list.filter(category_id=param)
+        elif condition == 'tag':
+            article_list = article_list.filter(tags__pk=param)  # 跨表查询
+        else:
+            year, month = param.split('-')
+            article_list = article_list.filter(create_time__year=year, create_time__month=month)
+    ```
+## 2.8 文章详情
+* `url`设计
+    ```python
+    url(r'^(?P<username>\w+)/article/(?P<article_id>\d+)/', views.article_detail),
+    ```
+* 后端逻辑
+    ```python
+    def article_detail(request, username, article_id):
+        """
+        需要校验username和article_id是否存在
+        :param request:
+        :param username:
+        :param article_id:
+        :return:
+        """
+        blog = models.UserInfo.objects.filter(username=username).first().blog
+        # 先获取文章对象
+        article = models.Article.objects.filter(pk=article_id, blog__userinfo__username=username).first()
+        if not article:
+            return render(request, 'error.html')
+    
+        return render(request, 'article_detail.html', locals())
+    ```
+* 页面，文章详情页和站点首页一致，可以使用模板继承
+* 侧边栏渲染需要传入参数，可以使用`inclusion_tag`，让他渲染好后填入到需要的位置
+    ```python
+    from django import template
+    from userapp import models
+    from django.db.models import Count
+    
+    register = template.Library()
+    
+    
+    # 自定义inclusion_tag
+    @register.inclusion_tag('left_menu.html')
+    def left_menu(username):
+        # 钩爪侧边栏需要的数据
+        user = models.UserInfo.objects.filter(username=username).first()
+        blog = user.blog
+        # 查询出当前用户所以的分类及分类下的文章数
+        category_list = models.Category.objects.filter(blog=blog).annotate(count_num=Count("article__pk")).values_list(
+            'name', 'count_num', 'pk')  # 筛选站点下的分类
+        print(category_list)
+        # 查询出当前用户所有的标签及标签下的文章数
+        tag_list = models.Tag.objects.filter(blog=blog).annotate(count_num=Count("article__pk")).values_list('name',
+                                                                                                             'count_num',
+                                                                                                             'pk')
+        print(tag_list)
+        # 将文章以年月进行分组
+        from django.db.models.functions import TruncMonth
+        date_list = models.Article.objects.filter(blog=blog).annotate(month=TruncMonth('create_time')).values(
+            'month').annotate(count_num=Count('pk')).values_list("month", 'count_num', 'pk')
+        print(date_list)
+        return locals()
+    ```
+* 使用`inclusion_tag`
+    ```django
+    {% load my_tags %}
+    {% left_menu username %}
+    ```
+
+## 2.9 文章点赞点踩
+* 前端，及点赞点踩的判断
+    ```js
+    {# 点赞点踩 #}
+    <div id="div_digg">
+        <div class="diggit action">
+            <span class="diggnum" id="digg_count">1</span>
+        </div>
+        <div class="buryit action">
+            <span class="burynum" id="bury_count">0</span>
+        </div>
+        <div class="clear"></div>
+        <div class="diggword" id="digg_tips">
+        </div>
+    </div>
+    ```
+    * `$(this).hasClass('diggit')`：返回`true`表示点赞，返回`false`表示点踩
+* ajax请求
+    ```js
+    <script src="{% static 'js/ajax_csrf_verify.js' %}"></script>
+    <script>
+    // 给所有的.action绑定事件
+    $(".action").click(function () {
+        {#alert($(this).hasClass('diggit'))#}
+        let is_upper = $(this).hasClass('diggit');
+        let $btn = $(this);
+        // 向后端发送请求
+        $.ajax({
+            url: '/up_and_down/',
+            type: 'post',
+            data: {
+                'article_id': '{{ article.pk }}',
+                "is_upper": is_upper,
+            },
+            success: function (args) {
+                if(args.code === 1000){
+                    $("#digg_tips").text(args.msg)
+                    // 展示数字+1
+                    let oldNum = $btn.children().text();
+                    $btn.children().text(Number(oldNum)+1);
+                } else {
+                    $("#digg_tips").html(args.msg)
+                }
+            }
+    
+        })
+    
+    })
+    
+    </script>
+    ```
+
+* 后端，点赞点踩逻辑较多，所有单独开设一个`url`
+    ```python
+    def up_and_down(request):
+        """
+        处理点赞点踩
+        1. 登录校验
+        2. 文章是否为当前用户写的
+        3. 当前用户是否已经对此文章点过了
+        4. 操作数据库
+        :param request:
+        :return:
+        """
+        import json
+        from django.db.models import F
+        if request.is_ajax():
+            back_dic = {'code': 1000, "msg": ''}
+            # 判断当前用户是否登录
+            if request.user.is_authenticated():
+                article_id = request.POST.get("article_id")
+                is_upper = request.POST.get("is_upper")  # 获取字符串
+                is_upper = json.loads(is_upper)
+                # 2. 判断当前文章是否是当前用户写的
+                article = models.Article.objects.filter(pk=article_id).first()
+                if not (article.blog.userinfo == request.user):
+                    # 3. 校验当前用户是否点赞点踩了
+                    is_click = models.UpAndDown.objects.filter(user=request.user, article=article)
+                    if not is_click:
+    
+                        # 4. 操作数据库记录数据, 同步操作文章表的普通字段
+                        # 判断当前用户是点踩还是点赞
+                        if is_upper:
+                            # 给点赞数+1
+                            models.Article.objects.filter(pk=article_id).update(up_num=F('up_num')+1)
+                            back_dic['msg'] = '点赞成功'
+                        else:
+                            # 给点踩数+1
+                            models.Article.objects.filter(pk=article_id).update(down_num=F('down_num') + 1)
+                            back_dic['msg'] = '点踩成功'
+                        # 操作点赞点踩表
+                        models.UpAndDown.objects.create(user=request.user, article=article, is_up=is_upper)
+                    else:
+                        back_dic['code'] = 1001
+                        back_dic['msg'] = '已经点过了，不能在点击'
+                else:
+                    back_dic['code'] = 1002
+                    back_dic['msg'] = '不能给自己文章点'
+            else:
+                back_dic['code'] = 1003
+                back_dic['msg'] = '请先<a href="/userapp/login/">登录</a>'
+    
+            return JsonResponse(back_dic)
+    ```
+
+## 2.10 根评论
+
+
+
+
+
+
+
+
+
 
 
 
