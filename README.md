@@ -155,6 +155,15 @@ python学习笔记
 
 ## 5.20 [Django bbs项目](https://gitee.com/duyupeng36/python-learn/blob/master/Django%20bbs%E9%A1%B9%E7%9B%AE.md)
 
-
-
 ## [Django复习思维导图](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png)
+
+# 六、基础复习
+## 6.1 [基础复习](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0.md)
+
+
+
+
+
+
+
+
