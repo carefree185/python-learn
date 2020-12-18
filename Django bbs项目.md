@@ -1509,6 +1509,7 @@ def site(request, username):
     
     </script>
     ```
+    * 修改点赞点踩数是，前端页面需要注意获取到的数字是子字符串。需要修改类型
 
 * 后端，点赞点踩逻辑较多，所有单独开设一个`url`
     ```python
@@ -1563,10 +1564,117 @@ def site(request, username):
             return JsonResponse(back_dic)
     ```
 
-## 2.10 根评论
+## 2.10 评论
+**先写根评论，在写子评论，后端逻辑统一**
+* 后端逻辑
+    ```python
+    from django.db import transaction
+    def comment(request):
+        """
+        评论
+        :param request:
+        :return:
+        """
+        if request.is_ajax():
+            back_dic = {'code': 1000, "msg": ''}
+            if request.method == 'POST':
+                if request.user.is_authenticated():
+                    article_id = request.POST.get("article_id")
+                    content = request.POST.get("content")
+                    parent_id = request.POST.get('parent_id')
+    
+                    with transaction.atomic():  # 开启事务
+                        models.Article.objects.filter(pk=article_id).update(comment_num=F("comment_num") + 1)
+                        models.Comment.objects.create(user=request.user, article_id=article_id, content=content,
+                                                      parent_id=parent_id)
+                    back_dic['msg'] = '评论成功'
+                else:
+                    back_dic['code'] = 1001
+                    back_dic['msg'] = '请<a href=/userapp/login/>登录</a>'
+    
+                return JsonResponse(back_dic)
+    ```
 
+* 前端页面
+    ```django
+    {# 评论楼 #}
+    <ul class="list-group">
+    <li class="list-group-item">
+    {% for comment in comment_list %}
+        <span>#{{ forloop.counter }}</span>
+        <span>{{ comment.comment_time|date:'Y-m-d h:M:S' }}</span>
+        <span>{{ comment.user.username }}</span>
+        <span class="pull-right"><a class="reply" username="{{ comment.user.username }}" comment_id="{{ comment.pk }}">回复</a></span>
+        <div>
+        <!--判断当前评论是否是子评论-->
+            {% if comment.parent_id %}
+                <p>@{{ comment.parent.user.username }}</p>
+            {% endif %}
+                <p>{{ comment.content }}</p>
+        </div>
+    {% endfor %}
+    </li>
+    </ul>
+    ```
+* 前端事件
+    ```js
+    // 用户点击提交评论（根评论）
+    var parentPk = null;  // 用于表示该评论是子评论
+    $("#id_submit").click(function () {
+        let content = $("#id_comment").val()
+        // 判断，如果是子评论，去掉@username
+        if (parentPk) {
+            let indexNo = content.indexOf('\n')+1
+            content = content.slice(indexNo)  // 将indexNo将之前的数据切除，保留后面的内容
+        }
+    
+    
+        $.ajax({
+            url: '/comment/',
+            type: 'post',
+            data: {
+                'article_id': '{{ article.pk }}',
+                'content': content,
+                'parent_id': parentPk,  // 如果没有值，也不会影响后端
+            },
+            success: function (args) {
+                if (args.code === 1000) {
+                    $("#error_comment").text(args.msg);
+                    // 清空评论框内容
+                    $("#id_comment").val('');
+                    // 临时渲染评论
+                    let userName = '{{ request.user.username }}';
+                    let tmp = `
+                    <li class="list-group-item">
+                    <span>${userName}</span>
+                    <span class="pull-right"><a href="#">回复</a></span>
+                    <div>
+                    ${content}
+                    </div>
+                    </li>
+                    `;
+                    $(".list-group").append(tmp);
+                    parentPk=null;
+                }
+            }
+    
+        })
+    
+    })
+    
+    // 给回复按钮绑定点击事件（子评论）
+    $(".reply").click(function () {
+        // 获取评论的评论人的姓名。评论的主键值（给回复按钮添加评论姓名，评论主键值属性）
+        let commentUsername = $(this).attr('username')
+        parentPk = $(this).attr('comment_id')  // 设置为全局的parentPK
+        // 拼接 @ + commentUsername
+        $("#id_comment").val("@"+commentUsername + '\n').focus()
+    
+    })
+    ```
 
-
+## 2.11 后台管理
+* `kindeditor`使用
 
 
 
