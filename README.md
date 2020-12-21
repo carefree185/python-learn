@@ -160,7 +160,19 @@ python学习笔记
 # 六、基础复习
 ## 6.1 [基础复习](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0.md)
 
+# 七、DRF(Django-Rest-Framework)
 
+## 7.1 [接口规范](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83.md)
+
+## 7.2 请求响应组件
+
+## 7.3 序列化组件
+
+## 7.4 视图组件
+
+## 7.5 认证组件
+
+## 7.6 `jwt`认证
 
 
 
