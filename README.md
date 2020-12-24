@@ -164,9 +164,9 @@ python学习笔记
 
 ## 7.1 [接口规范](https://gitee.com/duyupeng36/python-learn/blob/master/%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83.md)
 
-## 7.2 请求响应组件
+## 7.2 [请求响应组件](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94%E7%BB%84%E4%BB%B6.md)
 
-## 7.3 序列化组件
+## 7.3 [序列化组件](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%84%E4%BB%B6.md)
 
 ## 7.4 视图组件
 
