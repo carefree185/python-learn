@@ -168,11 +168,11 @@ python学习笔记
 
 ## 7.3 [序列化组件](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%84%E4%BB%B6.md)
 
-## 7.4 视图组件
+## 7.4 [视图组件](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6.md)
 
-## 7.5 认证组件
+## 7.5 [认证组件](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%AE%A4%E8%AF%81%E7%BB%84%E4%BB%B6.md)
 
-## 7.6 `jwt`认证
+## 7.6 [`jwt`认证](https://gitee.com/duyupeng36/python-learn/blob/master/jwt%E8%AE%A4%E8%AF%81.md)
 
 
 
