@@ -2,6 +2,7 @@
 
 #### 介绍
 python学习笔记
+[README](https://gitee.com/duyupeng36/python-learn/blob/master/README.md)
 
 # 一、python基础
 ## 1.1 数据类型
