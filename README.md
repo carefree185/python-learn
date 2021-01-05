@@ -175,7 +175,7 @@ python学习笔记
 
 ## 7.6 [认证组件](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%AE%A4%E8%AF%81%E7%BB%84%E4%BB%B6.md)
 
-## 7.7 [过滤组件](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%87%E6%BB%A4%E7%BB%84%E4%BB%B6.md)
+## 7.7 [过滤，排序与分页](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%87%E6%BB%A4%E7%BB%84%E4%BB%B6.md)
 
 ## 7.8 [`jwt`认证](https://gitee.com/duyupeng36/python-learn/blob/master/jwt%E8%AE%A4%E8%AF%81.md)
 
