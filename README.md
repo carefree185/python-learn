@@ -177,6 +177,9 @@ python学习笔记
 
 ## 7.7 [过滤组件与异常处理](https://gitee.com/duyupeng36/python-learn/blob/master/%E8%BF%87%E6%BB%A4%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.md)
 
+## 补充[项目-图书管理接口](https://gitee.com/duyupeng36/python-learn/blob/master/%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3.md)
+
+
 ## 7.8 [`jwt`认证](https://gitee.com/duyupeng36/python-learn/blob/master/jwt%E8%AE%A4%E8%AF%81.md)
 
 
