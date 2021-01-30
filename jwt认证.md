@@ -271,7 +271,3 @@ class TokenAuthenticate(BaseJSONWebTokenAuthentication):
         auth = request.META.get('HTTP_AUTHORIZATION', b'')
         return auth
 ```
-
-
-
-
