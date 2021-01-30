@@ -239,6 +239,26 @@ urlpatterns = [
 ![](https://images.gitee.com/uploads/images/2021/0130/131659_30768875_7841459.png "屏幕截图.png")
 * 必须要在`Headers`中添加一个`Authorization`属性，该属性的值为`JWT eyJhbGciOiAiSFMyNTYiLCAidHlwIj`这样才会通过认证。 **如果不带`JWT `(末尾有个空格)不会进行认证。** 
 
+```python
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+
+from rest_framework.permissions import IsAuthenticated
+
+
+class Order(APIView):
+    """
+    登录后才能访问
+    """
+    authentication_classes = [JSONWebTokenAuthentication]
+    # 权限控制
+    permission_classes = [IsAuthenticated]  # 不加个权限控制类，则不登录就能访问
+
+    def get(self, request, *args, **kwargs):
+        return Response("订单信息")
+```
+
 ### 2.2.2 自定义JWT认证类
 
 ```python
@@ -270,4 +290,94 @@ class TokenAuthenticate(BaseJSONWebTokenAuthentication):
     def get_jwt_value(request):
         auth = request.META.get('HTTP_AUTHORIZATION', b'')
         return auth
+```
+
+# 三、jwt控制返回数据格式
+jwt返回的数据格式是函数`jwt_response_payload_handler`控制的。只需要从写此函数，然后配置替换成自定义的的就可以了
+```python
+def jwt_response_payload_handler(token, user=None, request=None):
+    """重写返回的数据格式，可以控制"""
+    return {
+        "token": token,
+        "username": user.username
+    }
+```
+
+在settings.py中添加如下配置
+```python
+JWT_AUTH = {
+    # 自定义认证结果：见下方序列化user和自定义response
+    # 如果不自定义，返回的格式是固定的，只有token字段
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'app02.utils.jwt_response_payload_handler',
+}
+```
+返回结果如下
+![](https://images.gitee.com/uploads/images/2021/0130/191504_16252472_7841459.png "屏幕截图.png")
+
+# 四、多方式登录(手动签发token)
+
+## 4.1 视图函数
+```python
+class LoginView(ViewSet):
+
+    def login(self, request, *args, **kwargs):
+        """
+        登录接口
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        login_ser = serializer.LoginModelSerializer(data=request.data, context={})
+        login_ser.is_valid()
+        token = login_ser.context.get('token')
+        return Response({"code": 100, "msg": "登录成功", "token": token})
+```
+
+## 4.2 序列化器
+```python
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+from rest_framework_jwt.utils import jwt_payload_handler, jwt_encode_handler
+
+from api import models
+
+
+class LoginModelSerializer(serializers.ModelSerializer):
+    # 登录请求，走的是post方法，默认post方法完成的是create入库校验，所以唯一约束的字段，会进行数据库唯一校验，导致逻辑相悖
+    # 需要覆盖系统字段，自定义校验规则，就可以避免完成多余的不必要校验，如唯一字段校验
+    username = serializers.CharField()
+    
+    class Meta:
+        model = models.User
+        fields = ("username", "password")
+
+    def validate(self, attrs):
+        # 在全局钩子中，才能提供提供的所需数据，整体校验得到user
+        # 再就可以调用签发token算法，将user信息转换为token
+        # 将token存放到context属性中，传给外键视图类使用
+        user = self._get_user(attrs)
+        payload = jwt_payload_handler(user)
+        token = jwt_encode_handler(payload)
+        self.context['token'] = token
+        return attrs
+
+    # 多方式登录
+    def _get_user(self, attrs):
+        username = attrs.get('username')
+        password = attrs.get('password')
+        import re
+        if re.match(r'^1[3-9][0-9]{9}$', username):
+            # 手机登录
+            user = models.User.objects.filter(mobile=username, is_active=True).first()
+        elif re.match(r'^.+@.+$', username):
+            # 邮箱登录
+            user = models.User.objects.filter(email=username, is_active=True).first()
+        else:
+            # 账号登录
+            user = models.User.objects.filter(username=username, is_active=True).first()
+        if user and user.check_password(password):
+            return user
+
+        raise ValidationError({'user': 'user error'})
 ```
