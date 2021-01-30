@@ -182,7 +182,7 @@ python学习笔记
 
 ## 7.8 [`jwt`认证](https://gitee.com/duyupeng36/python-learn/blob/master/jwt%E8%AE%A4%E8%AF%81.md)
 
-
+## 补充[作业-完成用户的注册查询修该等接口](https://gitee.com/duyupeng36/python-learn/blob/master/%E4%BD%9C%E4%B8%9A-%E5%AE%8C%E6%88%90%E7%94%A8%E6%88%B7%E7%9A%84%E6%B3%A8%E5%86%8C%E6%9F%A5%E8%AF%A2%E4%BF%AE%E8%AF%A5%E7%AD%89%E6%8E%A5%E5%8F%A3.md)
 
 
 
