@@ -187,4 +187,5 @@ python学习笔记
 
 ## 7.9 [RBAC-基于角色的访问控制](https://gitee.com/duyupeng36/python-learn/blob/master/RBAC-%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6.md)
 
+## 7.10 [Django缓存机制](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.md)
 
