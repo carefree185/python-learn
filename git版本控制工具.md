@@ -2,13 +2,13 @@
 
 
 `git`是一个分布式的版本控制软件。
-![](./.img/git.jpg)
+![](https://gitee.com/duyupeng36/lufflyapi/tree/dev/.img/git.jpg)
 
 与另外一个版本控制软件svn对比，svn是集中式管理代码。
-![](./.img/svn.jpg)
+![](https://gitee.com/duyupeng36/lufflyapi/tree/dev/.img/svn.jpg)
 
 ## 1.1 git工作流程
-![](./.img/git工作流程.jpg)
+![](https://gitee.com/duyupeng36/lufflyapi/tree/dev/.img/git工作流程.jpg)
 
 本地git划分了三个区域**工作区、暂存区、版本库** 和 **远程版本库**
 
@@ -29,7 +29,7 @@
    * 拉取到本地仓库
 
 ## 1.2 git分支管理
-![](./.img/git分支管理.jpg)
+![](https://gitee.com/duyupeng36/lufflyapi/tree/dev/.img/git分支管理.jpg)
 
 分支: <font color="yellowgreen">项目开发的时间轴，一个时间节点代表版本库中的一个版本</font>
 
@@ -148,6 +148,6 @@ git push -u origin master
     * 生成到用户家目录下的.ssh文件夹里面
 
 2. 将公钥给远程仓库
-![img.png](./.img/gitee添加ssh公钥.png)
+![img.png](https://gitee.com/duyupeng36/lufflyapi/tree/dev/.img/gitee添加ssh公钥.png)
 
 打开家目录下的`.ssh/id_rsa.pub`，中的内容复制添加到上面区
