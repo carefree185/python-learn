@@ -190,4 +190,11 @@ python学习笔记
 ## 7.10 [Django缓存机制](https://gitee.com/duyupeng36/python-learn/blob/master/Django%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.md)
 
 # 八、git版本控制工具
+## 8.1 [git版本控制工具](https://gitee.com/duyupeng36/python-learn/blob/master/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7.md)
+
+# 九、redis缓存数据库
+## 9.1 [redis基本操作](https://gitee.com/duyupeng36/python-learn/blob/master/rdis%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.md)
+## 9.2 [python操作redis](https://gitee.com/duyupeng36/python-learn/blob/master/python%E6%93%8D%E4%BD%9Credis.md)
+## 9.3 [django中使用redis](https://gitee.com/duyupeng36/python-learn/blob/master/django%E4%B8%AD%E4%BD%BF%E7%94%A8redis.md)
+
 
