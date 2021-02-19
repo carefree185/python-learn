@@ -198,3 +198,5 @@ python学习笔记
 ## 9.3 [django中使用redis](https://gitee.com/duyupeng36/python-learn/blob/master/django%E4%B8%AD%E4%BD%BF%E7%94%A8redis.md)
 
 
+# 十、celery异步任务框架
+## 10.1 [celery异步任务框架](https://gitee.com/duyupeng36/python-learn/blob/master/celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%A1%86%E6%9E%B6.md)
