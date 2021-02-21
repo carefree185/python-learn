@@ -135,9 +135,9 @@ python学习笔记
 
 ## 5.10 [Django模板语法](./Django框架/Django模板语法.md)
 
-## 5.11 [Django ORM查询](./Django框架/Django ORM查询.md)
+## 5.11 [Django ORM查询](./Django框架/Django-ORM查询.md)
 
-## 5.12 [Django BMS图书管理系统](./Django框架/Django BMS图书管理系统.md)
+## 5.12 [Django BMS图书管理系统](./Django框架/Django-BMS图书管理系统.md)
 
 ## 5.13 [Django数据库设计范式](./Django框架/Django数据库设计范式.md)
 
@@ -152,9 +152,9 @@ python学习笔记
 ## 5.18 [Django 中间件与跨域请求](./Django框架/Django 中间件与跨域请求.md)
 ### [补充模块](./Django框架/补充模块.md)
 
-## 5.19 [Django auth模块](./Django框架/Django auth模块.md)
+## 5.19 [Django auth模块](./Django框架/Django-auth模块.md)
 
-## 5.20 [Django bbs项目](./Django框架/Django bbs项目.md)
+## 5.20 [Django bbs项目](./Django框架/Django-bbs项目.md)
 
 ## [Django复习思维导图](./Django框架/Django思维导图.png)
 
