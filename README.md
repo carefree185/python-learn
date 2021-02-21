@@ -123,7 +123,7 @@ python学习笔记
 
 ## 5.4 [Django项目初始](./Django框架/Django项目初始.md)
 
-## 5.5 [Django ORM](./Django框架/Django ORM.md)
+## 5.5 [Django ORM](./Django框架/Django-ORM.md)
 
 ## 5.6 [Django简单操作数据库](./Django框架/Django简单操作数据库.md)
 
@@ -145,11 +145,11 @@ python学习笔记
 
 ## 5.15 [Django自带序列化组件与分页操作](./Django框架/Django自带序列化组件.md)
 
-## 5.16 [Django forms组件](./Django框架/Django forms组件.md)
+## 5.16 [Django forms组件](./Django框架/Django-forms组件.md)
 
-## 5.17 [Django cookie和session](./Django框架/Django cookie和session.md)
+## 5.17 [Django cookie和session](./Django框架/Django-cookie和session.md)
 
-## 5.18 [Django 中间件与跨域请求](./Django框架/Django 中间件与跨域请求.md)
+## 5.18 [Django 中间件与跨域请求](./Django框架/Django-中间件与跨域请求.md)
 ### [补充模块](./Django框架/补充模块.md)
 
 ## 5.19 [Django auth模块](./Django框架/Django-auth模块.md)
