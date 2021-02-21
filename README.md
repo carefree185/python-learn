@@ -200,3 +200,9 @@ python学习笔记
 
 # 十、celery异步任务框架
 ## 10.1 [celery异步任务框架](https://gitee.com/duyupeng36/python-learn/blob/master/celery%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%A1%86%E6%9E%B6.md)
+
+
+# 十一、Linux操作
+
+## 11.1 [基本命令](https://gitee.com/duyupeng36/python-learn/blob/master/Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4.md)
+
