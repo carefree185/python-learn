@@ -210,5 +210,6 @@ python学习笔记
 ## 11.4 [网络与下载工具](./Linux系统/网络.md)
 ## 11.5 [进程与系统工具](./Linux系统/进程与系统工具.md)
 ## 11.6 [python虚拟环境配置](./Linux系统/python虚拟环境配置.md)
+## 11.7 [MariaDB](./Linux系统/MySQL.md)
 
 
