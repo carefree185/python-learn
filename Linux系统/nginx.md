@@ -248,3 +248,163 @@ server  {
 listen 80 default_server;
 ```
 
+## nginx日志
+
+```shell
+log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                  '$status $body_bytes_sent "$http_referer" '
+                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+access_log  logs/access.log  main;
+```
+
+* `remote_addr` 访问ip地址
+* `remote_user` 访问的用户 
+* `time_local` 本地时间
+* `request` 包括请求方式  请求地址  请求协议版本
+* `status` 状态码
+* `body_bytes_sent` 发送的大小
+* `http_user_agent` 用户的请求头
+* `http_x_forwarded_for` 用户的真正的ip地址
+
+## 禁止访问
+写在`server`或者`location`里面
+```shell
+deny 192.168.21.1;  # 紧张ip地址
+allow 192.168.21.131;  # 允许访问ip地址
+deny 192.168.21.0/24;  # 禁止网段
+```
+**先写允许，在写禁止，可以做到白名单效果**
+
+
+## 反向代理与负载均衡
+- 起到保护网站安全的作用
+- 可以缓存静态文件
+- 实现负载均衡 `F5 A10 lvs haproxy  nginx`
+
+### 负载均衡配置
+```shell
+upstream django {
+	server 192.168.21.128:81;
+}
+
+server {
+	listen       80 default_server;
+	listen       [::]:80 default_server;
+	server_name  _;
+	
+	# Load configuration files for the default server block.
+	include /etc/nginx/default.d/*.conf;
+	
+	location / {
+		proxy_pass http://django;
+	}
+}
+```
+
+### 权重wight
+
+```shell
+upstream django {
+	server 192.168.21.128:81 weight=3;
+	server 192.168.21.131:81
+}
+ server {
+    listen       80 default_server;
+    listen       [::]:80 default_server;
+    server_name  _;
+
+    # Load configuration files for the default server block.
+    include /etc/nginx/default.d/*.conf;
+
+    location / {
+    	proxy_pass http://django;
+    }
+}
+        
+# 得到的结果是
+# 访问128的3次,才访问131的一次
+```
+### ip_hash
+每个请求的`ip`做`hash`运算，这样每个固定的访客都会被负载到后端固定的机器
+```shell
+upstream django {
+	ip_hash;
+	server 192.168.21.128:81
+	server 192.168.21.131:81
+}
+```
+
+### backup
+当前面的都访问不到，则请求backup的备份,只要有一个通，则不会走backup
+```shell
+upstream django {
+	server 192.168.21.128:81;
+	server 192.168.21.131:81;
+	server 192.168.21.131:82 backup;
+}
+```
+
+## nginx location匹配规则
+```shell
+location = / {
+	# 精确匹配/ ,后面不能带其他的东西
+    [ configuration A ]
+}
+
+location / {
+	# 所有的以/开头的地址
+    [ configuration B ]
+}
+
+location /documents/ {
+	# 只匹配/documents/
+    [ configuration C ]
+}
+
+location ^~ /images/ {
+	# 匹配以/images/开头。
+	# ~严格大小写
+    [ configuration D ]
+}
+
+location ~* \.(gif|jpg|jpeg)$ {
+	# 以(gif|jpg|jpeg)结尾的文件
+	# ~* 不区分大小写
+    [ configuration E ]
+}
+```
+优先级
+`= > 完整路径 > ^~ > /`
+
+### 动静分离
+将静态文件和模板访问的location规则分离
+```shell
+server  {
+	listen 80 ;
+	server_name www.taobao.com taobao.com;
+	
+	location / {
+		proxy_pass http://192.168.21.131:82;
+	}
+	
+	location ~*\.(jpg|gif|png)$ {
+		root /data/img;
+	}
+}
+```
+
+## status状态
+```shell
+location /status {
+	stub_status on;
+}
+```
+
+## gzip压缩
+提高响应速度，节省带宽
+```shell
+gzip on
+```
+
+
