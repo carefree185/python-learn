@@ -138,5 +138,114 @@ Last_IO_Error: Fatal error: The slave I/O thread stops because master and slave 
 ```
 需要删除从服务器中的`data`目录下的`auto.cnf`，然后从前数据库
 
-# MySQL
+# MySQL数据备份
+
+## mysqldump
+- 锁表
+- 备份特别慢，适用于数据量较小
+- 不可以做增量备份
+- 单线程
+
+**常用选项**
+ * `-A, --all-databases` 所有的库
+ * `-B` 指定备份的库
+ * `-F` 备份前刷新日志
+ * `--flush-privileges` 刷新授权表
+ * `-p` 密码
+ * `-u` 用户
+ * `-P` 端口
+
+
+ ### 备份
+ ```
+ mysqldump -uroot -S /mydata/mysql/mysql.sock -A -p > mysql.sql
+ ```
+ ### 恢复一
+ `直接在数据库里面source mysql.sql文件`
+ ### 恢复二
+```
+mysql -uroot -p < mysql.sql
+```
+
+## xtrabackup
+
+- 多进程
+- 支持增量备份
+- 锁行
+
+**安装**
+```shell
+yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm # 安装yum仓库
+yum install -y percona-xtrabackup-24
+```
+
+**常用选项**
+* `--target-dir=name #` 指定备份生成的目录
+* `--backup` 备份
+* `--prepare` 准备
+* `--databases=name`    filtering by list of databases.
+* `--databases-file=name` 配置文件
+
+ 
+### 创建用户
+```shell
+mysql> create user 'backup'@'localhost' identified by 'backup';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> grant reload,lock tables,process,replication client on *.* to 'backup'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+```
+
+### 备份
+```shell
+xtrabackup --backup --target-dir=/mydata/backup/base -ubackup -pbackup --socket=/mydata/mysql/mysql.sock
+### 看得如下信息，代表成功
+xtrabackup: Transaction log of lsn (5480853) to (5480862) was copied.
+190902 09:25:09 completed OK!
+```
+
+### 恢复
+#### 准备恢复文件
+```shell
+xtrabackup --prepare --target-dir=/mydata/backup/base  # 准备恢复文件
+# 准备成功输出
+InnoDB: Starting shutdown...
+InnoDB: Shutdown completed; log sequence number 5482536
+190902 09:28:12 completed OK!
+```
+#### 恢复文件
+将数据复制到mysql的data目录下
+```shell
+cd /mydata/backup/base
+cp -rf hello /mydata/mysql/
+chown mysql.mysql /mydata/mysql/hello/ -R  # 修改属组和属主
+```
+#### 恢复全部
+
+```shell
+xtrabackup --copy-back --target-dir=/mydata/backup/base
+chown mysql.mysql * -R
+```
+
+#### 增量式备份
+```shell
+xtrabackup --backup --target-dir=/mydata/backup/t1 --incremental-basedir=/mydata/backup/base -uroot -p --socket=/mydata/mysql/mysql.sock
+# --incremental-dir 全备的路径
+xtrabackup --backup --target-dir=/mydata/backup/t2 --incremental-basedir=/mydata/backup/t1 -uroot -p --socket=/mydata/mysql/mysql.sock
+# --incremental-basedir 应该是上一次的增量备份目录
+```
+
+#### 恢复(先全部删除原有文件才能恢复)
+```shell
+xtrabackup --prepare --apply-log-only --target-dir=/mydata/backup/base
+xtrabackup --prepare --apply-log-only --target-dir=/mydata/backup/base --incremental-dir=/mydata/backup/t1
+xtrabackup --prepare --apply-log-only --target-dir=/mydata/backup/base --incremental-dir=/mydata/backup/t2
+
+xtrabackup --copy-back --target-dir=/mydata/backup/base
+chown mysql.mysql * -R
+systemctl restart mysqld
+```
 
