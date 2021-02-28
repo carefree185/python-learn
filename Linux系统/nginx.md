@@ -408,3 +408,99 @@ gzip on
 ```
 
 
+# nginx + uwsgi + django部署项目
+
+`WSGI`: 描述web服务程序与web应用程序数据交换的协议
+
+`wsgi`: 协议的实现方式
+
+`uwsgi`: 描述web服务程序与web应用程序数据交换的协议
+
+`uWSGI`: 协议的实现方式
+
+## 命令行启动
+```shell
+cd django项目所在目录
+uwsgi --http :8080 --module mysite.wsgi
+```
+
+## uwsgi配置文件启动
+```shell
+[uwsgi]
+http = :8080
+#项目路径
+chdir= /data/mysite
+# wsgi的文件
+wsgi-file= mysite/wsgi.py
+# 虚拟环境
+# virtualenv = /root/env
+# 进程个数
+processes = 2
+# 线程个数
+threads=2
+# 后台启动，指定日志的输出
+daemonize=/data/mysite/django.log
+# 清除临时文件
+vacuum = true
+# python文件发生改变自动重启
+py-autoreload=1
+```
+**启动**
+`uwsgi --ini file`
+
+## nginx启动
+
+uwsgi不能处理静态文件，需要nginx来处理
+```shell
+server {
+	listen 80;
+	server_name crm.oldboy.com;
+	location / {
+		proxy_pass http://127.0.0.1:8080;  # 跳转访问
+	}
+	# 静态文件
+	location /static {
+		root /data/supercrm;
+	}
+}
+```
+
+django配置文件中添加
+```shell
+SATAIC_ROOT=os.path.join(BASE_DIR,'static/')
+```
+
+执行命令收集静态文件
+```shell
+python3 manager.py collectstatic #用来收集静态文件
+```
+
+****
+
+## 其他启动配置
+方式一 (官网推荐)
+```shell
+# uwsgi配置修改
+socket= :9090
+
+# nginx的配置文件修改
+location / {
+		include uwsgi_params;
+		uwsgi_pass 127.0.0.1:8080;
+}
+```
+
+方式二
+```shell
+# uwsgi
+socket = file.sock
+
+# nginx的配置文件
+location /{
+	include uwsgi_params;
+	uwsgi_pass unix://file.sock
+}
+```
+
+
+ 
