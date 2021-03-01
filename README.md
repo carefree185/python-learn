@@ -212,5 +212,6 @@ python学习笔记
 ## 11.6 [python虚拟环境配置](./Linux系统/python虚拟环境配置.md)
 ## 11.7 [MySQL](./Linux系统/MySQL.md)
 ## 11.8 [nginx](./Linux系统/nginx.md)
+## 11.9 [redis](./Linux系统/redis.md)
 
 
