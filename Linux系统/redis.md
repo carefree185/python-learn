@@ -1371,3 +1371,33 @@ $ cat log/redis-6379.log
 [OK] All 16384 slots covered.
 ```
 
+
+#### 3.5 连接
+连接时需要指定`-c`
+```shell
+redis-cli -c -p 6380
+```
+
+****
+新版创建集群地命令
+```shell
+./src/redis-cli --cluster help
+./src/redis-cli --cluster create --cluster-replicas 1 127.0.0.1:6380 127.0.0.1:6381 127.0.0.1:6382 127.0.0.1:6383 127.0.0.1:6384 127.0.0.1:6385
+create 创建集群
+check 检查集群
+info  查看集群信息
+fix 修复集群
+```
+
+
+## python操作redis集群
+```shell
+import rediscluster
+nodes=[{"host":"192.168.21.128","port":6380},{"host":"192.168.21.128","port":6381},{"host":"192.168.21.128","port":6382},{"host":"192.168.21.128","port":6383},{"host":"192.168.21.128","port":6384},{"host":"192.168.21.138","port":6385}]
+
+c=rediscluster.RedisCluster(startup_nodes=nodes,decode_responses=True)
+print(c.get('name'))
+```
+
+
+
