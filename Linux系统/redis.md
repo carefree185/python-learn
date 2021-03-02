@@ -1392,12 +1392,14 @@ fix 修复集群
 
 ## python操作redis集群
 ```shell
+pip install redis-py-cluster
+```
+
+```shell
 import rediscluster
 nodes=[{"host":"192.168.21.128","port":6380},{"host":"192.168.21.128","port":6381},{"host":"192.168.21.128","port":6382},{"host":"192.168.21.128","port":6383},{"host":"192.168.21.128","port":6384},{"host":"192.168.21.138","port":6385}]
 
 c=rediscluster.RedisCluster(startup_nodes=nodes,decode_responses=True)
 print(c.get('name'))
 ```
-
-
 
