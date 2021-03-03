@@ -178,12 +178,26 @@ pip check package # 检查package包的依赖是否合适
 	conda install --yes --file requirements.txt
 	```
 
-## jupyter notebook默认工作目录设置
+# jupyter notebook
+
+## 默认工作目录设置
 * `jupyter notebook --generate-config`: 创建jupyter的配置文件`jupyter_notebook_config.py`
 
 * 修改, 打开`jupyter_notebook_config.py`修改
 	```shell
 	c.NotebookApp.notebook_dir = 只定义path     //修改到自定义文件夹
 	```
+## 常用快捷键
 
-
+- `cell`是分为不同模式的：
+    - `Code`:编写python代码
+    - `markDown`：编写笔记
+- 快捷键：
+    - 添加cell：`a`，`b`
+    - 删除cell：`x`
+    - 执行：`shift+enter`
+    - tab：
+    - 切换cell的模式：
+        - `m`
+        - `y`
+    - 打开帮助文档：`shift+tab`
