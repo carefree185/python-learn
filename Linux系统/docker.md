@@ -328,7 +328,44 @@ CMD python3 manage.py runserver 0.0.0.0:8080  # 运行python项目
 
 ## docker 仓库
 
-* `docker login` 登录仓库 
+### 提交到公共仓库
+0. 注册
+
+1. `docker login` 登录仓库 
+
+2. `docker tag imageName newImageName`: 修改tag
+	
+3. `docker push imageName`: 提交到公共仓库 
+
+#### 提交到私有长裤
+1. `docker run -p 5000:5000 -d -v /opt/data/registry:/var/lib/registry registry`: 安装本地仓库
+
+2. `docker tag imageName 127.0.0.1:5000/imageName`: 修改tag
+
+3. `docker push 127.0.0.1:5000/imageName`: 提交本地仓库
+
+4. `curl 127.0.0.1:5000/版本/_catalog`: 检查是否提交成功
+
+##### 本地仓库镜跨机器下载配置
+```shell
+vim /etc/docker/daemon.json
+# 添加内容
+{
+    "registry-mirrors": [
+        "https://1nj0zren.mirror.aliyuncs.com",
+        "https://docker.mirrors.ustc.edu.cn",
+        "http://f1361db2.m.daocloud.io",
+        "https://registry.docker-cn.com"
+    ],
+ "insecure-registries": [
+    "192.168.21.128:5000"
+  ]
+
+}
+# 保存退出执行如下命令
+systemctl daemon-reload 
+systemctl restart docker
+```
 
 
 
