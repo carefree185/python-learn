@@ -183,7 +183,7 @@ pip check package # 检查package包的依赖是否合适
 
 * 修改, 打开`jupyter_notebook_config.py`修改
 	```shell
-	c.NotebookApp.notebook_dir = 'E:\\tf_models'     //修改到自定义文件夹
+	c.NotebookApp.notebook_dir = 只定义path     //修改到自定义文件夹
 	```
 
 
