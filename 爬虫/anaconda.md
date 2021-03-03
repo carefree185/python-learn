@@ -116,10 +116,10 @@ pip config get global.index-url # 得到这key对应的value 如：https://mirro
 
 # 添加
 pip config set key value
-#添加数据源：例如, 添加USTC中科大的源：
-pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple
+#添加数据源：例如, 添加阿里云的源：
+pip config set global.index-url http://mirrors.aliyun.com/pypi/simple/
 #添加全局使用该数据源
-pip config set global.trusted-host https://mirrors.ustc.edu.cn/pypi/web/simple
+pip config set global.trusted-host mirrors.aliyun.com
 
 # 删除
 pip config unset key
