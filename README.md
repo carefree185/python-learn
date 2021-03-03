@@ -215,4 +215,10 @@ python学习笔记
 ## 11.9 [redis](./Linux系统/redis.md)
 ## 11.10 [docker](./Linux系统/docker.md)
 
+# 十二、爬虫
+
+## 12.1 [anaconda](./爬虫/anaconda.md)
+
+## 12.2 [requests](./爬虫/requests.md)
+
 
