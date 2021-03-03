@@ -367,5 +367,45 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
+## docker编排工具
+- swarm
+- mesos
+- k8s kubernetes
+- compose 嫡系
 
+详细参考: https://docs.docker.com/compose/
 
+### compose
+
+docker官方推出的编排工具，使用`pip`即可方便的安装下来
+```shell
+pip3 install docker-compose
+```
+
+`compose`是给予`yaml`语法的配置文件。
+
+**yaml语法**
+- 列表: `- 内容`
+- 字典: `key: value`，键值之间必须要有空格
+
+后缀名 `yaml yml`
+
+### compose配置文件
+
+创建文件: `vim docker-compose.yml`
+```yaml
+version: '3.4'
+services:
+ web:
+  build:    #编译
+    context: . 
+    dockerfile: flaskdf
+  ports:   #指定端口
+    - "15000:5000"
+ redis:
+   image: 'redis' # 指定镜像文件
+```
+
+**启动**: `docker-compose up`
+
+**官方文档**：https://docs.docker.com/
