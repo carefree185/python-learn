@@ -399,13 +399,19 @@ services:
  web:
   build:    #编译
     context: . 
-    dockerfile: flaskdf
+    dockerfile: Dockerfile  # 指定dockerfile文件
   ports:   #指定端口
     - "15000:5000"
  redis:
    image: 'redis' # 指定镜像文件
 ```
+**编译命令**: `docker-compose build`
 
-**启动**: `docker-compose up`
+**启动命令**: `docker-compose up`
+
+* `-f file.yml`: 制定文件
+
+**查看更多选项**
+* `docker-compose --help`
 
 **官方文档**：https://docs.docker.com/
