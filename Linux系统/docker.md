@@ -123,13 +123,13 @@ sudo service docker start
     ]
 }
 ```
-保存退出后，执行如下命令
+保存退出后，执行如下指令
 ```shell
 systemctl daemon-reload 
 systemctl restart docker
 ```
 
-## docker命令
+## docker指令
 
 * `docker run hello-world`: 运行镜像
 
@@ -159,7 +159,7 @@ systemctl restart docker
 	-q 只查看容器的id
 	```
 
-* 容器执行命令
+* 容器执行指令
 	```shell
 	docker run centos /bin/echo 'hongxu'
 	```
@@ -207,7 +207,7 @@ systemctl restart docker
 	docker load < mycentos.tar.gz 
 	```
 
-**补充linux命令**: `scp`: `linux`之间互相传递文件
+**补充linux指令**: `scp`: `linux`之间互相传递文件
 
 * `docker port name|id`: 查看docker容器端口与宿主机端口的映射关系
 	
@@ -230,8 +230,105 @@ systemctl restart docker
 
 ## Dockerfile文件
 ```shell
-FROM 镜像名称
-RUN 命令
+FROM mycentos  # 指定基础镜像
+COPY epel.repo /etc/yum.repos.d/ # 复制文件
+RUN  yum install -y nginx  # 运行指令
+RUN  mdkir /data/html
+RUN  echo 'mynginx' > /data/html/index.html
+COPY nginx.conf /etc/nginx/nginx.conf #只复制
+ADD # 复制并解压压缩包
+ENV  alex=alexdsb   # 设置环境变量
+ENV  wulaoban=dsb
+WORKDIR /data/html  # 设置工作目录，exec进入之后直接进入的目录
+EXPOSE 80 # 设置端口
+VOLUME # 指定容器的目录
+CMD /bin/bash -c systemctl start nginx # 运行指令
 ```
+
+* `FROM`: 指定进程镜像, 指令格式如下:
+  
+  `FRIM <imagesName:tag>`
+
+* `MAINTAINER`: 设置维护者信息，指令格式如下:
+  
+  `MAINTAINER Name <Emain>`
+
+* `RUN`: 执行构建指令(shell指令或DOS指令)，指令格式如下
+
+  `RUN <shellCommand>`, `RUN [程序名, 参数1, 参数2, ...]`
+
+* `ENV`: 设置镜像环境变量, 指令格式如下:
+
+  `ENV <key> <value>`
+
+* `COPY`: 复制本地文件到镜像, 指令格式如下:
+
+  `COPY /Local/Path/File /Image/Path/File`
+
+* `ADD`: 添加文件，指令格式如下; 不能使用相对路径
+
+  `ADD File /Image/Path/File`  
+
+* `EXPOSE`: 指定暴露端口，指令格式如下
+
+  `EXPOSE <port1> [<port2> ...]`
+
+* `CMD`: 设置镜像启动命令，指令格式如下:
+
+  `CMD ['executable', 'param1', 'param2', ...]`
+
+* `ENTRYPOINT`: 设置接入点，与`CMD`相似
+
+* `VOLUME`: 设置数据卷，指令格式如下
+
+  `VOLUME [PATH1, PATH2, ...]`, `VOLUME PATH`
+
+* `USER`: 构建用户，指令格式如下
+
+  `USER user`, `USER user:group`, `USER uid:gid`
+
+* `WORKDIR`: 设置工作目录，指令格式如下
+
+ `WORKDIR PATH`, 制定`RUN`, `CMD` 和 `ENTRYPOINT`的工作目录
+
+* `ONBUILD`: 二次构建指令，在子镜像构建是执行，指令格式如下
+
+  `ONBUILD command`
+
+* `LABEL`: 添加元数据到镜像
+
+* `AGR`: 设置构建变量，构建时使用
+
+* `STOPSIGNAL`: 停止信号
+
+  `STOPSIGNAL Signal`
+
+* `HEALTHCHECK`: 检查镜像状态
+
+* `SHELL`: 设置命令执行环境
+
+详细内容参考: https://docs.docker.com/engine/reference/builder/
+
+**编译Dockerfile**
+* `docker build -t name:tag -f dockerfile .`
+
+
+### 部署django项目
+```shell
+FROM centos
+COPY epel.repo /etc/yum.repos.d/
+RUN yum install -y python36 python36-pip python36-devel
+RUN pip3 install django==1.11 pymysql django-multiselectfield -i https://pypi.douban.com/simple
+COPY supercrm /data/supercrm  # 复制Django项目到镜像
+WORKDIR /data/supercrm
+RUN python3 manage.py migrate  # 数据库迁移
+EXPOSE 8080  # 暴露端口
+CMD python3 manage.py runserver 0.0.0.0:8080  # 运行python项目
+```
+
+## docker 仓库
+
+* `docker login` 登录仓库 
+
 
 
