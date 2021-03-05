@@ -219,6 +219,9 @@ python学习笔记
 
 ## 12.1 [anaconda](./爬虫/anaconda.md)
 
-## 12.2 [requests](./爬虫/requests.md)
+## 12.2 [爬虫初始](./爬虫/爬虫初识.ipynb)
+
+## 12.2 [urllib](./爬虫/urllib库的使用.ipynb)
+
 
 
