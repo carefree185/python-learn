@@ -104,6 +104,7 @@ conda install --use-local  ~/Downloads/a.tar.bz2
 	  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
 	  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 	  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+      - default
 	show_channel_urls: true
 	```
 
