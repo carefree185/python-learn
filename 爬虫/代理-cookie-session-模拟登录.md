@@ -128,7 +128,7 @@ for page in range(1, 101):
     else:
         continue
     print(proxies_http_list, proxies_https_list)
-    with open('ip.json', 'w', encoding='utf8') as f:
+    with open('code/ip.json', 'w', encoding='utf8') as f:
         json.dump(proxies_http_list, f, ensure_ascii=False)
         json.dump(proxies_https_list, f, ensure_ascii=False)
 
@@ -140,7 +140,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36",
     "Connection": 'close'
 }
-fp = open("ip.json", 'r', encoding='utf-8')
+fp = open("code/ip.json", 'r', encoding='utf-8')
 
 ip_list = json.load(fp)
 
@@ -288,27 +288,27 @@ print(r.json())
 定位到`pytesseract`源码将`tesseract_cmd`修改为自己安装目录下载的`tesseract`即可
 
 **测试识别示例1**
-![](./test.png)
+![](code/test.png)
 
 ```python
 import pytesser3
 from PIL import Image
 
-im = Image.open('test.png')
+im = Image.open('code/test.png')
 print(pytesser3.image_to_string(im))
 ```
 
 识别成功
 
 **测试识别示例2**
-![](./test.png)
+![](code/test.png)
 
 ```python
 import pytesseract
 from PIL import Image
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-im = Image.open('test.png')
+im = Image.open('code/test.png')
 print(pytesseract.image_to_string(im))
 ```
 
@@ -512,99 +512,103 @@ def depoint(img, N=2):
 
 
 #### 图片识别的完整流程
+
 ```python
 import pytesseract
 from PIL import Image
+
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-im=Image.open('test.jpg')
+im = Image.open('code/test.jpg')
 # print(pytesseract.image_to_string(im))
 
 # 第一步 转为灰度图
 im = im.convert('L')  # 转为灰度图
 
+
 # 第二步 二值化
 def iterGetThreshold(img, pixdata, width, height):
-    """
-    迭代法，求阈值
-    """
-    pixPrs = pixBac = []  # 用于统计前景和背景平均阈值
-    threshold = 0
-    pixel_min, pixel_max = img.getextrema()  # 获得图片中最大和最小灰度值
-    newThreshold = int((pixel_min + pixel_max) / 2)  # 初始阈值
+  """
+  迭代法，求阈值
+  """
+  pixPrs = pixBac = []  # 用于统计前景和背景平均阈值
+  threshold = 0
+  pixel_min, pixel_max = img.getextrema()  # 获得图片中最大和最小灰度值
+  newThreshold = int((pixel_min + pixel_max) / 2)  # 初始阈值
 
-    while True:
-        if abs(threshold - newThreshold) < 5:  # 差值小于5,退出
-            break
-        for y in range(height):
-            for x in range(width):
-                if pixdata[x, y] >= newThreshold:
-                    pixBac.append(pixdata[x, y])  # 大于阈值 为背景
-                else:
-                    pixPrs.append(pixdata[x, y])  # 小于， 前景
+  while True:
+    if abs(threshold - newThreshold) < 5:  # 差值小于5,退出
+      break
+    for y in range(height):
+      for x in range(width):
+        if pixdata[x, y] >= newThreshold:
+          pixBac.append(pixdata[x, y])  # 大于阈值 为背景
+        else:
+          pixPrs.append(pixdata[x, y])  # 小于， 前景
 
-        avgPrs = sum(pixPrs) / len(pixPrs)
-        avgBac = sum(pixBac) / len(pixBac)
-        threshold = newThreshold
-        newThreshold = int((avgPrs + avgBac) / 2)
+    avgPrs = sum(pixPrs) / len(pixPrs)
+    avgBac = sum(pixBac) / len(pixBac)
+    threshold = newThreshold
+    newThreshold = int((avgPrs + avgBac) / 2)
 
-    return newThreshold
+  return newThreshold
 
 
 def binary(img, threshold=None):
-    """
-    二值化
-    """
-    img = img.convert('L')  # 转为灰度图
-    pixdata = img.load()
-    width, height = img.size
+  """
+  二值化
+  """
+  img = img.convert('L')  # 转为灰度图
+  pixdata = img.load()
+  width, height = img.size
 
-    if not threshold:
-        threshold = iterGetThreshold(img, pixdata, width, height)
-    # 遍历所有像素，大于阈值的为白色
-    for y in range(height):
-        for x in range(width):
-            if pixdata[x, y] < threshold:
-                pixdata[x, y] = 0
-            else:
-                pixdata[x, y] = 255
+  if not threshold:
+    threshold = iterGetThreshold(img, pixdata, width, height)
+  # 遍历所有像素，大于阈值的为白色
+  for y in range(height):
+    for x in range(width):
+      if pixdata[x, y] < threshold:
+        pixdata[x, y] = 0
+      else:
+        pixdata[x, y] = 255
 
-    return img
+  return img
+
 
 new_img = binary(im)
 
 
-
 # 第三步 降噪
 def depoint(img, N=2):
-    """
-    降噪
-    """
-    pixdata = img.load()
-    width, height = img.size
-    for y in range(1, height - 1):
-        for x in range(1, width - 1):
-            count = 0
-            if pixdata[x, y - 1] == 255:  # 上
-                count = count + 1
-            if pixdata[x, y + 1] == 255:  # 下
-                count = count + 1
-            if pixdata[x - 1, y] == 255:  # 左
-                count = count + 1
-            if pixdata[x + 1, y] == 255:  # 右
-                count = count + 1
-            if pixdata[x-1, y-1] == 255:  #左上
-                count = count + 1
-            if pixdata[x+1, y-1] == 255:  #右上
-                count = count + 1
-            if pixdata[x-1, y+1] == 255:  #左下
-                count = count + 1
-            if pixdata[x+1, y+1] == 255:  #右下
-                count = count + 1
+  """
+  降噪
+  """
+  pixdata = img.load()
+  width, height = img.size
+  for y in range(1, height - 1):
+    for x in range(1, width - 1):
+      count = 0
+      if pixdata[x, y - 1] == 255:  # 上
+        count = count + 1
+      if pixdata[x, y + 1] == 255:  # 下
+        count = count + 1
+      if pixdata[x - 1, y] == 255:  # 左
+        count = count + 1
+      if pixdata[x + 1, y] == 255:  # 右
+        count = count + 1
+      if pixdata[x - 1, y - 1] == 255:  # 左上
+        count = count + 1
+      if pixdata[x + 1, y - 1] == 255:  # 右上
+        count = count + 1
+      if pixdata[x - 1, y + 1] == 255:  # 左下
+        count = count + 1
+      if pixdata[x + 1, y + 1] == 255:  # 右下
+        count = count + 1
 
-            if count > N:
-                pixdata[x, y] = 255  # 设置为白色
-    return img
+      if count > N:
+        pixdata[x, y] = 255  # 设置为白色
+  return img
+
 
 img = depoint(new_img, 4)
 
@@ -619,7 +623,7 @@ print(pytesseract.image_to_string(img))
 ### 接入打码平台--超级鹰
 注册`--`登录`--`购买提分`--`下载开发示例
 
-**案例5**[古诗文网模拟登录](./案例5，字符验证码识别.ipynb)
+**案例5**[古诗文网模拟登录](code/案例5，字符验证码识别.ipynb)
 
 ```python
 from chaojiying import Chaojiying_Client
