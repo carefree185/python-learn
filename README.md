@@ -233,4 +233,8 @@ python学习笔记
 
 ## 12.7 [selenium](./爬虫/selenium.md)
 
-## 12.8 [fiddler](./爬虫/fiddler.md)
+## 12.8 [网易云音乐评论爬取](./爬虫/code/网易云评论爬虫.py)
+
+## 12.9 [scrapy](./爬虫/scrapy框架.md)
+
+
