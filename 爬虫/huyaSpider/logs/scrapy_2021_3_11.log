@@ -1,0 +1,1325 @@
+2021-03-11 12:07:21 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: huyaSpider)
+2021-03-11 12:07:21 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.6.12 |Anaconda, Inc.| (default, Sep  9 2020, 00:29:25) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1j  16 Feb 2021), cryptography 3.4.6, Platform Windows-10-10.0.19041-SP0
+2021-03-11 12:07:21 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-03-11 12:07:21 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'huyaSpider',
+ 'LOG_FILE': 'logs/scrapy_2021_3_11.log',
+ 'NEWSPIDER_MODULE': 'huyaSpider.spiders',
+ 'SPIDER_MODULES': ['huyaSpider.spiders'],
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36'}
+2021-03-11 12:07:21 [scrapy.extensions.telnet] INFO: Telnet Password: fa433a5c99ca0907
+2021-03-11 12:07:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-03-11 12:07:21 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-03-11 12:07:21 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-03-11 12:07:21 [scrapy.middleware] INFO: Enabled item pipelines:
+['huyaSpider.pipelines.HuyaspiderMysqlPipeline',
+ 'huyaSpider.pipelines.HuyaspiderPipeline']
+2021-03-11 12:07:21 [scrapy.core.engine] INFO: Spider opened
+2021-03-11 12:07:21 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-03-11 12:07:21 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-03-11 12:07:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.huya.com/g/wzry> (referer: None)
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙-风筝', 'hot': '10.4万', 'title': '五国服随机三国英雄【送100套随机皮肤】'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久帝-小炜', 'hot': '3.7万', 'title': '三万场顶级诸葛视觉盛宴'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒丶玉瑶', 'hot': '7.0万', 'title': '本人比封面好看'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-远方', 'hot': '190.2万', 'title': '输1把女装冲后羿300连胜！'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '爱拍-疯行兄弟', 'hot': '187.9万', 'title': '正在送1000-黄刀新出装典韦打野'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '小红帽Lucky', 'hot': '142.6万', 'title': '点个小鹿app小姐姐'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-柔儿吖', 'hot': '39.7万', 'title': '第一全能女选手把把carry带粉 连胜中'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Dae-吴日天【辅神】', 'hot': '125.2万', 'title': '单排73-101【十五国服辅神】'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '闲云-杆哥', 'hot': '105.1万', 'title': '70-101 t0边路芈月'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-明凯【边核亚瑟】', 'hot': '100.1万', 'title': '超强马可 闭眼上分很轻松'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '霸道Max', 'hot': '87.2万', 'title': '打野节奏讲解教学！单排'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '东辰-寒冰', 'hot': '84.2万', 'title': '荣耀局对抗路二级单杀任何人！'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-乔妹', 'hot': '83.7万', 'title': '【嗜血鲁班】带粉上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '28.4万', 'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-皓楠', 'hot': '82.5万', 'title': '【国一德芙貂蝉】顶尖纵享丝滑！'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '青春【全能边路】', 'hot': '81.2万', 'title': '爷青回自闭孙策等你来学'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-斩神', 'hot': '80.0万', 'title': '身法猴 让你重新爱上国服猴子'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-澈澈', 'hot': '75.3万', 'title': '顶级李信·冲刺第二个国服'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶月白【偏爱】', 'hot': '72.9万', 'title': '有车位魔法书上王者2带3国服韩信双区带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '槿天-亦寻', 'hot': '64.6万', 'title': '国服镜马超VX区带粉魔法书到王者'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-全能针对', 'hot': '63.3万', 'title': '全网第一貂蝉·Q区67-76单排教学！'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ET-初夏', 'hot': '62.5万', 'title': '国1李白 五排带粉 宗师流打法'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-陌辰', 'hot': '62.1万', 'title': '赵云单排最难王者局教学!'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-久久【鹏】', 'hot': '59.7万', 'title': '女野王镜露娜 99胜率带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-逸枫', 'hot': '59.5万', 'title': '新主播国服娜可露露五排带粉输一局进厂'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚莹儿', 'hot': '59.3万', 'title': '可可爱爱没有脑袋'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-澜神', 'hot': '57.0万', 'title': '最细国服澜双区带粉95胜率钞票枪上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-通通想通了', 'hot': '54.1万', 'title': '有位置，国服露露99胜率带粉荣耀三哥冠名'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思丶凤白', 'hot': '52.6万', 'title': '榜1丝滑猴2带3五排装甲车带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '巅峰-鬼岛【三指玄策】', 'hot': '51.9万', 'title': '国一四指玄策99胜率荣耀五排带粉上车'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-宇轩轩轩', 'hot': '50.9万', 'title': '六国服100段野王 99胜率带粉无敌节奏'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'M丶赵一', 'hot': '50.4万', 'title': '两万战力阿轲·单排58-76'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '七月smile', 'hot': '49.9万', 'title': '【国服阿珂带粉上荣耀.99%胜率】'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-南屿', 'hot': '48.2万', 'title': '国服露娜带粉99胜率教学'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '月亮', 'hot': '47.6万', 'title': '毛晓彤唐山分彤'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '流年-执念、【291】', 'hot': '47.2万', 'title': '国服第一典韦【一打九冲荣耀】细致教学带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-星河', 'hot': '46.2万', 'title': '国服在榜李元芳 带粉圆你荣耀梦'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '星辰-菜狸', 'hot': '45.9万', 'title': '国服韩信 带粉99%胜率'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-有颜【颜无敌】', 'hot': '45.1万', 'title': '国服赵云澜 单排42星'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-七七', 'hot': '44.5万', 'title': '最强女打野把把带粉五杀上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '宇神【独宠攸攸】', 'hot': '44.3万', 'title': '国一雅典娜99胜率带粉 野王来袭'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶夜城', 'hot': '43.7万', 'title': '90段第一神周瑜·解锁版本上分答案'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '光束-难枕', 'hot': '43.3万', 'title': '1.7W国服裴擒虎 节奏打团细节教学'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-七喜', 'hot': '42.6万', 'title': '【炒粉日】空乘小姐姐陪你一起玩'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-林儿', 'hot': '41.9万', 'title': '四川电竞林妹妹排国服凯等你'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ET--恩泽', 'hot': '41.4万', 'title': '【国服玄策】带粉连胜一把不输 有位置'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-白羊', 'hot': '41.1万', 'title': '国服阿珂带粉99胜率躺着连胜上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '森森阿', 'hot': '39.5万', 'title': '国玄策Q区带粉不输~百分百胜率'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-酷萱baby', 'hot': '39.5万', 'title': '【全能选手】带你下饭。'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-小糖块呀', 'hot': '39.3万', 'title': '新主播东北身残志坚主播怒冲王者乱秀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-毛毛', 'hot': '39.1万', 'title': '【国服诸葛】带粉上荣耀99胜率'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AS-一演【文哥的迷妹】', 'hot': '38.8万', 'title': '百星国服阿珂99胜率双区带粉10分钟一局'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-月亮女神', 'hot': '38.7万', 'title': '【全能法王射王】邀你一起摘星星 带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-夜风', 'hot': '38.3万', 'title': '声优在榜国服司马懿双区带粉上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'YF-吖吖', 'hot': '37.6万', 'title': '那可打野小姐姐 VX区带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '集梦毛弟【116】', 'hot': '37.2万', 'title': '国服程咬金请求出战'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚酱鲨疯辽', 'hot': '36.5万', 'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '爱拍-小咪奥', 'hot': '36.1万', 'title': '双区带粉 王者乱杀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '橘里', 'hot': '35.6万', 'title': '进来看马可做饭 带粉上星啦'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-小舞姬【577】', 'hot': '33.3万', 'title': '国服貂蝉带粉甜蜜摘星星'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-顾言【李白】', 'hot': '33.3万', 'title': '[魔法书包10星]顶级李白带粉乱杀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '赢城-林飞飞-国服婉儿', 'hot': '33.0万', 'title': '【国一婉儿】2w战力婉儿花式蝴蝶身法刹车'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶甜桔宝宝', 'hot': '33.0万', 'title': '5排带粉女打野'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-陈也', 'hot': '32.3万', 'title': '万场宇宙马超排位带粉教学'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-酸奶', 'hot': '32.2万', 'title': '一血瓶上车90胜率超甜主播带飞啦'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-盖浇面', 'hot': '32.0万', 'title': '钞票枪带上荣耀，国1在榜香香带粉乱杀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-梓萱【勿忘初心】', 'hot': '30.7万', 'title': '广东【全能女野王】带粉有车位'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-狙神月一', 'hot': '30.6万', 'title': '【守约天花板】80星单排'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '时代-小浪迪', 'hot': '30.2万', 'title': '第一兰陵王 荣耀局乱杀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '可爱v【头铁团】', 'hot': '30.1万', 'title': '鲁班带粉乱杀！'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '夏滔-【騷瓜】', 'hot': '28.9万', 'title': '国服铠爹带粉帮粉丝拿全国标'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-初拥', 'hot': '28.7万', 'title': '2带3车队带粉魔法书上荣耀有位'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙右京【小京】', 'hot': '28.7万', 'title': '秒上车，国服韩信橘右京带粉99%胜率'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙-轻观', 'hot': '28.2万', 'title': '虎牙一号包国标国服韩信带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-阿柠', 'hot': '28.2万', 'title': '国服夏洛特王者局对线教学'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-九州', 'hot': '27.6万', 'title': '【三指国服镜澜】国一打野教学连胜带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙新晴【小京】', 'hot': '27.1万', 'title': '520上荣耀 国服露露五排带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '26.9万', 'title': '亚洲第一小乔是谁这么强'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-一铭', 'hot': '26.7万', 'title': '第一伽罗单排66星冲国服打表现分'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梓云-巷陌', 'hot': '25.8万', 'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LT-沈晨', 'hot': '25.8万', 'title': '国一诸葛单排70-101'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-青鸟', 'hot': '25.5万', 'title': '钞票枪上荣耀 国服韩信带粉上大分'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '25.4万', 'title': '天梯疯狂冲分今日188荧光棒卡爷'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梦境-阿鹰【通天边路】', 'hot': '25.1万', 'title': '国服对抗路 带粉连胜 一号永荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '阡陌【阿轲刺秦王】', 'hot': '24.6万', 'title': '三国服阿轲 51以下带粉5排躺赢'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-佳意', 'hot': '24.5万', 'title': '钞票枪上荣耀【国服香香】带粉细节教学'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '景秀-光头强', 'hot': '24.1万', 'title': '【万场虞姬带粉中】'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '一个鬼东西丶海思', 'hot': '24.0万', 'title': '有车位秒上车2带3国服玄策 带粉上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶木兰橙', 'hot': '24.0万', 'title': '现在榜1w6国服花木兰带粉上号全国省标'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '璀璨ya', 'hot': '24.0万', 'title': '魔法书荣耀50，国服貂蝉教学带粉排位连胜'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-雪默', 'hot': '23.9万', 'title': '【世界级女野王】露娜双区带粉乱杀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '阿巍-Awei', 'hot': '23.4万', 'title': '浪队国服李白•超细教学思路秘技'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Jn-慕川', 'hot': '23.1万', 'title': '【魔法书王者钞票枪荣耀】国服全能野王带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶锋枫', 'hot': '23.0万', 'title': '75段打野国服镜【钞票枪上荣耀带粉中】'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-疏影', 'hot': '22.8万', 'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '皇玺-Zy凯', 'hot': '22.7万', 'title': '国服万场貂蝉，上官婉儿全能法王带粉'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '韩小信【六指韩信】', 'hot': '22.7万', 'title': '钞票枪包荣耀 带粉 六指韩信 送皮肤'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '唐朝-库库的橘', 'hot': '22.1万', 'title': '2带3魔法书4小时，带粉上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '夏然【三指野王】', 'hot': '22.0万', 'title': '国服三指韩信澜带粉钞票枪上30星'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '吉米哥哥阿up', 'hot': '21.9万', 'title': '带粉是你的子龙哥哥吗'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-顾家明-三指李信', 'hot': '21.8万', 'title': '国服李信单排76-101细致讲解教学'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '敌敌畏', 'hot': '21.7万', 'title': '国服芈月，单排50-101星'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-崽崽', 'hot': '21.7万', 'title': '【有车位/秒上号】国一露露带粉任何段位'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶梦燃', 'hot': '21.6万', 'title': '【222连胜】国一韩信，带粉教学~！'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '恒云-小念雪', 'hot': '21.6万', 'title': '陕西声优小姐姐，带粉，可上号'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶温柔【镜】', 'hot': '21.5万', 'title': '【国服镜】VX区带粉连胜冲荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '瀚辰、浪怀', 'hot': '21.5万', 'title': '有车位  第一司空震带粉99胜率'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-嘉一', 'hot': '21.3万', 'title': '国服李元芳两本魔法书99胜率上荣耀'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-糖三藏', 'hot': '21.3万', 'title': '二带三 免费带粉 快乐五排'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '心动-小阿星V', 'hot': '21.2万', 'title': '双区魔法书上荣耀国服野王'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '秀无情-久爱', 'hot': '21.2万', 'title': '国1韩信阿珂 钞票枪荣耀 带粉五排'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-染墨', 'hot': '21.1万', 'title': '国服干将 一剑一人头视觉盛宴'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '稚久', 'hot': '21.0万', 'title': '温柔声优国服阿离带粉90胜率'}
+2021-03-11 12:07:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶刘彦祖', 'hot': '20.9万', 'title': '国服刘备带粉没输过'}
+2021-03-11 12:07:26 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-03-11 12:07:26 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 298,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 68929,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 4.820195,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 3, 11, 4, 7, 26, 147852),
+ 'item_scraped_count': 114,
+ 'log_count/DEBUG': 115,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2021, 3, 11, 4, 7, 21, 327657)}
+2021-03-11 12:07:26 [scrapy.core.engine] INFO: Spider closed (finished)
+2021-03-11 12:31:07 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: huyaSpider)
+2021-03-11 12:31:07 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.6.12 |Anaconda, Inc.| (default, Sep  9 2020, 00:29:25) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1j  16 Feb 2021), cryptography 3.4.6, Platform Windows-10-10.0.19041-SP0
+2021-03-11 12:31:07 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-03-11 12:31:07 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'huyaSpider',
+ 'LOG_FILE': 'logs/scrapy_2021_3_11.log',
+ 'NEWSPIDER_MODULE': 'huyaSpider.spiders',
+ 'SPIDER_MODULES': ['huyaSpider.spiders'],
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36'}
+2021-03-11 12:31:07 [scrapy.extensions.telnet] INFO: Telnet Password: 1248904c70c8290c
+2021-03-11 12:31:07 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-03-11 12:31:07 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-03-11 12:31:07 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-03-11 12:31:07 [scrapy.middleware] INFO: Enabled item pipelines:
+['huyaSpider.pipelines.HuyaspiderMysqlPipeline',
+ 'huyaSpider.pipelines.HuyaspiderPipeline']
+2021-03-11 12:31:07 [scrapy.core.engine] INFO: Spider opened
+2021-03-11 12:31:07 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-03-11 12:31:07 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-03-11 12:31:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.huya.com/g/wzry> (referer: None)
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('五国服随机三国英雄【送100套随机皮肤】', '虎牙-风筝', '13.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '五国服随机三国英雄【送100套随机皮肤】', 'anchor': '虎牙-风筝', 'hot': '13.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙-风筝', 'hot': '13.8万', 'title': '五国服随机三国英雄【送100套随机皮肤】'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('三万场顶级诸葛视觉盛宴', '久帝-小炜', '17.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '三万场顶级诸葛视觉盛宴', 'anchor': '久帝-小炜', 'hot': '17.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久帝-小炜', 'hot': '17.2万', 'title': '三万场顶级诸葛视觉盛宴'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【找我学诸葛】1点送1000', 'LD-米娅', '6.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【找我学诸葛】1点送1000', 'anchor': 'LD-米娅', 'hot': '6.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-米娅', 'hot': '6.6万', 'title': '【找我学诸葛】1点送1000'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('新李白单排101星输是什么滋味？', '哈迪斯【哈狗】', '184.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '新李白单排101星输是什么滋味？', 'anchor': '哈迪斯【哈狗】', 'hot': '184.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '哈迪斯【哈狗】', 'hot': '184.0万', 'title': '新李白单排101星输是什么滋味？'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('20！荣耀局对抗路二级单杀任何人！', '东辰-寒冰', '153.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '20！荣耀局对抗路二级单杀任何人！', 'anchor': '东辰-寒冰', 'hot': '153.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '东辰-寒冰', 'hot': '153.1万', 'title': '20！荣耀局对抗路二级单杀任何人！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('单排73-101【十五国服辅神】', 'Dae-吴日天【辅神】', '136.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '单排73-101【十五国服辅神】', 'anchor': 'Dae-吴日天【辅神】', 'hot': '136.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Dae-吴日天【辅神】', 'hot': '136.7万', 'title': '单排73-101【十五国服辅神】'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('第一全能女选手把把carry带粉 连胜中', '蓝新-柔儿吖', '38.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '第一全能女选手把把carry带粉 连胜中', 'anchor': '蓝新-柔儿吖', 'hot': '38.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-柔儿吖', 'hot': '38.1万', 'title': '第一全能女选手把把carry带粉 连胜中'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('超强狂铁 闭眼上分很轻松', '久爱-明凯【边核亚瑟】', '135.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '超强狂铁 闭眼上分很轻松', 'anchor': '久爱-明凯【边核亚瑟】', 'hot': '135.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-明凯【边核亚瑟】', 'hot': '135.7万', 'title': '超强狂铁 闭眼上分很轻松'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('顶级李信·冲刺第二个国服', '诺米-澈澈', '128.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '顶级李信·冲刺第二个国服', 'anchor': '诺米-澈澈', 'hot': '128.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-澈澈', 'hot': '128.9万', 'title': '顶级李信·冲刺第二个国服'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('点个小鹿app小姐姐', '小红帽Lucky', '112.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '点个小鹿app小姐姐', 'anchor': '小红帽Lucky', 'hot': '112.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '小红帽Lucky', 'hot': '112.6万', 'title': '点个小鹿app小姐姐'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一马可公孙离荣耀局细节教学', '蓝新-神明', '89.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国一马可公孙离荣耀局细节教学', 'anchor': '蓝新-神明', 'hot': '89.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-神明', 'hot': '89.8万', 'title': '国一马可公孙离荣耀局细节教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国一德芙貂蝉】顶尖纵享丝滑！', '众乐-皓楠', '88.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【国一德芙貂蝉】顶尖纵享丝滑！', 'anchor': '众乐-皓楠', 'hot': '88.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-皓楠', 'hot': '88.7万', 'title': '【国一德芙貂蝉】顶尖纵享丝滑！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('爷青回自闭孙策等你来学', '青春【全能边路】', '82.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '爷青回自闭孙策等你来学', 'anchor': '青春【全能边路】', 'hot': '82.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '青春【全能边路】', 'hot': '82.3万', 'title': '爷青回自闭孙策等你来学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('法王小姐姐带飞~', '久帝-小小', '10.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '法王小姐姐带飞~', 'anchor': '久帝-小小', 'hot': '10.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久帝-小小', 'hot': '10.8万', 'title': '法王小姐姐带飞~'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【嗜血鲁班】带粉上荣耀', '诺米-乔妹', '82.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【嗜血鲁班】带粉上荣耀', 'anchor': '诺米-乔妹', 'hot': '82.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-乔妹', 'hot': '82.0万', 'title': '【嗜血鲁班】带粉上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('身法猴 让你重新爱上国服猴子', 'LING-斩神', '81.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '身法猴 让你重新爱上国服猴子', 'anchor': 'LING-斩神', 'hot': '81.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-斩神', 'hot': '81.8万', 'title': '身法猴 让你重新爱上国服猴子'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('有位置，国服露露99胜率带粉荣耀三哥冠名', '众乐-通通想通了', '78.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '有位置，国服露露99胜率带粉荣耀三哥冠名', 'anchor': '众乐-通通想通了', 'hot': '78.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-通通想通了', 'hot': '78.6万', 'title': '有位置，国服露露99胜率带粉荣耀三哥冠名'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('70-101 t0边路芈月', '闲云-杆哥', '76.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '70-101 t0边路芈月', 'anchor': '闲云-杆哥', 'hot': '76.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '闲云-杆哥', 'hot': '76.2万', 'title': '70-101 t0边路芈月'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服第一典韦【一打九冲荣耀】细致教学带粉', '流年-执念、【291】', '71.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服第一典韦【一打九冲荣耀】细致教学带粉', 'anchor': '流年-执念、【291】', 'hot': '71.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '流年-执念、【291】', 'hot': '71.4万', 'title': '国服第一典韦【一打九冲荣耀】细致教学带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('有车位魔法书上王者2带3国服韩信双区带粉', 'AzZ丶月白【偏爱】', '70.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '有车位魔法书上王者2带3国服韩信双区带粉', 'anchor': 'AzZ丶月白【偏爱】', 'hot': '70.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶月白【偏爱】', 'hot': '70.9万', 'title': '有车位魔法书上王者2带3国服韩信双区带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('全网第一貂蝉·Q区69-76单排教学！', 'LD-全能针对', '68.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '全网第一貂蝉·Q区69-76单排教学！', 'anchor': 'LD-全能针对', 'hot': '68.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-全能针对', 'hot': '68.8万', 'title': '全网第一貂蝉·Q区69-76单排教学！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('最细国服澜双区带粉95胜率钞票枪上荣耀', '迦音-澜神', '68.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '最细国服澜双区带粉95胜率钞票枪上荣耀', 'anchor': '迦音-澜神', 'hot': '68.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-澜神', 'hot': '68.3万', 'title': '最细国服澜双区带粉95胜率钞票枪上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('女野王镜露娜 99胜率带粉', '海思-久久【鹏】', '67.5万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '女野王镜露娜 99胜率带粉', 'anchor': '海思-久久【鹏】', 'hot': '67.5万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-久久【鹏】', 'hot': '67.5万', 'title': '女野王镜露娜 99胜率带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('新主播国服娜可露露五排带粉输一局进厂', '蓝新-逸枫', '65.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '新主播国服娜可露露五排带粉输一局进厂', 'anchor': '蓝新-逸枫', 'hot': '65.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-逸枫', 'hot': '65.6万', 'title': '新主播国服娜可露露五排带粉输一局进厂'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('赵云单排最难王者局教学!', 'LING-陌辰', '64.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '赵云单排最难王者局教学!', 'anchor': 'LING-陌辰', 'hot': '64.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-陌辰', 'hot': '64.7万', 'title': '赵云单排最难王者局教学!'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一四指玄策99胜率荣耀五排带粉上车', '巅峰-鬼岛【三指玄策】', '62.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国一四指玄策99胜率荣耀五排带粉上车', 'anchor': '巅峰-鬼岛【三指玄策】', 'hot': '62.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '巅峰-鬼岛【三指玄策】', 'hot': '62.6万', 'title': '国一四指玄策99胜率荣耀五排带粉上车'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国1李白 五排带粉 宗师流打法', 'ET-初夏', '59.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国1李白 五排带粉 宗师流打法', 'anchor': 'ET-初夏', 'hot': '59.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ET-初夏', 'hot': '59.8万', 'title': '国1李白 五排带粉 宗师流打法'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('可可爱爱没有脑袋', '晚莹儿', '57.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '可可爱爱没有脑袋', 'anchor': '晚莹儿', 'hot': '57.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚莹儿', 'hot': '57.2万', 'title': '可可爱爱没有脑袋'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('边路一霸： 单排72-101！', '上好佳【诸葛雨神】', '57.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '边路一霸： 单排72-101！', 'anchor': '上好佳【诸葛雨神】', 'hot': '57.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '上好佳【诸葛雨神】', 'hot': '57.1万', 'title': '边路一霸： 单排72-101！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('手法极致的少女·今日大开杀戒！', '梦醒【狗妹】', '52.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '手法极致的少女·今日大开杀戒！', 'anchor': '梦醒【狗妹】', 'hot': '52.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梦醒【狗妹】', 'hot': '52.6万', 'title': '手法极致的少女·今日大开杀戒！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服阿珂双区带粉上荣耀.99%胜率】', '七月smile', '51.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【国服阿珂双区带粉上荣耀.99%胜率】', 'anchor': '七月smile', 'hot': '51.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '七月smile', 'hot': '51.3万', 'title': '【国服阿珂双区带粉上荣耀.99%胜率】'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('毛晓彤唐山分彤', '月亮', '50.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '毛晓彤唐山分彤', 'anchor': '月亮', 'hot': '50.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '月亮', 'hot': '50.9万', 'title': '毛晓彤唐山分彤'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('榜1丝滑猴2带3五排装甲车带粉', '海思丶凤白', '50.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '榜1丝滑猴2带3五排装甲车带粉', 'anchor': '海思丶凤白', 'hot': '50.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思丶凤白', 'hot': '50.7万', 'title': '榜1丝滑猴2带3五排装甲车带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('六国服95段野王99胜率带粉无敌节奏', '海思-宇轩轩轩', '50.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '六国服95段野王99胜率带粉无敌节奏', 'anchor': '海思-宇轩轩轩', 'hot': '50.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-宇轩轩轩', 'hot': '50.1万', 'title': '六国服95段野王99胜率带粉无敌节奏'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('90段第一神周瑜·解锁版本上分答案', 'AzZ丶夜城', '49.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '90段第一神周瑜·解锁版本上分答案', 'anchor': 'AzZ丶夜城', 'hot': '49.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶夜城', 'hot': '49.1万', 'title': '90段第一神周瑜·解锁版本上分答案'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('1.7W国服裴擒虎 节奏打团细节教学', '光束-难枕', '46.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '1.7W国服裴擒虎 节奏打团细节教学', 'anchor': '光束-难枕', 'hot': '46.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '光束-难枕', 'hot': '46.0万', 'title': '1.7W国服裴擒虎 节奏打团细节教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服在榜李元芳 带粉圆你荣耀梦', '蓝新-星河', '45.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服在榜李元芳 带粉圆你荣耀梦', 'anchor': '蓝新-星河', 'hot': '45.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-星河', 'hot': '45.3万', 'title': '国服在榜李元芳 带粉圆你荣耀梦'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一雅典娜99胜率带粉 野王来袭', '宇神【独宠攸攸】', '44.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国一雅典娜99胜率带粉 野王来袭', 'anchor': '宇神【独宠攸攸】', 'hot': '44.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '宇神【独宠攸攸】', 'hot': '44.8万', 'title': '国一雅典娜99胜率带粉 野王来袭'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服露娜带粉99胜率教学', 'DG-南屿', '44.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服露娜带粉99胜率教学', 'anchor': 'DG-南屿', 'hot': '44.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-南屿', 'hot': '44.8万', 'title': '国服露娜带粉99胜率教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服韩信 带粉99%胜率', '星辰-菜狸', '44.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服韩信 带粉99%胜率', 'anchor': '星辰-菜狸', 'hot': '44.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '星辰-菜狸', 'hot': '44.3万', 'title': '国服韩信 带粉99%胜率'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('最强女打野把把带粉五杀上荣耀', '蓝鲨-七七', '44.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '最强女打野把把带粉五杀上荣耀', 'anchor': '蓝鲨-七七', 'hot': '44.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-七七', 'hot': '44.3万', 'title': '最强女打野把把带粉五杀上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服赵云澜 单排42星', '诺米-有颜【颜无敌】', '43.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服赵云澜 单排42星', 'anchor': '诺米-有颜【颜无敌】', 'hot': '43.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-有颜【颜无敌】', 'hot': '43.9万', 'title': '国服赵云澜 单排42星'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('四川电竞林妹妹排等你', '久爱-林儿', '42.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '四川电竞林妹妹排等你', 'anchor': '久爱-林儿', 'hot': '42.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-林儿', 'hot': '42.6万', 'title': '四川电竞林妹妹排等你'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('5排带粉女打野', 'AzZ丶甜桔宝宝', '41.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '5排带粉女打野', 'anchor': 'AzZ丶甜桔宝宝', 'hot': '41.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶甜桔宝宝', 'hot': '41.1万', 'title': '5排带粉女打野'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【炒粉日】空乘小姐姐陪你一起玩', '迦音-七喜', '41.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【炒粉日】空乘小姐姐陪你一起玩', 'anchor': '迦音-七喜', 'hot': '41.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-七喜', 'hot': '41.1万', 'title': '【炒粉日】空乘小姐姐陪你一起玩'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('身法貂蝉【60X-101X】！', '众乐-伟妹', '40.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '身法貂蝉【60X-101X】！', 'anchor': '众乐-伟妹', 'hot': '40.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-伟妹', 'hot': '40.2万', 'title': '身法貂蝉【60X-101X】！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服阿珂带粉99胜率躺着连胜上荣耀', '蓝新-白羊', '39.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服阿珂带粉99胜率躺着连胜上荣耀', 'anchor': '蓝新-白羊', 'hot': '39.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-白羊', 'hot': '39.8万', 'title': '国服阿珂带粉99胜率躺着连胜上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服玄策 胜率99 带粉丝上荣耀 有车位', '来虎牙撩季方', '39.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服玄策 胜率99 带粉丝上荣耀 有车位', 'anchor': '来虎牙撩季方', 'hot': '39.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '来虎牙撩季方', 'hot': '39.3万', 'title': '国服玄策 胜率99 带粉丝上荣耀 有车位'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服诸葛】带粉上荣耀99胜率', '迦音-毛毛', '39.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【国服诸葛】带粉上荣耀99胜率', 'anchor': '迦音-毛毛', 'hot': '39.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-毛毛', 'hot': '39.2万', 'title': '【国服诸葛】带粉上荣耀99胜率'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('学技术看大锤-场均15杀想输都难！', '大锤哥丶云图CD', '39.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '学技术看大锤-场均15杀想输都难！', 'anchor': '大锤哥丶云图CD', 'hot': '39.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '大锤哥丶云图CD', 'hot': '39.0万', 'title': '学技术看大锤-场均15杀想输都难！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服铠爹带粉帮粉丝拿全国标', '夏滔-【騷瓜】', '38.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服铠爹带粉帮粉丝拿全国标', 'anchor': '夏滔-【騷瓜】', 'hot': '38.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '夏滔-【騷瓜】', 'hot': '38.9万', 'title': '国服铠爹带粉帮粉丝拿全国标'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【全能法王射王】邀你一起摘星星 带粉', '蓝新-月亮女神', '38.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【全能法王射王】邀你一起摘星星 带粉', 'anchor': '蓝新-月亮女神', 'hot': '38.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-月亮女神', 'hot': '38.7万', 'title': '【全能法王射王】邀你一起摘星星 带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国玄策Q区带粉不输~百分百胜率', '森森阿', '38.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国玄策Q区带粉不输~百分百胜率', 'anchor': '森森阿', 'hot': '38.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '森森阿', 'hot': '38.6万', 'title': '国玄策Q区带粉不输~百分百胜率'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【全能选手】带你下饭。', '久爱-酷萱baby', '38.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【全能选手】带你下饭。', 'anchor': '久爱-酷萱baby', 'hot': '38.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-酷萱baby', 'hot': '38.3万', 'title': '【全能选手】带你下饭。'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('百星国服阿珂99胜率双区带粉10分钟一局', 'AS-一演【文哥的迷妹】', '37.5万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '百星国服阿珂99胜率双区带粉10分钟一局', 'anchor': 'AS-一演【文哥的迷妹】', 'hot': '37.5万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AS-一演【文哥的迷妹】', 'hot': '37.5万', 'title': '百星国服阿珂99胜率双区带粉10分钟一局'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('新主播东北身残志坚主播怒冲王者乱秀', '蓝新-小糖块呀', '37.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '新主播东北身残志坚主播怒冲王者乱秀', 'anchor': '蓝新-小糖块呀', 'hot': '37.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-小糖块呀', 'hot': '37.4万', 'title': '新主播东北身残志坚主播怒冲王者乱秀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('520上荣耀 国服露露五排带粉', '虎牙新晴【小京】', '36.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '520上荣耀 国服露露五排带粉', 'anchor': '虎牙新晴【小京】', 'hot': '36.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙新晴【小京】', 'hot': '36.8万', 'title': '520上荣耀 国服露露五排带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('声优在榜国服司马懿双区带粉上荣耀', '迦音-夜风', '36.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '声优在榜国服司马懿双区带粉上荣耀', 'anchor': '迦音-夜风', 'hot': '36.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-夜风', 'hot': '36.6万', 'title': '声优在榜国服司马懿双区带粉上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('那可打野小姐姐 VX区带粉', 'YF-吖吖', '36.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '那可打野小姐姐 VX区带粉', 'anchor': 'YF-吖吖', 'hot': '36.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'YF-吖吖', 'hot': '36.2万', 'title': '那可打野小姐姐 VX区带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('1点送一千，王者局教学！', '正恒-紫宸【相声木兰】', '36.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '1点送一千，王者局教学！', 'anchor': '正恒-紫宸【相声木兰】', 'hot': '36.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒-紫宸【相声木兰】', 'hot': '36.0万', 'title': '1点送一千，王者局教学！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服娜可露露】带粉乱杀钞票枪上荣耀', '晚酱鲨疯辽', '35.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀', 'anchor': '晚酱鲨疯辽', 'hot': '35.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚酱鲨疯辽', 'hot': '35.6万', 'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('第一伽罗单排66星冲国服打表现分', 'LING-一铭', '35.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '第一伽罗单排66星冲国服打表现分', 'anchor': 'LING-一铭', 'hot': '35.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-一铭', 'hot': '35.6万', 'title': '第一伽罗单排66星冲国服打表现分'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服貂蝉带粉甜蜜摘星星', '诺米-小舞姬【577】', '34.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服貂蝉带粉甜蜜摘星星', 'anchor': '诺米-小舞姬【577】', 'hot': '34.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-小舞姬【577】', 'hot': '34.1万', 'title': '国服貂蝉带粉甜蜜摘星星'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('[魔法书包10星]顶级李白带粉乱杀', '非凡-顾言【李白】', '34.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '[魔法书包10星]顶级李白带粉乱杀', 'anchor': '非凡-顾言【李白】', 'hot': '34.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-顾言【李白】', 'hot': '34.0万', 'title': '[魔法书包10星]顶级李白带粉乱杀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('广东【全能女野王】带粉有车位', '蓝新-梓萱【勿忘初心】', '33.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '广东【全能女野王】带粉有车位', 'anchor': '蓝新-梓萱【勿忘初心】', 'hot': '33.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-梓萱【勿忘初心】', 'hot': '33.7万', 'title': '广东【全能女野王】带粉有车位'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('双区带粉 王者乱杀', '爱拍-小咪奥', '33.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '双区带粉 王者乱杀', 'anchor': '爱拍-小咪奥', 'hot': '33.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '爱拍-小咪奥', 'hot': '33.7万', 'title': '双区带粉 王者乱杀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('钞票枪带上荣耀，国1在榜香香带粉乱杀', '久爱-盖浇面', '33.5万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '钞票枪带上荣耀，国1在榜香香带粉乱杀', 'anchor': '久爱-盖浇面', 'hot': '33.5万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-盖浇面', 'hot': '33.5万', 'title': '钞票枪带上荣耀，国1在榜香香带粉乱杀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('亚洲第一小乔是谁这么强', '正恒-尊尊【芭蕉妹】', '33.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '亚洲第一小乔是谁这么强', 'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '33.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '33.1万', 'title': '亚洲第一小乔是谁这么强'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【守约天花板】80星单排', '迦音-狙神月一', '32.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【守约天花板】80星单排', 'anchor': '迦音-狙神月一', 'hot': '32.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-狙神月一', 'hot': '32.8万', 'title': '【守约天花板】80星单排'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('一血瓶上车90胜率超甜主播带飞啦', '蓝鲨-酸奶', '31.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '一血瓶上车90胜率超甜主播带飞啦', 'anchor': '蓝鲨-酸奶', 'hot': '31.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-酸奶', 'hot': '31.3万', 'title': '一血瓶上车90胜率超甜主播带飞啦'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('万场宇宙马超排位带粉教学', '久爱-陈也', '30.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '万场宇宙马超排位带粉教学', 'anchor': '久爱-陈也', 'hot': '30.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-陈也', 'hot': '30.8万', 'title': '万场宇宙马超排位带粉教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('鲁班带粉乱杀！', '可爱v【头铁团】', '30.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '鲁班带粉乱杀！', 'anchor': '可爱v【头铁团】', 'hot': '30.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '可爱v【头铁团】', 'hot': '30.4万', 'title': '鲁班带粉乱杀！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服夏洛特王者局对线教学', '久爱-阿柠', '30.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服夏洛特王者局对线教学', 'anchor': '久爱-阿柠', 'hot': '30.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-阿柠', 'hot': '30.2万', 'title': '国服夏洛特王者局对线教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一老虎钞票枪上荣耀带粉有车位', '非凡-佩琪', '30.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国一老虎钞票枪上荣耀带粉有车位', 'anchor': '非凡-佩琪', 'hot': '30.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-佩琪', 'hot': '30.1万', 'title': '国一老虎钞票枪上荣耀带粉有车位'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【露手秀】虎牙第一女露娜', '莫妮卡【第一露娜】', '28.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【露手秀】虎牙第一女露娜', 'anchor': '莫妮卡【第一露娜】', 'hot': '28.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '莫妮卡【第一露娜】', 'hot': '28.6万', 'title': '【露手秀】虎牙第一女露娜'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('三国服阿轲 51以下带粉5排躺赢', '阡陌【阿轲刺秦王】', '28.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '三国服阿轲 51以下带粉5排躺赢', 'anchor': '阡陌【阿轲刺秦王】', 'hot': '28.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '阡陌【阿轲刺秦王】', 'hot': '28.0万', 'title': '三国服阿轲 51以下带粉5排躺赢'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服老虎零失误单排教学~', 'LD-虎宝', '27.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服老虎零失误单排教学~', 'anchor': 'LD-虎宝', 'hot': '27.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-虎宝', 'hot': '27.4万', 'title': '国服老虎零失误单排教学~'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('秒上车，国服韩信橘右京带粉99%胜率', '虎牙右京【小京】', '27.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '秒上车，国服韩信橘右京带粉99%胜率', 'anchor': '虎牙右京【小京】', 'hot': '27.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙右京【小京】', 'hot': '27.2万', 'title': '秒上车，国服韩信橘右京带粉99%胜率'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服貂蝉】安徽省小姐姐在线带粉有车位', '南锋-柒柒【感恩陪伴】', '26.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位', 'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '26.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '26.9万', 'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【三指国服镜澜】国一打野教学连胜带粉', '蓝新-九州', '26.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【三指国服镜澜】国一打野教学连胜带粉', 'anchor': '蓝新-九州', 'hot': '26.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-九州', 'hot': '26.9万', 'title': '【三指国服镜澜】国一打野教学连胜带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('2带3车队带粉魔法书上荣耀有位', 'DG-初拥', '26.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '2带3车队带粉魔法书上荣耀有位', 'anchor': 'DG-初拥', 'hot': '26.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-初拥', 'hot': '26.8万', 'title': '2带3车队带粉魔法书上荣耀有位'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国1韩信 钞票枪上荣耀在线带粉五排', '江南-上仙【野王韩信】', '26.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国1韩信 钞票枪上荣耀在线带粉五排', 'anchor': '江南-上仙【野王韩信】', 'hot': '26.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '江南-上仙【野王韩信】', 'hot': '26.7万', 'title': '国1韩信 钞票枪上荣耀在线带粉五排'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服万场貂蝉，上官婉儿全能法王带粉', '皇玺-Zy凯', '26.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服万场貂蝉，上官婉儿全能法王带粉', 'anchor': '皇玺-Zy凯', 'hot': '26.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '皇玺-Zy凯', 'hot': '26.6万', 'title': '国服万场貂蝉，上官婉儿全能法王带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('虎牙一号包国标国服韩信带粉', '虎牙-轻观', '25.5万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '虎牙一号包国标国服韩信带粉', 'anchor': '虎牙-轻观', 'hot': '25.5万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙-轻观', 'hot': '25.5万', 'title': '虎牙一号包国标国服韩信带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('钞票枪上荣耀 国服韩信带粉上大分', '蓝新-青鸟', '24.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '钞票枪上荣耀 国服韩信带粉上大分', 'anchor': '蓝新-青鸟', 'hot': '24.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-青鸟', 'hot': '24.9万', 'title': '钞票枪上荣耀 国服韩信带粉上大分'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('88段国服游走 国一鬼谷 鲁大无敌开团！', 'AzZ丶汤汤', '24.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '88段国服游走 国一鬼谷 鲁大无敌开团！', 'anchor': 'AzZ丶汤汤', 'hot': '24.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶汤汤', 'hot': '24.9万', 'title': '88段国服游走 国一鬼谷 鲁大无敌开团！'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服对抗路 带粉连胜 一号永荣耀', '梦境-阿鹰【通天边路】', '24.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服对抗路 带粉连胜 一号永荣耀', 'anchor': '梦境-阿鹰【通天边路】', 'hot': '24.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梦境-阿鹰【通天边路】', 'hot': '24.7万', 'title': '国服对抗路 带粉连胜 一号永荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('92段国一边路 82-101关羽细节教学', 'LING-黎明【12国服】', '24.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '92段国一边路 82-101关羽细节教学', 'anchor': 'LING-黎明【12国服】', 'hot': '24.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-黎明【12国服】', 'hot': '24.6万', 'title': '92段国一边路 82-101关羽细节教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('天梯疯狂冲分今日188荧光棒卡爷', 'ACT胡老大【DF丶电竞】', '24.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '天梯疯狂冲分今日188荧光棒卡爷', 'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '24.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '24.6万', 'title': '天梯疯狂冲分今日188荧光棒卡爷'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服射手五排车队带粉上荣耀', '白落', '24.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服射手五排车队带粉上荣耀', 'anchor': '白落', 'hot': '24.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '白落', 'hot': '24.4万', 'title': '国服射手五排车队带粉上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服干将 一剑一人头视觉盛宴', '久爱-染墨', '24.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服干将 一剑一人头视觉盛宴', 'anchor': '久爱-染墨', 'hot': '24.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-染墨', 'hot': '24.4万', 'title': '国服干将 一剑一人头视觉盛宴'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国一婉儿】2w战力婉儿花式蝴蝶身法刹车', '赢城-林飞飞-国服婉儿', '24.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【国一婉儿】2w战力婉儿花式蝴蝶身法刹车', 'anchor': '赢城-林飞飞-国服婉儿', 'hot': '24.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '赢城-林飞飞-国服婉儿', 'hot': '24.4万', 'title': '【国一婉儿】2w战力婉儿花式蝴蝶身法刹车'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('小乔导师：极致操作 视觉盛宴', '晚风echo【刺客小乔】', '24.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '小乔导师：极致操作 视觉盛宴', 'anchor': '晚风echo【刺客小乔】', 'hot': '24.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚风echo【刺客小乔】', 'hot': '24.2万', 'title': '小乔导师：极致操作 视觉盛宴'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一诸葛单排70-101', 'LT-沈晨', '24.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国一诸葛单排70-101', 'anchor': 'LT-沈晨', 'hot': '24.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LT-沈晨', 'hot': '24.0万', 'title': '国一诸葛单排70-101'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服【镜澜】QQ区带粉 钞票枪包荣耀', '梓云-巷陌', '24.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀', 'anchor': '梓云-巷陌', 'hot': '24.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梓云-巷陌', 'hot': '24.0万', 'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服三指韩信澜带粉钞票枪上30星', '夏然【三指野王】', '23.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服三指韩信澜带粉钞票枪上30星', 'anchor': '夏然【三指野王】', 'hot': '23.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '夏然【三指野王】', 'hot': '23.9万', 'title': '国服三指韩信澜带粉钞票枪上30星'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('浪队国服李白•超细教学思路秘技', '阿巍-Awei', '23.7万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '浪队国服李白•超细教学思路秘技', 'anchor': '阿巍-Awei', 'hot': '23.7万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '阿巍-Awei', 'hot': '23.7万', 'title': '浪队国服李白•超细教学思路秘技'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('现在榜1w6国服花木兰带粉上号全国省标', 'AzZ丶木兰橙', '23.6万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '现在榜1w6国服花木兰带粉上号全国省标', 'anchor': 'AzZ丶木兰橙', 'hot': '23.6万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶木兰橙', 'hot': '23.6万', 'title': '现在榜1w6国服花木兰带粉上号全国省标'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服李信单排76-101细致讲解教学', '蓝鲨-顾家明-三指李信', '23.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服李信单排76-101细致讲解教学', 'anchor': '蓝鲨-顾家明-三指李信', 'hot': '23.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-顾家明-三指李信', 'hot': '23.4万', 'title': '国服李信单排76-101细致讲解教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('魔法书带粉上王者包胜率，国服香香.赵云', '这就是十一', '23.4万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '魔法书带粉上王者包胜率，国服香香.赵云', 'anchor': '这就是十一', 'hot': '23.4万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '这就是十一', 'hot': '23.4万', 'title': '魔法书带粉上王者包胜率，国服香香.赵云'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('狂暴流国服貂蝉v区带粉有车位百分百胜率', '非凡-疏影', '23.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率', 'anchor': '非凡-疏影', 'hot': '23.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-疏影', 'hot': '23.2万', 'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('陕西声优小姐姐，带粉，可上号', '恒云-小念雪', '23.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '陕西声优小姐姐，带粉，可上号', 'anchor': '恒云-小念雪', 'hot': '23.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '恒云-小念雪', 'hot': '23.1万', 'title': '陕西声优小姐姐，带粉，可上号'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('魔法书荣耀50，国服貂蝉教学带粉排位连胜', '璀璨ya', '22.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '魔法书荣耀50，国服貂蝉教学带粉排位连胜', 'anchor': '璀璨ya', 'hot': '22.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '璀璨ya', 'hot': '22.9万', 'title': '魔法书荣耀50，国服貂蝉教学带粉排位连胜'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('有车位【7国服露露李白】超高胜率带粉连胜', 'ZY丶阿星', '22.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '有车位【7国服露露李白】超高胜率带粉连胜', 'anchor': 'ZY丶阿星', 'hot': '22.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶阿星', 'hot': '22.9万', 'title': '有车位【7国服露露李白】超高胜率带粉连胜'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('钞票枪上荣耀【国服香香】带粉细节教学', '蓝鲨-佳意', '22.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '钞票枪上荣耀【国服香香】带粉细节教学', 'anchor': '蓝鲨-佳意', 'hot': '22.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-佳意', 'hot': '22.9万', 'title': '钞票枪上荣耀【国服香香】带粉细节教学'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服阿珂带粉 魔法书赛季王者钞票枪荣耀', 'YH-糖七尾', '22.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服阿珂带粉 魔法书赛季王者钞票枪荣耀', 'anchor': 'YH-糖七尾', 'hot': '22.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'YH-糖七尾', 'hot': '22.9万', 'title': '国服阿珂带粉 魔法书赛季王者钞票枪荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【万场虞姬带粉中】', '景秀-光头强', '22.9万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【万场虞姬带粉中】', 'anchor': '景秀-光头强', 'hot': '22.9万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '景秀-光头强', 'hot': '22.9万', 'title': '【万场虞姬带粉中】'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【魔法书王者钞票枪荣耀】国服全能野王带粉', 'Jn-慕川', '22.3万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【魔法书王者钞票枪荣耀】国服全能野王带粉', 'anchor': 'Jn-慕川', 'hot': '22.3万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Jn-慕川', 'hot': '22.3万', 'title': '【魔法书王者钞票枪荣耀】国服全能野王带粉'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【世界级女野王】露娜双区带粉乱杀', '蓝鲨-雪默', '22.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '【世界级女野王】露娜双区带粉乱杀', 'anchor': '蓝鲨-雪默', 'hot': '22.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-雪默', 'hot': '22.2万', 'title': '【世界级女野王】露娜双区带粉乱杀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('有车位秒上车2带3国服玄策 带粉上荣耀', '一个鬼东西丶海思', '22.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '有车位秒上车2带3国服玄策 带粉上荣耀', 'anchor': '一个鬼东西丶海思', 'hot': '22.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '一个鬼东西丶海思', 'hot': '22.2万', 'title': '有车位秒上车2带3国服玄策 带粉上荣耀'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一镜带粉百分百胜率一带四', '海思-晨晨', '22.2万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国一镜带粉百分百胜率一带四', 'anchor': '海思-晨晨', 'hot': '22.2万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-晨晨', 'hot': '22.2万', 'title': '国一镜带粉百分百胜率一带四'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('75段打野国服镜【钞票枪上荣耀带粉中】', 'ZY丶锋枫', '22.1万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '75段打野国服镜【钞票枪上荣耀带粉中】', 'anchor': 'ZY丶锋枫', 'hot': '22.1万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶锋枫', 'hot': '22.1万', 'title': '75段打野国服镜【钞票枪上荣耀带粉中】'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服芈月，单排50-101星', '敌敌畏', '22.0万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '国服芈月，单排50-101星', 'anchor': '敌敌畏', 'hot': '22.0万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '敌敌畏', 'hot': '22.0万', 'title': '国服芈月，单排50-101星'}
+2021-03-11 12:31:12 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('钞票枪包荣耀 带粉 六指韩信 送皮肤', '韩小信【六指韩信】', '21.8万')]
+2021-03-11 12:31:12 [stream] INFO: 添加数据{'title': '钞票枪包荣耀 带粉 六指韩信 送皮肤', 'anchor': '韩小信【六指韩信】', 'hot': '21.8万'}
+2021-03-11 12:31:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '韩小信【六指韩信】', 'hot': '21.8万', 'title': '钞票枪包荣耀 带粉 六指韩信 送皮肤'}
+2021-03-11 12:31:12 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-03-11 12:31:12 [stream] INFO: 保存数据[{'title': '五国服随机三国英雄【送100套随机皮肤】', 'anchor': '虎牙-风筝', 'hot': '13.8万'}, {'title': '三万场顶级诸葛视觉盛宴', 'anchor': '久帝-小炜', 'hot': '17.2万'}, {'title': '【找我学诸葛】1点送1000', 'anchor': 'LD-米娅', 'hot': '6.6万'}, {'title': '新李白单排101星输是什么滋味？', 'anchor': '哈迪斯【哈狗】', 'hot': '184.0万'}, {'title': '20！荣耀局对抗路二级单杀任何人！', 'anchor': '东辰-寒冰', 'hot': '153.1万'}, {'title': '单排73-101【十五国服辅神】', 'anchor': 'Dae-吴日天【辅神】', 'hot': '136.7万'}, {'title': '第一全能女选手把把carry带粉 连胜中', 'anchor': '蓝新-柔儿吖', 'hot': '38.1万'}, {'title': '超强狂铁 闭眼上分很轻松', 'anchor': '久爱-明凯【边核亚瑟】', 'hot': '135.7万'}, {'title': '顶级李信·冲刺第二个国服', 'anchor': '诺米-澈澈', 'hot': '128.9万'}, {'title': '点个小鹿app小姐姐', 'anchor': '小红帽Lucky', 'hot': '112.6万'}, {'title': '国一马可公孙离荣耀局细节教学', 'anchor': '蓝新-神明', 'hot': '89.8万'}, {'title': '【国一德芙貂蝉】顶尖纵享丝滑！', 'anchor': '众乐-皓楠', 'hot': '88.7万'}, {'title': '爷青回自闭孙策等你来学', 'anchor': '青春【全能边路】', 'hot': '82.3万'}, {'title': '法王小姐姐带飞~', 'anchor': '久帝-小小', 'hot': '10.8万'}, {'title': '【嗜血鲁班】带粉上荣耀', 'anchor': '诺米-乔妹', 'hot': '82.0万'}, {'title': '身法猴 让你重新爱上国服猴子', 'anchor': 'LING-斩神', 'hot': '81.8万'}, {'title': '有位置，国服露露99胜率带粉荣耀三哥冠名', 'anchor': '众乐-通通想通了', 'hot': '78.6万'}, {'title': '70-101 t0边路芈月', 'anchor': '闲云-杆哥', 'hot': '76.2万'}, {'title': '国服第一典韦【一打九冲荣耀】细致教学带粉', 'anchor': '流年-执念、【291】', 'hot': '71.4万'}, {'title': '有车位魔法书上王者2带3国服韩信双区带粉', 'anchor': 'AzZ丶月白【偏爱】', 'hot': '70.9万'}, {'title': '全网第一貂蝉·Q区69-76单排教学！', 'anchor': 'LD-全能针对', 'hot': '68.8万'}, {'title': '最细国服澜双区带粉95胜率钞票枪上荣耀', 'anchor': '迦音-澜神', 'hot': '68.3万'}, {'title': '女野王镜露娜 99胜率带粉', 'anchor': '海思-久久【鹏】', 'hot': '67.5万'}, {'title': '新主播国服娜可露露五排带粉输一局进厂', 'anchor': '蓝新-逸枫', 'hot': '65.6万'}, {'title': '赵云单排最难王者局教学!', 'anchor': 'LING-陌辰', 'hot': '64.7万'}, {'title': '国一四指玄策99胜率荣耀五排带粉上车', 'anchor': '巅峰-鬼岛【三指玄策】', 'hot': '62.6万'}, {'title': '国1李白 五排带粉 宗师流打法', 'anchor': 'ET-初夏', 'hot': '59.8万'}, {'title': '可可爱爱没有脑袋', 'anchor': '晚莹儿', 'hot': '57.2万'}, {'title': '边路一霸： 单排72-101！', 'anchor': '上好佳【诸葛雨神】', 'hot': '57.1万'}, {'title': '手法极致的少女·今日大开杀戒！', 'anchor': '梦醒【狗妹】', 'hot': '52.6万'}, {'title': '【国服阿珂双区带粉上荣耀.99%胜率】', 'anchor': '七月smile', 'hot': '51.3万'}, {'title': '毛晓彤唐山分彤', 'anchor': '月亮', 'hot': '50.9万'}, {'title': '榜1丝滑猴2带3五排装甲车带粉', 'anchor': '海思丶凤白', 'hot': '50.7万'}, {'title': '六国服95段野王99胜率带粉无敌节奏', 'anchor': '海思-宇轩轩轩', 'hot': '50.1万'}, {'title': '90段第一神周瑜·解锁版本上分答案', 'anchor': 'AzZ丶夜城', 'hot': '49.1万'}, {'title': '1.7W国服裴擒虎 节奏打团细节教学', 'anchor': '光束-难枕', 'hot': '46.0万'}, {'title': '国服在榜李元芳 带粉圆你荣耀梦', 'anchor': '蓝新-星河', 'hot': '45.3万'}, {'title': '国一雅典娜99胜率带粉 野王来袭', 'anchor': '宇神【独宠攸攸】', 'hot': '44.8万'}, {'title': '国服露娜带粉99胜率教学', 'anchor': 'DG-南屿', 'hot': '44.8万'}, {'title': '国服韩信 带粉99%胜率', 'anchor': '星辰-菜狸', 'hot': '44.3万'}, {'title': '最强女打野把把带粉五杀上荣耀', 'anchor': '蓝鲨-七七', 'hot': '44.3万'}, {'title': '国服赵云澜 单排42星', 'anchor': '诺米-有颜【颜无敌】', 'hot': '43.9万'}, {'title': '四川电竞林妹妹排等你', 'anchor': '久爱-林儿', 'hot': '42.6万'}, {'title': '5排带粉女打野', 'anchor': 'AzZ丶甜桔宝宝', 'hot': '41.1万'}, {'title': '【炒粉日】空乘小姐姐陪你一起玩', 'anchor': '迦音-七喜', 'hot': '41.1万'}, {'title': '身法貂蝉【60X-101X】！', 'anchor': '众乐-伟妹', 'hot': '40.2万'}, {'title': '国服阿珂带粉99胜率躺着连胜上荣耀', 'anchor': '蓝新-白羊', 'hot': '39.8万'}, {'title': '国服玄策 胜率99 带粉丝上荣耀 有车位', 'anchor': '来虎牙撩季方', 'hot': '39.3万'}, {'title': '【国服诸葛】带粉上荣耀99胜率', 'anchor': '迦音-毛毛', 'hot': '39.2万'}, {'title': '学技术看大锤-场均15杀想输都难！', 'anchor': '大锤哥丶云图CD', 'hot': '39.0万'}, {'title': '国服铠爹带粉帮粉丝拿全国标', 'anchor': '夏滔-【騷瓜】', 'hot': '38.9万'}, {'title': '【全能法王射王】邀你一起摘星星 带粉', 'anchor': '蓝新-月亮女神', 'hot': '38.7万'}, {'title': '国玄策Q区带粉不输~百分百胜率', 'anchor': '森森阿', 'hot': '38.6万'}, {'title': '【全能选手】带你下饭。', 'anchor': '久爱-酷萱baby', 'hot': '38.3万'}, {'title': '百星国服阿珂99胜率双区带粉10分钟一局', 'anchor': 'AS-一演【文哥的迷妹】', 'hot': '37.5万'}, {'title': '新主播东北身残志坚主播怒冲王者乱秀', 'anchor': '蓝新-小糖块呀', 'hot': '37.4万'}, {'title': '520上荣耀 国服露露五排带粉', 'anchor': '虎牙新晴【小京】', 'hot': '36.8万'}, {'title': '声优在榜国服司马懿双区带粉上荣耀', 'anchor': '迦音-夜风', 'hot': '36.6万'}, {'title': '那可打野小姐姐 VX区带粉', 'anchor': 'YF-吖吖', 'hot': '36.2万'}, {'title': '1点送一千，王者局教学！', 'anchor': '正恒-紫宸【相声木兰】', 'hot': '36.0万'}, {'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀', 'anchor': '晚酱鲨疯辽', 'hot': '35.6万'}, {'title': '第一伽罗单排66星冲国服打表现分', 'anchor': 'LING-一铭', 'hot': '35.6万'}, {'title': '国服貂蝉带粉甜蜜摘星星', 'anchor': '诺米-小舞姬【577】', 'hot': '34.1万'}, {'title': '[魔法书包10星]顶级李白带粉乱杀', 'anchor': '非凡-顾言【李白】', 'hot': '34.0万'}, {'title': '广东【全能女野王】带粉有车位', 'anchor': '蓝新-梓萱【勿忘初心】', 'hot': '33.7万'}, {'title': '双区带粉 王者乱杀', 'anchor': '爱拍-小咪奥', 'hot': '33.7万'}, {'title': '钞票枪带上荣耀，国1在榜香香带粉乱杀', 'anchor': '久爱-盖浇面', 'hot': '33.5万'}, {'title': '亚洲第一小乔是谁这么强', 'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '33.1万'}, {'title': '【守约天花板】80星单排', 'anchor': '迦音-狙神月一', 'hot': '32.8万'}, {'title': '一血瓶上车90胜率超甜主播带飞啦', 'anchor': '蓝鲨-酸奶', 'hot': '31.3万'}, {'title': '万场宇宙马超排位带粉教学', 'anchor': '久爱-陈也', 'hot': '30.8万'}, {'title': '鲁班带粉乱杀！', 'anchor': '可爱v【头铁团】', 'hot': '30.4万'}, {'title': '国服夏洛特王者局对线教学', 'anchor': '久爱-阿柠', 'hot': '30.2万'}, {'title': '国一老虎钞票枪上荣耀带粉有车位', 'anchor': '非凡-佩琪', 'hot': '30.1万'}, {'title': '【露手秀】虎牙第一女露娜', 'anchor': '莫妮卡【第一露娜】', 'hot': '28.6万'}, {'title': '三国服阿轲 51以下带粉5排躺赢', 'anchor': '阡陌【阿轲刺秦王】', 'hot': '28.0万'}, {'title': '国服老虎零失误单排教学~', 'anchor': 'LD-虎宝', 'hot': '27.4万'}, {'title': '秒上车，国服韩信橘右京带粉99%胜率', 'anchor': '虎牙右京【小京】', 'hot': '27.2万'}, {'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位', 'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '26.9万'}, {'title': '【三指国服镜澜】国一打野教学连胜带粉', 'anchor': '蓝新-九州', 'hot': '26.9万'}, {'title': '2带3车队带粉魔法书上荣耀有位', 'anchor': 'DG-初拥', 'hot': '26.8万'}, {'title': '国1韩信 钞票枪上荣耀在线带粉五排', 'anchor': '江南-上仙【野王韩信】', 'hot': '26.7万'}, {'title': '国服万场貂蝉，上官婉儿全能法王带粉', 'anchor': '皇玺-Zy凯', 'hot': '26.6万'}, {'title': '虎牙一号包国标国服韩信带粉', 'anchor': '虎牙-轻观', 'hot': '25.5万'}, {'title': '钞票枪上荣耀 国服韩信带粉上大分', 'anchor': '蓝新-青鸟', 'hot': '24.9万'}, {'title': '88段国服游走 国一鬼谷 鲁大无敌开团！', 'anchor': 'AzZ丶汤汤', 'hot': '24.9万'}, {'title': '国服对抗路 带粉连胜 一号永荣耀', 'anchor': '梦境-阿鹰【通天边路】', 'hot': '24.7万'}, {'title': '92段国一边路 82-101关羽细节教学', 'anchor': 'LING-黎明【12国服】', 'hot': '24.6万'}, {'title': '天梯疯狂冲分今日188荧光棒卡爷', 'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '24.6万'}, {'title': '国服射手五排车队带粉上荣耀', 'anchor': '白落', 'hot': '24.4万'}, {'title': '国服干将 一剑一人头视觉盛宴', 'anchor': '久爱-染墨', 'hot': '24.4万'}, {'title': '【国一婉儿】2w战力婉儿花式蝴蝶身法刹车', 'anchor': '赢城-林飞飞-国服婉儿', 'hot': '24.4万'}, {'title': '小乔导师：极致操作 视觉盛宴', 'anchor': '晚风echo【刺客小乔】', 'hot': '24.2万'}, {'title': '国一诸葛单排70-101', 'anchor': 'LT-沈晨', 'hot': '24.0万'}, {'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀', 'anchor': '梓云-巷陌', 'hot': '24.0万'}, {'title': '国服三指韩信澜带粉钞票枪上30星', 'anchor': '夏然【三指野王】', 'hot': '23.9万'}, {'title': '浪队国服李白•超细教学思路秘技', 'anchor': '阿巍-Awei', 'hot': '23.7万'}, {'title': '现在榜1w6国服花木兰带粉上号全国省标', 'anchor': 'AzZ丶木兰橙', 'hot': '23.6万'}, {'title': '国服李信单排76-101细致讲解教学', 'anchor': '蓝鲨-顾家明-三指李信', 'hot': '23.4万'}, {'title': '魔法书带粉上王者包胜率，国服香香.赵云', 'anchor': '这就是十一', 'hot': '23.4万'}, {'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率', 'anchor': '非凡-疏影', 'hot': '23.2万'}, {'title': '陕西声优小姐姐，带粉，可上号', 'anchor': '恒云-小念雪', 'hot': '23.1万'}, {'title': '魔法书荣耀50，国服貂蝉教学带粉排位连胜', 'anchor': '璀璨ya', 'hot': '22.9万'}, {'title': '有车位【7国服露露李白】超高胜率带粉连胜', 'anchor': 'ZY丶阿星', 'hot': '22.9万'}, {'title': '钞票枪上荣耀【国服香香】带粉细节教学', 'anchor': '蓝鲨-佳意', 'hot': '22.9万'}, {'title': '国服阿珂带粉 魔法书赛季王者钞票枪荣耀', 'anchor': 'YH-糖七尾', 'hot': '22.9万'}, {'title': '【万场虞姬带粉中】', 'anchor': '景秀-光头强', 'hot': '22.9万'}, {'title': '【魔法书王者钞票枪荣耀】国服全能野王带粉', 'anchor': 'Jn-慕川', 'hot': '22.3万'}, {'title': '【世界级女野王】露娜双区带粉乱杀', 'anchor': '蓝鲨-雪默', 'hot': '22.2万'}, {'title': '有车位秒上车2带3国服玄策 带粉上荣耀', 'anchor': '一个鬼东西丶海思', 'hot': '22.2万'}, {'title': '国一镜带粉百分百胜率一带四', 'anchor': '海思-晨晨', 'hot': '22.2万'}, {'title': '75段打野国服镜【钞票枪上荣耀带粉中】', 'anchor': 'ZY丶锋枫', 'hot': '22.1万'}, {'title': '国服芈月，单排50-101星', 'anchor': '敌敌畏', 'hot': '22.0万'}, {'title': '钞票枪包荣耀 带粉 六指韩信 送皮肤', 'anchor': '韩小信【六指韩信】', 'hot': '21.8万'}]
+2021-03-11 12:31:12 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 298,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 69608,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 5.042874,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 3, 11, 4, 31, 12, 740656),
+ 'item_scraped_count': 114,
+ 'log_count/DEBUG': 115,
+ 'log_count/INFO': 239,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2021, 3, 11, 4, 31, 7, 697782)}
+2021-03-11 12:31:12 [scrapy.core.engine] INFO: Spider closed (finished)
+2021-03-11 12:51:21 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: huyaSpider)
+2021-03-11 12:51:21 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.6.12 |Anaconda, Inc.| (default, Sep  9 2020, 00:29:25) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1j  16 Feb 2021), cryptography 3.4.6, Platform Windows-10-10.0.19041-SP0
+2021-03-11 12:51:21 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-03-11 12:51:21 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'huyaSpider',
+ 'LOG_FILE': 'logs/scrapy_2021_3_11.log',
+ 'NEWSPIDER_MODULE': 'huyaSpider.spiders',
+ 'SPIDER_MODULES': ['huyaSpider.spiders'],
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36'}
+2021-03-11 12:51:21 [scrapy.extensions.telnet] INFO: Telnet Password: ee314dcba5c4e88f
+2021-03-11 12:51:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-03-11 12:51:22 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-03-11 12:51:22 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-03-11 12:51:22 [scrapy.middleware] INFO: Enabled item pipelines:
+['huyaSpider.pipelines.HuyaspiderMysqlPipeline',
+ 'huyaSpider.pipelines.HuyaspiderPipeline']
+2021-03-11 12:51:22 [scrapy.core.engine] INFO: Spider opened
+2021-03-11 12:51:22 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-03-11 12:51:22 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-03-11 12:51:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.huya.com/g/wzry> (referer: None)
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('五国服随机三国英雄【送100套随机皮肤】', '虎牙-风筝', '15.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '五国服随机三国英雄【送100套随机皮肤】', 'anchor': '虎牙-风筝', 'hot': '15.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙-风筝', 'hot': '15.9万', 'title': '五国服随机三国英雄【送100套随机皮肤】'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服老虎零失误单排教学~', 'LD-虎宝', '29.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服老虎零失误单排教学~', 'anchor': 'LD-虎宝', 'hot': '29.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-虎宝', 'hot': '29.5万', 'title': '国服老虎零失误单排教学~'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('顺儿卤蛋天下无敌', 'AzZ丶顺儿', '6.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '顺儿卤蛋天下无敌', 'anchor': 'AzZ丶顺儿', 'hot': '6.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶顺儿', 'hot': '6.1万', 'title': '顺儿卤蛋天下无敌'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('新李白单排101星输是什么滋味？', '哈迪斯【哈狗】', '190.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '新李白单排101星输是什么滋味？', 'anchor': '哈迪斯【哈狗】', 'hot': '190.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '哈迪斯【哈狗】', 'hot': '190.2万', 'title': '新李白单排101星输是什么滋味？'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('顶级李信·冲刺第二个国服', '诺米-澈澈', '167.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '顶级李信·冲刺第二个国服', 'anchor': '诺米-澈澈', 'hot': '167.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-澈澈', 'hot': '167.8万', 'title': '顶级李信·冲刺第二个国服'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('20！荣耀局对抗路二级单杀任何人！', '东辰-寒冰', '158.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '20！荣耀局对抗路二级单杀任何人！', 'anchor': '东辰-寒冰', 'hot': '158.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '东辰-寒冰', 'hot': '158.3万', 'title': '20！荣耀局对抗路二级单杀任何人！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【露手秀】虎牙第一女露娜', '莫妮卡【第一露娜】', '27.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【露手秀】虎牙第一女露娜', 'anchor': '莫妮卡【第一露娜】', 'hot': '27.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '莫妮卡【第一露娜】', 'hot': '27.4万', 'title': '【露手秀】虎牙第一女露娜'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('全网第一貂蝉·Q区70-76单排教学！', 'LD-全能针对', '146.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '全网第一貂蝉·Q区70-76单排教学！', 'anchor': 'LD-全能针对', 'hot': '146.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-全能针对', 'hot': '146.2万', 'title': '全网第一貂蝉·Q区70-76单排教学！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('单排73-101【十五国服辅神】', 'Dae-吴日天【辅神】', '133.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '单排73-101【十五国服辅神】', 'anchor': 'Dae-吴日天【辅神】', 'hot': '133.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Dae-吴日天【辅神】', 'hot': '133.0万', 'title': '单排73-101【十五国服辅神】'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国20亚瑟王 闭眼上分很轻松', '久爱-明凯【边核亚瑟】', '130.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国20亚瑟王 闭眼上分很轻松', 'anchor': '久爱-明凯【边核亚瑟】', 'hot': '130.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-明凯【边核亚瑟】', 'hot': '130.6万', 'title': '国20亚瑟王 闭眼上分很轻松'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('点个小鹿app小姐姐', '小红帽Lucky', '111.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '点个小鹿app小姐姐', 'anchor': '小红帽Lucky', 'hot': '111.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '小红帽Lucky', 'hot': '111.9万', 'title': '点个小鹿app小姐姐'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('手法极致的少女·今日大开杀戒！', '梦醒【狗妹】', '96.7万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '手法极致的少女·今日大开杀戒！', 'anchor': '梦醒【狗妹】', 'hot': '96.7万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梦醒【狗妹】', 'hot': '96.7万', 'title': '手法极致的少女·今日大开杀戒！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一马可公孙离荣耀局细节教学', '蓝新-神明', '94.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国一马可公孙离荣耀局细节教学', 'anchor': '蓝新-神明', 'hot': '94.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-神明', 'hot': '94.6万', 'title': '国一马可公孙离荣耀局细节教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('法王小姐姐带飞~', '久帝-小小', '14.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '法王小姐姐带飞~', 'anchor': '久帝-小小', 'hot': '14.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久帝-小小', 'hot': '14.4万', 'title': '法王小姐姐带飞~'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('70-101 t0边路芈月', '闲云-杆哥', '90.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '70-101 t0边路芈月', 'anchor': '闲云-杆哥', 'hot': '90.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '闲云-杆哥', 'hot': '90.6万', 'title': '70-101 t0边路芈月'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国一德芙貂蝉】顶尖纵享丝滑！', '众乐-皓楠', '87.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【国一德芙貂蝉】顶尖纵享丝滑！', 'anchor': '众乐-皓楠', 'hot': '87.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-皓楠', 'hot': '87.9万', 'title': '【国一德芙貂蝉】顶尖纵享丝滑！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('身法猴 让你重新爱上国服猴子', 'LING-斩神', '85.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '身法猴 让你重新爱上国服猴子', 'anchor': 'LING-斩神', 'hot': '85.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-斩神', 'hot': '85.9万', 'title': '身法猴 让你重新爱上国服猴子'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('爷青回自闭孙策等你来学', '青春【全能边路】', '81.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '爷青回自闭孙策等你来学', 'anchor': '青春【全能边路】', 'hot': '81.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '青春【全能边路】', 'hot': '81.5万', 'title': '爷青回自闭孙策等你来学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【嗜血鲁班】带粉上荣耀', '诺米-乔妹', '80.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【嗜血鲁班】带粉上荣耀', 'anchor': '诺米-乔妹', 'hot': '80.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-乔妹', 'hot': '80.3万', 'title': '【嗜血鲁班】带粉上荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('有位置，国服露露99胜率带粉荣耀三哥冠名', '众乐-通通想通了', '76.7万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '有位置，国服露露99胜率带粉荣耀三哥冠名', 'anchor': '众乐-通通想通了', 'hot': '76.7万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-通通想通了', 'hot': '76.7万', 'title': '有位置，国服露露99胜率带粉荣耀三哥冠名'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('有车位魔法书上王者2带3国服韩信双区带粉', 'AzZ丶月白【偏爱】', '69.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '有车位魔法书上王者2带3国服韩信双区带粉', 'anchor': 'AzZ丶月白【偏爱】', 'hot': '69.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶月白【偏爱】', 'hot': '69.6万', 'title': '有车位魔法书上王者2带3国服韩信双区带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('学技术看大锤-场均15杀想输都难！', '大锤哥丶云图CD', '69.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '学技术看大锤-场均15杀想输都难！', 'anchor': '大锤哥丶云图CD', 'hot': '69.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '大锤哥丶云图CD', 'hot': '69.0万', 'title': '学技术看大锤-场均15杀想输都难！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服第一典韦【一打九冲荣耀】细致教学带粉', '流年-执念、【291】', '68.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服第一典韦【一打九冲荣耀】细致教学带粉', 'anchor': '流年-执念、【291】', 'hot': '68.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '流年-执念、【291】', 'hot': '68.9万', 'title': '国服第一典韦【一打九冲荣耀】细致教学带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('最细国服澜双区带粉95胜率钞票枪上荣耀', '迦音-澜神', '66.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '最细国服澜双区带粉95胜率钞票枪上荣耀', 'anchor': '迦音-澜神', 'hot': '66.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-澜神', 'hot': '66.5万', 'title': '最细国服澜双区带粉95胜率钞票枪上荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('边路一霸： 单排72-101！', '上好佳【诸葛雨神】', '66.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '边路一霸： 单排72-101！', 'anchor': '上好佳【诸葛雨神】', 'hot': '66.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '上好佳【诸葛雨神】', 'hot': '66.1万', 'title': '边路一霸： 单排72-101！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('女野王镜露娜 99胜率带粉', '海思-久久【鹏】', '64.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '女野王镜露娜 99胜率带粉', 'anchor': '海思-久久【鹏】', 'hot': '64.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-久久【鹏】', 'hot': '64.8万', 'title': '女野王镜露娜 99胜率带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('新主播国服娜可露露五排带粉输一局进厂', '蓝新-逸枫', '63.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '新主播国服娜可露露五排带粉输一局进厂', 'anchor': '蓝新-逸枫', 'hot': '63.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-逸枫', 'hot': '63.4万', 'title': '新主播国服娜可露露五排带粉输一局进厂'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('90段第一神周瑜·解锁版本上分答案', 'AzZ丶夜城', '62.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '90段第一神周瑜·解锁版本上分答案', 'anchor': 'AzZ丶夜城', 'hot': '62.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶夜城', 'hot': '62.4万', 'title': '90段第一神周瑜·解锁版本上分答案'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一四指玄策99胜率荣耀五排带粉上车', '巅峰-鬼岛【三指玄策】', '60.7万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国一四指玄策99胜率荣耀五排带粉上车', 'anchor': '巅峰-鬼岛【三指玄策】', 'hot': '60.7万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '巅峰-鬼岛【三指玄策】', 'hot': '60.7万', 'title': '国一四指玄策99胜率荣耀五排带粉上车'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国1老虎 五排带粉 快节奏打法', 'ET-初夏', '59.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国1老虎 五排带粉 快节奏打法', 'anchor': 'ET-初夏', 'hot': '59.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ET-初夏', 'hot': '59.9万', 'title': '国1老虎 五排带粉 快节奏打法'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('可可爱爱没有脑袋', '晚莹儿', '58.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '可可爱爱没有脑袋', 'anchor': '晚莹儿', 'hot': '58.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚莹儿', 'hot': '58.5万', 'title': '可可爱爱没有脑袋'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('毛晓彤唐山分彤', '月亮', '51.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '毛晓彤唐山分彤', 'anchor': '月亮', 'hot': '51.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '月亮', 'hot': '51.8万', 'title': '毛晓彤唐山分彤'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('榜1丝滑猴2带3五排装甲车带粉', '海思丶凤白', '49.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '榜1丝滑猴2带3五排装甲车带粉', 'anchor': '海思丶凤白', 'hot': '49.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思丶凤白', 'hot': '49.4万', 'title': '榜1丝滑猴2带3五排装甲车带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服阿珂双区带粉上荣耀.99%胜率】', '七月smile', '48.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【国服阿珂双区带粉上荣耀.99%胜率】', 'anchor': '七月smile', 'hot': '48.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '七月smile', 'hot': '48.8万', 'title': '【国服阿珂双区带粉上荣耀.99%胜率】'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('1点送一千，王者局教学！', '正恒-紫宸【相声木兰】', '48.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '1点送一千，王者局教学！', 'anchor': '正恒-紫宸【相声木兰】', 'hot': '48.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒-紫宸【相声木兰】', 'hot': '48.5万', 'title': '1点送一千，王者局教学！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('六国服95段野王99胜率带粉无敌节奏', '海思-宇轩轩轩', '48.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '六国服95段野王99胜率带粉无敌节奏', 'anchor': '海思-宇轩轩轩', 'hot': '48.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-宇轩轩轩', 'hot': '48.1万', 'title': '六国服95段野王99胜率带粉无敌节奏'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('1.7W国服裴擒虎 节奏打团细节教学', '光束-难枕', '46.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '1.7W国服裴擒虎 节奏打团细节教学', 'anchor': '光束-难枕', 'hot': '46.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '光束-难枕', 'hot': '46.6万', 'title': '1.7W国服裴擒虎 节奏打团细节教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('身法露娜【60X-101X】！', '众乐-伟妹', '46.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '身法露娜【60X-101X】！', 'anchor': '众乐-伟妹', 'hot': '46.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-伟妹', 'hot': '46.2万', 'title': '身法露娜【60X-101X】！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('九国服中单 冲第八个国服女娲', '名门-法王信仰', '44.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '九国服中单 冲第八个国服女娲', 'anchor': '名门-法王信仰', 'hot': '44.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '名门-法王信仰', 'hot': '44.9万', 'title': '九国服中单 冲第八个国服女娲'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服露娜带粉99胜率教学', 'DG-南屿', '43.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服露娜带粉99胜率教学', 'anchor': 'DG-南屿', 'hot': '43.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-南屿', 'hot': '43.9万', 'title': '国服露娜带粉99胜率教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一雅典娜99胜率带粉 野王来袭', '宇神【独宠攸攸】', '43.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国一雅典娜99胜率带粉 野王来袭', 'anchor': '宇神【独宠攸攸】', 'hot': '43.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '宇神【独宠攸攸】', 'hot': '43.3万', 'title': '国一雅典娜99胜率带粉 野王来袭'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服韩信 带粉99%胜率', '星辰-菜狸', '43.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服韩信 带粉99%胜率', 'anchor': '星辰-菜狸', 'hot': '43.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '星辰-菜狸', 'hot': '43.2万', 'title': '国服韩信 带粉99%胜率'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服在榜李元芳 带粉圆你荣耀梦', '蓝新-星河', '42.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服在榜李元芳 带粉圆你荣耀梦', 'anchor': '蓝新-星河', 'hot': '42.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-星河', 'hot': '42.8万', 'title': '国服在榜李元芳 带粉圆你荣耀梦'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('最强女打野把把带粉五杀上荣耀', '蓝鲨-七七', '42.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '最强女打野把把带粉五杀上荣耀', 'anchor': '蓝鲨-七七', 'hot': '42.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-七七', 'hot': '42.8万', 'title': '最强女打野把把带粉五杀上荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服赵云澜 单排45星', '诺米-有颜【颜无敌】', '42.7万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服赵云澜 单排45星', 'anchor': '诺米-有颜【颜无敌】', 'hot': '42.7万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-有颜【颜无敌】', 'hot': '42.7万', 'title': '国服赵云澜 单排45星'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('钞票枪带上荣耀，国1在榜香香带粉乱杀', '久爱-盖浇面', '41.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '钞票枪带上荣耀，国1在榜香香带粉乱杀', 'anchor': '久爱-盖浇面', 'hot': '41.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-盖浇面', 'hot': '41.5万', 'title': '钞票枪带上荣耀，国1在榜香香带粉乱杀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('四川电竞林妹妹排等你', '久爱-林儿', '41.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '四川电竞林妹妹排等你', 'anchor': '久爱-林儿', 'hot': '41.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-林儿', 'hot': '41.2万', 'title': '四川电竞林妹妹排等你'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('5排带粉女打野', 'AzZ丶甜桔宝宝', '39.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '5排带粉女打野', 'anchor': 'AzZ丶甜桔宝宝', 'hot': '39.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶甜桔宝宝', 'hot': '39.9万', 'title': '5排带粉女打野'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【炒粉日】空乘小姐姐陪你一起玩', '迦音-七喜', '39.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【炒粉日】空乘小姐姐陪你一起玩', 'anchor': '迦音-七喜', 'hot': '39.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-七喜', 'hot': '39.8万', 'title': '【炒粉日】空乘小姐姐陪你一起玩'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服诸葛】带粉上荣耀99胜率', '迦音-毛毛', '39.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【国服诸葛】带粉上荣耀99胜率', 'anchor': '迦音-毛毛', 'hot': '39.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-毛毛', 'hot': '39.5万', 'title': '【国服诸葛】带粉上荣耀99胜率'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服阿珂带粉99胜率躺着连胜上荣耀', '蓝新-白羊', '38.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服阿珂带粉99胜率躺着连胜上荣耀', 'anchor': '蓝新-白羊', 'hot': '38.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-白羊', 'hot': '38.6万', 'title': '国服阿珂带粉99胜率躺着连胜上荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国玄策Q区带粉不输~百分百胜率', '森森阿', '37.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国玄策Q区带粉不输~百分百胜率', 'anchor': '森森阿', 'hot': '37.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '森森阿', 'hot': '37.5万', 'title': '国玄策Q区带粉不输~百分百胜率'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服玄策 胜率99 带粉丝上荣耀 有车位', '来虎牙撩季方', '37.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服玄策 胜率99 带粉丝上荣耀 有车位', 'anchor': '来虎牙撩季方', 'hot': '37.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '来虎牙撩季方', 'hot': '37.4万', 'title': '国服玄策 胜率99 带粉丝上荣耀 有车位'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服铠爹带粉帮粉丝拿全国标', '夏滔-【騷瓜】', '37.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服铠爹带粉帮粉丝拿全国标', 'anchor': '夏滔-【騷瓜】', 'hot': '37.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '夏滔-【騷瓜】', 'hot': '37.3万', 'title': '国服铠爹带粉帮粉丝拿全国标'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【全能选手】带你下饭。', '久爱-酷萱baby', '36.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【全能选手】带你下饭。', 'anchor': '久爱-酷萱baby', 'hot': '36.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-酷萱baby', 'hot': '36.9万', 'title': '【全能选手】带你下饭。'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('鲁班带粉乱杀！', '可爱v【头铁团】', '36.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '鲁班带粉乱杀！', 'anchor': '可爱v【头铁团】', 'hot': '36.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '可爱v【头铁团】', 'hot': '36.8万', 'title': '鲁班带粉乱杀！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【全能法王射王】邀你一起摘星星 带粉', '蓝新-月亮女神', '36.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【全能法王射王】邀你一起摘星星 带粉', 'anchor': '蓝新-月亮女神', 'hot': '36.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-月亮女神', 'hot': '36.6万', 'title': '【全能法王射王】邀你一起摘星星 带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('第一全能女选手把把carry带粉 连胜中', '蓝新-柔儿吖', '36.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '第一全能女选手把把carry带粉 连胜中', 'anchor': '蓝新-柔儿吖', 'hot': '36.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-柔儿吖', 'hot': '36.5万', 'title': '第一全能女选手把把carry带粉 连胜中'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('百星国服阿珂99胜率双区带粉10分钟一局', 'AS-一演【文哥的迷妹】', '36.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '百星国服阿珂99胜率双区带粉10分钟一局', 'anchor': 'AS-一演【文哥的迷妹】', 'hot': '36.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AS-一演【文哥的迷妹】', 'hot': '36.3万', 'title': '百星国服阿珂99胜率双区带粉10分钟一局'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('快乐小牛马~', '正恒丶萧萧酱【叁玖肆】', '36.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '快乐小牛马~', 'anchor': '正恒丶萧萧酱【叁玖肆】', 'hot': '36.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒丶萧萧酱【叁玖肆】', 'hot': '36.1万', 'title': '快乐小牛马~'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('新主播东北身残志坚主播怒冲王者乱秀', '蓝新-小糖块呀', '35.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '新主播东北身残志坚主播怒冲王者乱秀', 'anchor': '蓝新-小糖块呀', 'hot': '35.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-小糖块呀', 'hot': '35.8万', 'title': '新主播东北身残志坚主播怒冲王者乱秀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('520上荣耀 国服露露五排带粉', '虎牙新晴【小京】', '35.7万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '520上荣耀 国服露露五排带粉', 'anchor': '虎牙新晴【小京】', 'hot': '35.7万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙新晴【小京】', 'hot': '35.7万', 'title': '520上荣耀 国服露露五排带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服肉装武则天细致教学！', '启梦-云歌', '35.7万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服肉装武则天细致教学！', 'anchor': '启梦-云歌', 'hot': '35.7万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '启梦-云歌', 'hot': '35.7万', 'title': '国服肉装武则天细致教学！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('声优在榜国服司马懿双区带粉上荣耀', '迦音-夜风', '35.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '声优在榜国服司马懿双区带粉上荣耀', 'anchor': '迦音-夜风', 'hot': '35.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-夜风', 'hot': '35.1万', 'title': '声优在榜国服司马懿双区带粉上荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服娜可露露】带粉乱杀钞票枪上荣耀', '晚酱鲨疯辽', '34.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀', 'anchor': '晚酱鲨疯辽', 'hot': '34.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚酱鲨疯辽', 'hot': '34.5万', 'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服貂蝉带粉甜蜜摘星星', '诺米-小舞姬【577】', '33.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服貂蝉带粉甜蜜摘星星', 'anchor': '诺米-小舞姬【577】', 'hot': '33.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-小舞姬【577】', 'hot': '33.6万', 'title': '国服貂蝉带粉甜蜜摘星星'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('双区带粉 王者乱杀', '爱拍-小咪奥', '33.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '双区带粉 王者乱杀', 'anchor': '爱拍-小咪奥', 'hot': '33.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '爱拍-小咪奥', 'hot': '33.1万', 'title': '双区带粉 王者乱杀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('第一伽罗单排66星冲国服打表现分', 'LING-一铭', '32.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '第一伽罗单排66星冲国服打表现分', 'anchor': 'LING-一铭', 'hot': '32.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-一铭', 'hot': '32.8万', 'title': '第一伽罗单排66星冲国服打表现分'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服李信单排76-101细致讲解教学', '蓝鲨-顾家明-三指李信', '32.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服李信单排76-101细致讲解教学', 'anchor': '蓝鲨-顾家明-三指李信', 'hot': '32.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-顾家明-三指李信', 'hot': '32.5万', 'title': '国服李信单排76-101细致讲解教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('有车位【7国服露露李白】超高胜率带粉连胜', 'ZY丶阿星', '32.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '有车位【7国服露露李白】超高胜率带粉连胜', 'anchor': 'ZY丶阿星', 'hot': '32.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶阿星', 'hot': '32.4万', 'title': '有车位【7国服露露李白】超高胜率带粉连胜'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('[魔法书包10星]顶级李白带粉乱杀', '非凡-顾言【李白】', '32.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '[魔法书包10星]顶级李白带粉乱杀', 'anchor': '非凡-顾言【李白】', 'hot': '32.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-顾言【李白】', 'hot': '32.3万', 'title': '[魔法书包10星]顶级李白带粉乱杀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('广东【全能女野王】带粉有车位', '蓝新-梓萱【勿忘初心】', '32.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '广东【全能女野王】带粉有车位', 'anchor': '蓝新-梓萱【勿忘初心】', 'hot': '32.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-梓萱【勿忘初心】', 'hot': '32.0万', 'title': '广东【全能女野王】带粉有车位'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('亚洲第一小乔是谁这么强', '正恒-尊尊【芭蕉妹】', '31.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '亚洲第一小乔是谁这么强', 'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '31.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '31.9万', 'title': '亚洲第一小乔是谁这么强'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服射手五排车队带粉上荣耀', '白落', '31.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服射手五排车队带粉上荣耀', 'anchor': '白落', 'hot': '31.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '白落', 'hot': '31.4万', 'title': '国服射手五排车队带粉上荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('一血瓶上车90胜率超甜主播带飞啦', '蓝鲨-酸奶', '30.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '一血瓶上车90胜率超甜主播带飞啦', 'anchor': '蓝鲨-酸奶', 'hot': '30.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-酸奶', 'hot': '30.5万', 'title': '一血瓶上车90胜率超甜主播带飞啦'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('万场宇宙马超排位带粉教学', '久爱-陈也', '30.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '万场宇宙马超排位带粉教学', 'anchor': '久爱-陈也', 'hot': '30.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-陈也', 'hot': '30.3万', 'title': '万场宇宙马超排位带粉教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【守约天花板】80星单排', '迦音-狙神月一', '30.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【守约天花板】80星单排', 'anchor': '迦音-狙神月一', 'hot': '30.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-狙神月一', 'hot': '30.0万', 'title': '【守约天花板】80星单排'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('那可打野小姐姐 VX区带粉', 'YF-吖吖', '29.6万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '那可打野小姐姐 VX区带粉', 'anchor': 'YF-吖吖', 'hot': '29.6万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'YF-吖吖', 'hot': '29.6万', 'title': '那可打野小姐姐 VX区带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('上官婉儿教学创始人带粉收徒', '非凡魔仙老师', '29.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '上官婉儿教学创始人带粉收徒', 'anchor': '非凡魔仙老师', 'hot': '29.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡魔仙老师', 'hot': '29.0万', 'title': '上官婉儿教学创始人带粉收徒'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('三国服阿轲 51以下带粉5排躺赢', '阡陌【阿轲刺秦王】', '29.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '三国服阿轲 51以下带粉5排躺赢', 'anchor': '阡陌【阿轲刺秦王】', 'hot': '29.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '阡陌【阿轲刺秦王】', 'hot': '29.0万', 'title': '三国服阿轲 51以下带粉5排躺赢'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服夏洛特王者局对线教学', '久爱-阿柠', '28.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服夏洛特王者局对线教学', 'anchor': '久爱-阿柠', 'hot': '28.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-阿柠', 'hot': '28.8万', 'title': '国服夏洛特王者局对线教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('100%胜率钞票枪上荣耀带粉有车位', '非凡-佩琪', '28.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '100%胜率钞票枪上荣耀带粉有车位', 'anchor': '非凡-佩琪', 'hot': '28.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-佩琪', 'hot': '28.4万', 'title': '100%胜率钞票枪上荣耀带粉有车位'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('总会有人为你而来~', '魅狐-柒柒宝宝', '27.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '总会有人为你而来~', 'anchor': '魅狐-柒柒宝宝', 'hot': '27.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '魅狐-柒柒宝宝', 'hot': '27.1万', 'title': '总会有人为你而来~'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('蓝刀元芳打野教学~', '东辰-无邪', '27.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '蓝刀元芳打野教学~', 'anchor': '东辰-无邪', 'hot': '27.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '东辰-无邪', 'hot': '27.0万', 'title': '蓝刀元芳打野教学~'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【三指国服镜澜】国一打野教学连胜带粉', '蓝新-九州', '26.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【三指国服镜澜】国一打野教学连胜带粉', 'anchor': '蓝新-九州', 'hot': '26.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-九州', 'hot': '26.4万', 'title': '【三指国服镜澜】国一打野教学连胜带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('秒上车，国服韩信橘右京带粉99%胜率', '虎牙右京【小京】', '26.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '秒上车，国服韩信橘右京带粉99%胜率', 'anchor': '虎牙右京【小京】', 'hot': '26.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙右京【小京】', 'hot': '26.0万', 'title': '秒上车，国服韩信橘右京带粉99%胜率'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【国服貂蝉】安徽省小姐姐在线带粉有车位', '南锋-柒柒【感恩陪伴】', '25.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位', 'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '25.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '25.5万', 'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('2带3车队带粉魔法书上荣耀有位', 'DG-初拥', '25.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '2带3车队带粉魔法书上荣耀有位', 'anchor': 'DG-初拥', 'hot': '25.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-初拥', 'hot': '25.5万', 'title': '2带3车队带粉魔法书上荣耀有位'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服对抗路 带粉连胜 一号永荣耀', '梦境-阿鹰【通天边路】', '25.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服对抗路 带粉连胜 一号永荣耀', 'anchor': '梦境-阿鹰【通天边路】', 'hot': '25.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梦境-阿鹰【通天边路】', 'hot': '25.5万', 'title': '国服对抗路 带粉连胜 一号永荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一镜带粉百分百胜率一带四', '海思-晨晨', '25.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国一镜带粉百分百胜率一带四', 'anchor': '海思-晨晨', 'hot': '25.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-晨晨', 'hot': '25.4万', 'title': '国一镜带粉百分百胜率一带四'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('天梯疯狂冲分今日188荧光棒卡爷', 'ACT胡老大【DF丶电竞】', '24.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '天梯疯狂冲分今日188荧光棒卡爷', 'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '24.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '24.8万', 'title': '天梯疯狂冲分今日188荧光棒卡爷'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服万场貂蝉，上官婉儿全能法王带粉', '皇玺-Zy凯', '24.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服万场貂蝉，上官婉儿全能法王带粉', 'anchor': '皇玺-Zy凯', 'hot': '24.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '皇玺-Zy凯', 'hot': '24.2万', 'title': '国服万场貂蝉，上官婉儿全能法王带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('虎牙一号包国标国服韩信带粉', '虎牙-轻观', '24.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '虎牙一号包国标国服韩信带粉', 'anchor': '虎牙-轻观', 'hot': '24.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙-轻观', 'hot': '24.2万', 'title': '虎牙一号包国标国服韩信带粉'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('小乔导师：极致操作 视觉盛宴', '晚风echo【刺客小乔】', '24.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '小乔导师：极致操作 视觉盛宴', 'anchor': '晚风echo【刺客小乔】', 'hot': '24.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚风echo【刺客小乔】', 'hot': '24.1万', 'title': '小乔导师：极致操作 视觉盛宴'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('六国服法师 国一周瑜排位教学', 'LING-浔一', '24.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '六国服法师 国一周瑜排位教学', 'anchor': 'LING-浔一', 'hot': '24.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-浔一', 'hot': '24.0万', 'title': '六国服法师 国一周瑜排位教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('陕西声优小姐姐，带粉，可上号', '恒云-小念雪', '23.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '陕西声优小姐姐，带粉，可上号', 'anchor': '恒云-小念雪', 'hot': '23.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '恒云-小念雪', 'hot': '23.9万', 'title': '陕西声优小姐姐，带粉，可上号'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('88段国服游走 国一鬼谷 鲁大无敌开团！', 'AzZ丶汤汤', '23.5万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '88段国服游走 国一鬼谷 鲁大无敌开团！', 'anchor': 'AzZ丶汤汤', 'hot': '23.5万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶汤汤', 'hot': '23.5万', 'title': '88段国服游走 国一鬼谷 鲁大无敌开团！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('浪队国服李白•超细教学思路秘技', '阿巍-Awei', '23.4万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '浪队国服李白•超细教学思路秘技', 'anchor': '阿巍-Awei', 'hot': '23.4万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '阿巍-Awei', 'hot': '23.4万', 'title': '浪队国服李白•超细教学思路秘技'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服【镜澜】QQ区带粉 钞票枪包荣耀', '梓云-巷陌', '23.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀', 'anchor': '梓云-巷陌', 'hot': '23.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梓云-巷陌', 'hot': '23.3万', 'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国一诸葛单排70-101', 'LT-沈晨', '23.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国一诸葛单排70-101', 'anchor': 'LT-沈晨', 'hot': '23.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LT-沈晨', 'hot': '23.3万', 'title': '国一诸葛单排70-101'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('钞票枪上荣耀 国服韩信带粉上大分', '蓝新-青鸟', '23.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '钞票枪上荣耀 国服韩信带粉上大分', 'anchor': '蓝新-青鸟', 'hot': '23.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-青鸟', 'hot': '23.2万', 'title': '钞票枪上荣耀 国服韩信带粉上大分'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服橘右京在线带粉上分辣！！', '蓝鲨-京都Cc', '23.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服橘右京在线带粉上分辣！！', 'anchor': '蓝鲨-京都Cc', 'hot': '23.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-京都Cc', 'hot': '23.1万', 'title': '国服橘右京在线带粉上分辣！！'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服三指韩信澜带粉钞票枪上30星', '夏然【三指野王】', '22.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服三指韩信澜带粉钞票枪上30星', 'anchor': '夏然【三指野王】', 'hot': '22.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '夏然【三指野王】', 'hot': '22.8万', 'title': '国服三指韩信澜带粉钞票枪上30星'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('92段国一边路 82-101关羽细节教学', 'LING-黎明【12国服】', '22.7万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '92段国一边路 82-101关羽细节教学', 'anchor': 'LING-黎明【12国服】', 'hot': '22.7万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-黎明【12国服】', 'hot': '22.7万', 'title': '92段国一边路 82-101关羽细节教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('现在榜1w6国服花木兰带粉上号全国省标', 'AzZ丶木兰橙', '22.3万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '现在榜1w6国服花木兰带粉上号全国省标', 'anchor': 'AzZ丶木兰橙', 'hot': '22.3万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶木兰橙', 'hot': '22.3万', 'title': '现在榜1w6国服花木兰带粉上号全国省标'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('本人比封面好看', '正恒丶玉瑶', '22.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '本人比封面好看', 'anchor': '正恒丶玉瑶', 'hot': '22.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒丶玉瑶', 'hot': '22.2万', 'title': '本人比封面好看'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('钞票枪上荣耀【国服香香】带粉细节教学', '蓝鲨-佳意', '22.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '钞票枪上荣耀【国服香香】带粉细节教学', 'anchor': '蓝鲨-佳意', 'hot': '22.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-佳意', 'hot': '22.2万', 'title': '钞票枪上荣耀【国服香香】带粉细节教学'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('国服阿珂带粉 魔法书赛季王者钞票枪荣耀', 'YH-糖七尾', '22.2万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '国服阿珂带粉 魔法书赛季王者钞票枪荣耀', 'anchor': 'YH-糖七尾', 'hot': '22.2万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'YH-糖七尾', 'hot': '22.2万', 'title': '国服阿珂带粉 魔法书赛季王者钞票枪荣耀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【世界级女野王】露娜双区带粉乱杀', '蓝鲨-雪默', '22.1万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【世界级女野王】露娜双区带粉乱杀', 'anchor': '蓝鲨-雪默', 'hot': '22.1万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-雪默', 'hot': '22.1万', 'title': '【世界级女野王】露娜双区带粉乱杀'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【万场虞姬带粉中】', '景秀-光头强', '22.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【万场虞姬带粉中】', 'anchor': '景秀-光头强', 'hot': '22.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '景秀-光头强', 'hot': '22.0万', 'title': '【万场虞姬带粉中】'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('魔法书带粉上王者包胜率，国服香香.赵云', '这就是十一', '22.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '魔法书带粉上王者包胜率，国服香香.赵云', 'anchor': '这就是十一', 'hot': '22.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '这就是十一', 'hot': '22.0万', 'title': '魔法书带粉上王者包胜率，国服香香.赵云'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('狂暴流国服貂蝉v区带粉有车位百分百胜率', '非凡-疏影', '22.0万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率', 'anchor': '非凡-疏影', 'hot': '22.0万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-疏影', 'hot': '22.0万', 'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('魔法书荣耀50，国服貂蝉教学带粉排位连胜', '璀璨ya', '21.9万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '魔法书荣耀50，国服貂蝉教学带粉排位连胜', 'anchor': '璀璨ya', 'hot': '21.9万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '璀璨ya', 'hot': '21.9万', 'title': '魔法书荣耀50，国服貂蝉教学带粉排位连胜'}
+2021-03-11 12:51:27 [stream] INFO: 执行sql: insert into huya(title, anchor, hot) value(%s, %s, %s);, 插入数据为: [('【有车位】2w战力镜澜带粉99胜率', 's楚子航', '21.8万')]
+2021-03-11 12:51:27 [stream] INFO: 添加数据{'title': '【有车位】2w战力镜澜带粉99胜率', 'anchor': 's楚子航', 'hot': '21.8万'}
+2021-03-11 12:51:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 's楚子航', 'hot': '21.8万', 'title': '【有车位】2w战力镜澜带粉99胜率'}
+2021-03-11 12:51:27 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-03-11 12:51:27 [stream] INFO: 保存数据[{'title': '五国服随机三国英雄【送100套随机皮肤】', 'anchor': '虎牙-风筝', 'hot': '15.9万'}, {'title': '国服老虎零失误单排教学~', 'anchor': 'LD-虎宝', 'hot': '29.5万'}, {'title': '顺儿卤蛋天下无敌', 'anchor': 'AzZ丶顺儿', 'hot': '6.1万'}, {'title': '新李白单排101星输是什么滋味？', 'anchor': '哈迪斯【哈狗】', 'hot': '190.2万'}, {'title': '顶级李信·冲刺第二个国服', 'anchor': '诺米-澈澈', 'hot': '167.8万'}, {'title': '20！荣耀局对抗路二级单杀任何人！', 'anchor': '东辰-寒冰', 'hot': '158.3万'}, {'title': '【露手秀】虎牙第一女露娜', 'anchor': '莫妮卡【第一露娜】', 'hot': '27.4万'}, {'title': '全网第一貂蝉·Q区70-76单排教学！', 'anchor': 'LD-全能针对', 'hot': '146.2万'}, {'title': '单排73-101【十五国服辅神】', 'anchor': 'Dae-吴日天【辅神】', 'hot': '133.0万'}, {'title': '国20亚瑟王 闭眼上分很轻松', 'anchor': '久爱-明凯【边核亚瑟】', 'hot': '130.6万'}, {'title': '点个小鹿app小姐姐', 'anchor': '小红帽Lucky', 'hot': '111.9万'}, {'title': '手法极致的少女·今日大开杀戒！', 'anchor': '梦醒【狗妹】', 'hot': '96.7万'}, {'title': '国一马可公孙离荣耀局细节教学', 'anchor': '蓝新-神明', 'hot': '94.6万'}, {'title': '法王小姐姐带飞~', 'anchor': '久帝-小小', 'hot': '14.4万'}, {'title': '70-101 t0边路芈月', 'anchor': '闲云-杆哥', 'hot': '90.6万'}, {'title': '【国一德芙貂蝉】顶尖纵享丝滑！', 'anchor': '众乐-皓楠', 'hot': '87.9万'}, {'title': '身法猴 让你重新爱上国服猴子', 'anchor': 'LING-斩神', 'hot': '85.9万'}, {'title': '爷青回自闭孙策等你来学', 'anchor': '青春【全能边路】', 'hot': '81.5万'}, {'title': '【嗜血鲁班】带粉上荣耀', 'anchor': '诺米-乔妹', 'hot': '80.3万'}, {'title': '有位置，国服露露99胜率带粉荣耀三哥冠名', 'anchor': '众乐-通通想通了', 'hot': '76.7万'}, {'title': '有车位魔法书上王者2带3国服韩信双区带粉', 'anchor': 'AzZ丶月白【偏爱】', 'hot': '69.6万'}, {'title': '学技术看大锤-场均15杀想输都难！', 'anchor': '大锤哥丶云图CD', 'hot': '69.0万'}, {'title': '国服第一典韦【一打九冲荣耀】细致教学带粉', 'anchor': '流年-执念、【291】', 'hot': '68.9万'}, {'title': '最细国服澜双区带粉95胜率钞票枪上荣耀', 'anchor': '迦音-澜神', 'hot': '66.5万'}, {'title': '边路一霸： 单排72-101！', 'anchor': '上好佳【诸葛雨神】', 'hot': '66.1万'}, {'title': '女野王镜露娜 99胜率带粉', 'anchor': '海思-久久【鹏】', 'hot': '64.8万'}, {'title': '新主播国服娜可露露五排带粉输一局进厂', 'anchor': '蓝新-逸枫', 'hot': '63.4万'}, {'title': '90段第一神周瑜·解锁版本上分答案', 'anchor': 'AzZ丶夜城', 'hot': '62.4万'}, {'title': '国一四指玄策99胜率荣耀五排带粉上车', 'anchor': '巅峰-鬼岛【三指玄策】', 'hot': '60.7万'}, {'title': '国1老虎 五排带粉 快节奏打法', 'anchor': 'ET-初夏', 'hot': '59.9万'}, {'title': '可可爱爱没有脑袋', 'anchor': '晚莹儿', 'hot': '58.5万'}, {'title': '毛晓彤唐山分彤', 'anchor': '月亮', 'hot': '51.8万'}, {'title': '榜1丝滑猴2带3五排装甲车带粉', 'anchor': '海思丶凤白', 'hot': '49.4万'}, {'title': '【国服阿珂双区带粉上荣耀.99%胜率】', 'anchor': '七月smile', 'hot': '48.8万'}, {'title': '1点送一千，王者局教学！', 'anchor': '正恒-紫宸【相声木兰】', 'hot': '48.5万'}, {'title': '六国服95段野王99胜率带粉无敌节奏', 'anchor': '海思-宇轩轩轩', 'hot': '48.1万'}, {'title': '1.7W国服裴擒虎 节奏打团细节教学', 'anchor': '光束-难枕', 'hot': '46.6万'}, {'title': '身法露娜【60X-101X】！', 'anchor': '众乐-伟妹', 'hot': '46.2万'}, {'title': '九国服中单 冲第八个国服女娲', 'anchor': '名门-法王信仰', 'hot': '44.9万'}, {'title': '国服露娜带粉99胜率教学', 'anchor': 'DG-南屿', 'hot': '43.9万'}, {'title': '国一雅典娜99胜率带粉 野王来袭', 'anchor': '宇神【独宠攸攸】', 'hot': '43.3万'}, {'title': '国服韩信 带粉99%胜率', 'anchor': '星辰-菜狸', 'hot': '43.2万'}, {'title': '国服在榜李元芳 带粉圆你荣耀梦', 'anchor': '蓝新-星河', 'hot': '42.8万'}, {'title': '最强女打野把把带粉五杀上荣耀', 'anchor': '蓝鲨-七七', 'hot': '42.8万'}, {'title': '国服赵云澜 单排45星', 'anchor': '诺米-有颜【颜无敌】', 'hot': '42.7万'}, {'title': '钞票枪带上荣耀，国1在榜香香带粉乱杀', 'anchor': '久爱-盖浇面', 'hot': '41.5万'}, {'title': '四川电竞林妹妹排等你', 'anchor': '久爱-林儿', 'hot': '41.2万'}, {'title': '5排带粉女打野', 'anchor': 'AzZ丶甜桔宝宝', 'hot': '39.9万'}, {'title': '【炒粉日】空乘小姐姐陪你一起玩', 'anchor': '迦音-七喜', 'hot': '39.8万'}, {'title': '【国服诸葛】带粉上荣耀99胜率', 'anchor': '迦音-毛毛', 'hot': '39.5万'}, {'title': '国服阿珂带粉99胜率躺着连胜上荣耀', 'anchor': '蓝新-白羊', 'hot': '38.6万'}, {'title': '国玄策Q区带粉不输~百分百胜率', 'anchor': '森森阿', 'hot': '37.5万'}, {'title': '国服玄策 胜率99 带粉丝上荣耀 有车位', 'anchor': '来虎牙撩季方', 'hot': '37.4万'}, {'title': '国服铠爹带粉帮粉丝拿全国标', 'anchor': '夏滔-【騷瓜】', 'hot': '37.3万'}, {'title': '【全能选手】带你下饭。', 'anchor': '久爱-酷萱baby', 'hot': '36.9万'}, {'title': '鲁班带粉乱杀！', 'anchor': '可爱v【头铁团】', 'hot': '36.8万'}, {'title': '【全能法王射王】邀你一起摘星星 带粉', 'anchor': '蓝新-月亮女神', 'hot': '36.6万'}, {'title': '第一全能女选手把把carry带粉 连胜中', 'anchor': '蓝新-柔儿吖', 'hot': '36.5万'}, {'title': '百星国服阿珂99胜率双区带粉10分钟一局', 'anchor': 'AS-一演【文哥的迷妹】', 'hot': '36.3万'}, {'title': '快乐小牛马~', 'anchor': '正恒丶萧萧酱【叁玖肆】', 'hot': '36.1万'}, {'title': '新主播东北身残志坚主播怒冲王者乱秀', 'anchor': '蓝新-小糖块呀', 'hot': '35.8万'}, {'title': '520上荣耀 国服露露五排带粉', 'anchor': '虎牙新晴【小京】', 'hot': '35.7万'}, {'title': '国服肉装武则天细致教学！', 'anchor': '启梦-云歌', 'hot': '35.7万'}, {'title': '声优在榜国服司马懿双区带粉上荣耀', 'anchor': '迦音-夜风', 'hot': '35.1万'}, {'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀', 'anchor': '晚酱鲨疯辽', 'hot': '34.5万'}, {'title': '国服貂蝉带粉甜蜜摘星星', 'anchor': '诺米-小舞姬【577】', 'hot': '33.6万'}, {'title': '双区带粉 王者乱杀', 'anchor': '爱拍-小咪奥', 'hot': '33.1万'}, {'title': '第一伽罗单排66星冲国服打表现分', 'anchor': 'LING-一铭', 'hot': '32.8万'}, {'title': '国服李信单排76-101细致讲解教学', 'anchor': '蓝鲨-顾家明-三指李信', 'hot': '32.5万'}, {'title': '有车位【7国服露露李白】超高胜率带粉连胜', 'anchor': 'ZY丶阿星', 'hot': '32.4万'}, {'title': '[魔法书包10星]顶级李白带粉乱杀', 'anchor': '非凡-顾言【李白】', 'hot': '32.3万'}, {'title': '广东【全能女野王】带粉有车位', 'anchor': '蓝新-梓萱【勿忘初心】', 'hot': '32.0万'}, {'title': '亚洲第一小乔是谁这么强', 'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '31.9万'}, {'title': '国服射手五排车队带粉上荣耀', 'anchor': '白落', 'hot': '31.4万'}, {'title': '一血瓶上车90胜率超甜主播带飞啦', 'anchor': '蓝鲨-酸奶', 'hot': '30.5万'}, {'title': '万场宇宙马超排位带粉教学', 'anchor': '久爱-陈也', 'hot': '30.3万'}, {'title': '【守约天花板】80星单排', 'anchor': '迦音-狙神月一', 'hot': '30.0万'}, {'title': '那可打野小姐姐 VX区带粉', 'anchor': 'YF-吖吖', 'hot': '29.6万'}, {'title': '上官婉儿教学创始人带粉收徒', 'anchor': '非凡魔仙老师', 'hot': '29.0万'}, {'title': '三国服阿轲 51以下带粉5排躺赢', 'anchor': '阡陌【阿轲刺秦王】', 'hot': '29.0万'}, {'title': '国服夏洛特王者局对线教学', 'anchor': '久爱-阿柠', 'hot': '28.8万'}, {'title': '100%胜率钞票枪上荣耀带粉有车位', 'anchor': '非凡-佩琪', 'hot': '28.4万'}, {'title': '总会有人为你而来~', 'anchor': '魅狐-柒柒宝宝', 'hot': '27.1万'}, {'title': '蓝刀元芳打野教学~', 'anchor': '东辰-无邪', 'hot': '27.0万'}, {'title': '【三指国服镜澜】国一打野教学连胜带粉', 'anchor': '蓝新-九州', 'hot': '26.4万'}, {'title': '秒上车，国服韩信橘右京带粉99%胜率', 'anchor': '虎牙右京【小京】', 'hot': '26.0万'}, {'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位', 'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '25.5万'}, {'title': '2带3车队带粉魔法书上荣耀有位', 'anchor': 'DG-初拥', 'hot': '25.5万'}, {'title': '国服对抗路 带粉连胜 一号永荣耀', 'anchor': '梦境-阿鹰【通天边路】', 'hot': '25.5万'}, {'title': '国一镜带粉百分百胜率一带四', 'anchor': '海思-晨晨', 'hot': '25.4万'}, {'title': '天梯疯狂冲分今日188荧光棒卡爷', 'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '24.8万'}, {'title': '国服万场貂蝉，上官婉儿全能法王带粉', 'anchor': '皇玺-Zy凯', 'hot': '24.2万'}, {'title': '虎牙一号包国标国服韩信带粉', 'anchor': '虎牙-轻观', 'hot': '24.2万'}, {'title': '小乔导师：极致操作 视觉盛宴', 'anchor': '晚风echo【刺客小乔】', 'hot': '24.1万'}, {'title': '六国服法师 国一周瑜排位教学', 'anchor': 'LING-浔一', 'hot': '24.0万'}, {'title': '陕西声优小姐姐，带粉，可上号', 'anchor': '恒云-小念雪', 'hot': '23.9万'}, {'title': '88段国服游走 国一鬼谷 鲁大无敌开团！', 'anchor': 'AzZ丶汤汤', 'hot': '23.5万'}, {'title': '浪队国服李白•超细教学思路秘技', 'anchor': '阿巍-Awei', 'hot': '23.4万'}, {'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀', 'anchor': '梓云-巷陌', 'hot': '23.3万'}, {'title': '国一诸葛单排70-101', 'anchor': 'LT-沈晨', 'hot': '23.3万'}, {'title': '钞票枪上荣耀 国服韩信带粉上大分', 'anchor': '蓝新-青鸟', 'hot': '23.2万'}, {'title': '国服橘右京在线带粉上分辣！！', 'anchor': '蓝鲨-京都Cc', 'hot': '23.1万'}, {'title': '国服三指韩信澜带粉钞票枪上30星', 'anchor': '夏然【三指野王】', 'hot': '22.8万'}, {'title': '92段国一边路 82-101关羽细节教学', 'anchor': 'LING-黎明【12国服】', 'hot': '22.7万'}, {'title': '现在榜1w6国服花木兰带粉上号全国省标', 'anchor': 'AzZ丶木兰橙', 'hot': '22.3万'}, {'title': '本人比封面好看', 'anchor': '正恒丶玉瑶', 'hot': '22.2万'}, {'title': '钞票枪上荣耀【国服香香】带粉细节教学', 'anchor': '蓝鲨-佳意', 'hot': '22.2万'}, {'title': '国服阿珂带粉 魔法书赛季王者钞票枪荣耀', 'anchor': 'YH-糖七尾', 'hot': '22.2万'}, {'title': '【世界级女野王】露娜双区带粉乱杀', 'anchor': '蓝鲨-雪默', 'hot': '22.1万'}, {'title': '【万场虞姬带粉中】', 'anchor': '景秀-光头强', 'hot': '22.0万'}, {'title': '魔法书带粉上王者包胜率，国服香香.赵云', 'anchor': '这就是十一', 'hot': '22.0万'}, {'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率', 'anchor': '非凡-疏影', 'hot': '22.0万'}, {'title': '魔法书荣耀50，国服貂蝉教学带粉排位连胜', 'anchor': '璀璨ya', 'hot': '21.9万'}, {'title': '【有车位】2w战力镜澜带粉99胜率', 'anchor': 's楚子航', 'hot': '21.8万'}]
+2021-03-11 12:51:27 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 298,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 69940,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 5.196969,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 3, 11, 4, 51, 27, 271905),
+ 'item_scraped_count': 114,
+ 'log_count/DEBUG': 115,
+ 'log_count/INFO': 239,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2021, 3, 11, 4, 51, 22, 74936)}
+2021-03-11 12:51:27 [scrapy.core.engine] INFO: Spider closed (finished)

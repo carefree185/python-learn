@@ -1,0 +1,289 @@
+2021-03-11 11:16:40 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: huyaSpider)
+2021-03-11 11:16:40 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.6.12 |Anaconda, Inc.| (default, Sep  9 2020, 00:29:25) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1j  16 Feb 2021), cryptography 3.4.6, Platform Windows-10-10.0.19041-SP0
+2021-03-11 11:16:40 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-03-11 11:16:40 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'huyaSpider',
+ 'LOG_FILE': 'huya.log',
+ 'NEWSPIDER_MODULE': 'huyaSpider.spiders',
+ 'SPIDER_MODULES': ['huyaSpider.spiders'],
+ 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36'}
+2021-03-11 11:16:40 [scrapy.extensions.telnet] INFO: Telnet Password: e50ae16db167e3f0
+2021-03-11 11:16:40 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-03-11 11:16:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-03-11 11:16:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-03-11 11:16:40 [scrapy.middleware] INFO: Enabled item pipelines:
+['huyaSpider.pipelines.HuyaspiderMysqlPipeline',
+ 'huyaSpider.pipelines.HuyaspiderPipeline']
+2021-03-11 11:16:40 [scrapy.core.engine] INFO: Spider opened
+2021-03-11 11:16:40 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-03-11 11:16:40 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-03-11 11:16:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.huya.com/g/wzry> (referer: None)
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-皓楠', 'hot': '78.8万', 'title': '【国一德芙貂蝉】顶尖纵享丝滑！'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '正恒-尊尊【芭蕉妹】', 'hot': '25.5万', 'title': '亚洲第一小乔是谁这么强'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '月亮', 'hot': '51.6万', 'title': '毛晓彤唐山分彤'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '哈迪斯【哈狗】', 'hot': '169.4万', 'title': '野王单排大厅带飞路人妹子~'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '小红帽Lucky', 'hot': '169.0万', 'title': '点个小鹿app小姐姐'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '爱拍-疯行兄弟', 'hot': '118.3万', 'title': '11:40送1000-妲己＋小明-秒鲨'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '可爱v【头铁团】', 'hot': '47.3万', 'title': '鲁班带粉乱杀！'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-顾家明-三指李信', 'hot': '20.2万', 'title': '国服李信单排76-101细致讲解教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-小炎', 'hot': '110.2万', 'title': '妲己的神什么妲己在带飞？？？'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-风影【三指李信】', 'hot': '106.8万', 'title': '万场国服李信·没有对手的一天'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Dae-吴日天【辅神】', 'hot': '103.0万', 'title': '单排无敌教学【十五国服辅神】'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-斩神', 'hot': '92.5万', 'title': '身法猴 让你重新爱上国服猴子'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-乔妹', 'hot': '86.4万', 'title': '【嗜血鲁班】带粉上荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'TC-徐凤年', 'hot': '6.8万', 'title': '最美乔乔带飞渣王李白'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-明凯【边核亚瑟】', 'hot': '83.4万', 'title': '国20亚瑟王 闭眼上分很轻松'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '青春【全能边路】', 'hot': '77.4万', 'title': '爷青回自闭孙策等你来学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-久久【鹏】', 'hot': '73.4万', 'title': '女野王镜露娜 99胜率带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '闲云-杆哥', 'hot': '71.8万', 'title': 't0边路芈月'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶夜城', 'hot': '68.9万', 'title': '90段第一神周瑜·解锁版本上分答案'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ET-初夏', 'hot': '68.0万', 'title': '国1李白 五排带粉 宗师流打法'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶月白【偏爱】', 'hot': '66.5万', 'title': '有车位魔法书上王者2带3国服韩信双区带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思丶凤白', 'hot': '55.2万', 'title': '身法猴国标号61星到101星 带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-陌辰', 'hot': '54.3万', 'title': '赵云单排最难王者局教学!'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-逸枫', 'hot': '52.7万', 'title': '新主播国服娜可露露五排带粉输一局进厂'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '槿天-亦寻', 'hot': '52.7万', 'title': '国服镜马超VX区带粉魔法书到王者'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-宇轩轩轩', 'hot': '52.6万', 'title': '国1在榜玄策 99胜率带粉无敌节奏'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-南屿', 'hot': '52.2万', 'title': '国服露娜带粉99胜率教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-星河', 'hot': '50.9万', 'title': '国服在榜李元芳 带粉圆你荣耀梦'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-七七', 'hot': '48.7万', 'title': '最强女打野把把带粉五杀上荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '光束-难枕', 'hot': '48.5万', 'title': '1.7W国服裴擒虎 节奏打团细节教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '星辰-菜狸', 'hot': '48.1万', 'title': '国服韩信 带粉99%胜率'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-宇晨', 'hot': '47.9万', 'title': '2w战马可，90-101星 上分如喝水！'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '流年-执念、【291】', 'hot': '47.1万', 'title': '国服第一典韦【一打九冲荣耀】细致教学带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-七喜', 'hot': '46.5万', 'title': '【炒粉日】空乘小姐姐陪你一起玩'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'M丶赵一', 'hot': '44.6万', 'title': '两万战力阿轲·单排58-76'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ET--恩泽', 'hot': '44.6万', 'title': '【国服玄策】带粉连胜一把不输 有位置'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '森森阿', 'hot': '43.4万', 'title': '国玄策Q区带粉不输~百分百胜率'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-通通想通了', 'hot': '43.3万', 'title': '有位置，国服露露99胜率带粉荣耀三哥冠名'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-柔儿吖', 'hot': '42.4万', 'title': '第一全能女选手把把carry带粉 连胜中'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AS-一演【文哥的迷妹】', 'hot': '42.1万', 'title': '百星国服阿珂99胜率双区带粉10分钟一局'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-有颜【颜无敌】', 'hot': '41.1万', 'title': '国服赵云澜 单排37星'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '橘里', 'hot': '39.7万', 'title': '进来看马可做饭 带粉上星啦'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '爱拍-小咪奥', 'hot': '39.6万', 'title': '双区带粉 王者乱杀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-澜神', 'hot': '39.5万', 'title': '最细国服澜双区带粉95胜率钞票枪上荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '晚酱鲨疯辽', 'hot': '39.1万', 'title': '【国服娜可露露】带粉乱杀钞票枪上荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-林儿', 'hot': '36.3万', 'title': '四川电竞林妹妹排国服凯等你'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '宇神【独宠攸攸】', 'hot': '35.7万', 'title': '国一雅典娜99胜率带粉 野王来袭'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AS丶梦白', 'hot': '35.6万', 'title': '【带粉第一人】国一诸葛长沙赵子龙带粉无敌'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '时代-小浪迪', 'hot': '35.3万', 'title': '第一兰陵王 荣耀局乱杀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '星野【三指韩信】', 'hot': '35.2万', 'title': '2100巅峰赛 国服三指韩信带粉有车位'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-酸奶', 'hot': '34.6万', 'title': '一血瓶上车90胜率超甜主播带飞啦'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-狙神月一', 'hot': '33.4万', 'title': '【守约天花板】80星单排'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-顾言【李白】', 'hot': '33.1万', 'title': '[魔法书包10星]顶级李白带粉乱杀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-酷萱baby', 'hot': '32.9万', 'title': '【全能选手】带你下饭。'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '赢城-林飞飞-国服婉儿', 'hot': '30.2万', 'title': '【国一婉儿】2w战力婉儿花式蝴蝶身法刹车'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-阿柠', 'hot': '29.9万', 'title': '国服夏洛特王者局对线教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '梓云-巷陌', 'hot': '29.1万', 'title': '国服【镜澜】QQ区带粉 钞票枪包荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-佳意', 'hot': '28.3万', 'title': '钞票枪上荣耀【国服香香】带粉细节教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-夜风', 'hot': '28.3万', 'title': '声优在榜国服司马懿双区带粉上荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '一个鬼东西丶海思', 'hot': '28.2万', 'title': '有车位秒上车2带3国服玄策 带粉上荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '槿天-北极星strive', 'hot': '27.5万', 'title': '杀神阿轲·北老师带粉上大分'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ACT胡老大【DF丶电竞】', 'hot': '27.4万', 'title': '天梯疯狂冲分今日188荧光棒卡爷'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-毛毛', 'hot': '26.9万', 'title': '【国服诸葛】带粉上荣耀99胜率'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶木兰橙', 'hot': '26.9万', 'title': '现在榜1w6国服花木兰带粉上号全国省标'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'YF-吖吖', 'hot': '26.8万', 'title': '那可打野小姐姐 VX区带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶辉一', 'hot': '26.4万', 'title': '国服老虎玄策单排荣耀局教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '景秀-光头强', 'hot': '26.1万', 'title': '【万场虞姬带粉中】'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Jn-慕川', 'hot': '25.8万', 'title': '【魔法书王者钞票枪荣耀】国服全能野王带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '众乐-小小橙', 'hot': '25.6万', 'title': 'V区等个包车的哥哥'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶甜桔宝宝', 'hot': '25.5万', 'title': '5排带粉女打野'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '唐朝-库库的橘', 'hot': '25.3万', 'title': '2带3魔法书4小时，带粉上荣耀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '韩小信【六指韩信】', 'hot': '25.3万', 'title': '钞票枪包荣耀 带粉 六指韩信 送皮肤'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '海思-崽崽', 'hot': '25.0万', 'title': '【有车位/秒上号】国一露露带粉任何段位'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-疏影', 'hot': '25.0万', 'title': '狂暴流国服貂蝉v区带粉有车位百分百胜率'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '吉米哥哥阿up', 'hot': '24.5万', 'title': '带粉是你的子龙哥哥吗'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶梦燃', 'hot': '24.4万', 'title': '【222连胜】国一韩信，带粉教学~！'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '夏然【三指野王】', 'hot': '24.3万', 'title': '国服三指韩信澜带粉钞票枪上30星'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-月亮女神', 'hot': '24.1万', 'title': '【全能法王射王】邀你一起摘星星 带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-雪默', 'hot': '24.1万', 'title': '【世界级女野王】露娜双区带粉乱杀'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '恒云-小念雪', 'hot': '24.0万', 'title': '陕西声优小姐姐，带粉，可上号'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '秀无情-久爱', 'hot': '24.0万', 'title': '国1韩信阿珂 钞票枪荣耀 带粉五排'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LT-沈晨', 'hot': '23.9万', 'title': '国一诸葛单排70-101'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '敌敌畏', 'hot': '23.8万', 'title': '国服芈月，单排50-101星'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '阿巍-Awei', 'hot': '23.7万', 'title': '浪队国服李白•超细教学思路秘技'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LD-糖三藏', 'hot': '23.6万', 'title': '二带三 免费带粉 快乐五排'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-杀手【野王阿珂】', 'hot': '23.3万', 'title': '微信区钞票枪带粉上荣耀世界级国服阿珂'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '瀚辰、浪怀', 'hot': '23.3万', 'title': '有车位  第一司空震带粉99胜率'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-蛋总', 'hot': '23.1万', 'title': '国服貂蝉单排教学打法·带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '南锋-柒柒【感恩陪伴】', 'hot': '23.0万', 'title': '【国服貂蝉】安徽省小姐姐在线带粉有车位'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-青鸟', 'hot': '22.8万', 'title': '钞票枪上荣耀 国服韩信带粉上大分'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶锋枫', 'hot': '22.7万', 'title': '75段打野国服镜【钞票枪上荣耀带粉中】'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'ZY丶慕凡', 'hot': '22.7万', 'title': '[国一赵云露娜貂禅]双区100胜率带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '落落永不认输', 'hot': '22.5万', 'title': '世界级镜妹妹带粉上分'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-帝师师', 'hot': '22.5万', 'title': '【虎牙第一女红娘】双区光速连胜带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '诺米-小舞姬【577】', 'hot': '22.5万', 'title': '国服貂蝉带粉甜蜜摘星星'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-原罪', 'hot': '22.3万', 'title': '职业退役国服镜单排教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙新晴【小京】', 'hot': '22.3万', 'title': '520上荣耀 国服露露五排带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '非凡-佩琪', 'hot': '22.2万', 'title': '国一老虎钞票枪上荣耀带粉有车位'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'AzZ丶汤汤', 'hot': '22.1万', 'title': '88段国服游走 国一鬼谷 鲁大无敌开团！'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'Sky-夏沐', 'hot': '22.1万', 'title': '早车魔法书8小时全能木澜带粉艾琳'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-花筦', 'hot': '22.0万', 'title': '国3萝莉女阿轲带粉，双区可上号'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久泽弟弟', 'hot': '21.9万', 'title': '国服第一露娜99胜率带粉荣耀五排连胜'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝新-九州', 'hot': '21.9万', 'title': '【三指国服镜澜】国一打野教学连胜带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-小野猫', 'hot': '21.7万', 'title': '【女野王】乱杀带粉上荣耀~第72天'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-桃酥', 'hot': '21.7万', 'title': '江苏新主播声优小乔带粉摘星~'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '蓝鲨-北斗星', 'hot': '21.7万', 'title': '超准百里守约细致思路打表现分'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '大鱼-安琪', 'hot': '21.4万', 'title': '北京主播 双排小姐姐带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'DG-北辰c', 'hot': '21.2万', 'title': '国服露露澜1314可上号2带3高胜率带粉'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': 'LING-一铭', 'hot': '21.0万', 'title': '第一伽罗单排66星冲国服打表现分'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '稚久', 'hot': '20.8万', 'title': '温柔声优国服阿离带粉90胜率'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '虎牙右京【小京】', 'hot': '20.7万', 'title': '秒上车，国服韩信橘右京带粉99%胜率'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '久爱-阿雪', 'hot': '20.5万', 'title': '镜 玄策 微信区带粉五排'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '逍遥', 'hot': '20.5万', 'title': '带粉！有车位 !第一露娜 细节教学'}
+2021-03-11 11:16:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.huya.com/g/wzry>
+{'anchor': '迦音-九六', 'hot': '20.4万', 'title': '顶级射手对线细节教学，实力带粉'}
+2021-03-11 11:16:46 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-03-11 11:16:46 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 298,
+ 'downloader/request_count': 1,
+ 'downloader/request_method_count/GET': 1,
+ 'downloader/response_bytes': 69808,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 5.754774,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 3, 11, 3, 16, 46, 687050),
+ 'item_scraped_count': 114,
+ 'log_count/DEBUG': 115,
+ 'log_count/INFO': 10,
+ 'response_received_count': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2021, 3, 11, 3, 16, 40, 932276)}
+2021-03-11 11:16:46 [scrapy.core.engine] INFO: Spider closed (finished)
