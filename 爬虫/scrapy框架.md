@@ -434,8 +434,13 @@ class HuyaspiderMysqlPipeline:
         anchor = item['anchor']
         hot = item['hot']
         sql = 'insert into huya(title, anchor, hot) value(%s, %s, %s);'
-        self.cursor.execute(sql, (title, anchor, hot))
-        streamLogger.info(f"执行sql: {sql}, 插入数据为: [{title, anchor, hot}]")
+        try:
+            self.cursor.execute(sql, (title, anchor, hot))
+            self.connection.commit()
+            streamLogger.info(f"执行sql: {sql}, 插入数据为: [{title, anchor, hot}]")
+        except Exception as e:
+            self.connection.rollback()
+            streamLogger.error(f"执行sql: {sql}, 插入数据为: [{title, anchor, hot}] 执行出错{e}")
         return item
 
     def close_spider(self, spider):
