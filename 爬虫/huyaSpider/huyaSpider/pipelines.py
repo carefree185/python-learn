@@ -97,7 +97,6 @@ class HuyaspiderMysqlPipeline:
         except Exception as e:
             self.connection.rollback()
             streamLogger.error(f"执行sql: {sql}, 插入数据为: [{title, anchor, hot}] 执行出错{e}")
-
         return item
 
     def close_spider(self, spider):
