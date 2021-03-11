@@ -23,6 +23,8 @@
 
     * `pip3 install scrapy`
 
+****
+
 # 二、基本使用
 
 ## 2.1 创建工程
@@ -472,3 +474,141 @@ from scrapy import cmdline
 cmdline.execute(['scrapy', 'crawl', 'huya'])
 ```
 只需要运行该文件，即可运行爬虫
+
+****
+
+# 三、全站数据爬取
+## 3.1 基于Spider父类进行全站数据的爬取
+该方式是通过在`parse`调用`scrapy.Request(url, callback)`手动发起请求，
+完成全站数据爬取。该方法默认发起`get`请求，也可以修改`method`参数进行修改。
+
+发起`post`请求使用`scrapy.FromRequest(url, fromdata, callback)`，其中
+`formdata`是用于提交`post`请求需要的参数
+
+其中最主要的参数为`url`和`callback`回调函数。其中回调函数用于解析返回的数据。
+
+### 3.2 案例，虎牙分类中的数据爬取
+对之前`huya.py`的代码进行修改，只需要添加
+```python
+import scrapy
+from ..items import HuyaspiderItem
+
+
+class HuyaSpider(scrapy.Spider):
+    name = 'huya'
+    # allowed_domains = ['www.xxx.com']
+    start_urls = ['https://www.huya.com/g/wzry']
+    
+    # 模板url
+    url = "https://www.huya.com/cache.php?m=LiveList&do=getLiveListByPage&gameId=2336&tagAll=0&page=%d"
+    def parse(self, response):
+        li_list = response.xpath('//*[@id="js-live-list"]/li[position()>6]')
+        for li in li_list:
+            title = li.xpath('./a[2]/text()').extract_first()
+            anchor = li.xpath("./span/span[1]/i[@class='nick']/text()").extract_first()
+            hot = li.xpath('./span[@class="txt"]/span[@class="num"]/i[2]/text()').extract_first()
+            item = HuyaspiderItem()
+            item['title'] = title
+            item['anchor'] = anchor
+            item['hot'] = hot
+            yield item
+
+        for page in range(2,26):
+            next_url = self.url % page
+            # 手动发起请求
+            yield scrapy.Request(next_url, callback=self.parse_other) 
+
+    def parse_other(self, response):
+        """
+        解析手动发起请求获得的数据
+        """
+        print(response.text)
+
+```
+
+解析出来的数据，可以交给管道进行数据保存。
+
+
+****
+
+# 四 scrapy五大核心组件
+![](./.img/scrapy核心组件.jpg)
+
+* **引擎(Scrapy)**
+  
+  用来处理整个系统的数据流处理, 触发事务(框架核心)
+  
+* **调度器(Scheduler)**
+  * 过滤器, 过滤重复的请求对象
+  * 队列，保存过滤后的请求队列。
+    
+  用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 
+  可以想像成一个`URL`（抓取网页的网址或者说是链接）的优先队列, 
+  由它来决定下一个要抓取的网址是什么, **同时去除重复的网址**
+
+* **下载器(Downloader)**
+
+  用于下载网页内容, 并将网页内容返回给蜘蛛
+  (Scrapy下载器是建立在twisted这个高效的异步模型上的)
+
+* **爬虫(Spiders)**
+  
+  爬虫是主要干活的, 用于从特定的网页中提取自己需要的信息, 
+  即所谓的实体(Item)。用户也可以从中提取出链接,让Scrapy继续抓取下一个页面
+
+* **项目管道(Pipeline)**
+  
+  负责处理爬虫从网页中抽取的实体，主要的功能是**持久化实体**、
+  **验证实体的有效性**、**清除不需要的信息**。当页面被爬虫解析后，
+  将被发送到项目管道，并经过几个特定的次序处理数据。
+  
+
+
+****
+
+# 五、请求传参
+
+
+
+- scrapy的请求传参
+    - 作用：实现深度爬取。
+    - 使用场景：如果使用scrapy爬取的数据没有存在同一张页面中
+    - 传递item：yield scrapy.Request(url,callback,meta)
+    - 接收item：response.meta
+
+- 提升scrapy爬取数据的效率
+    - 在配置文件中进行相关的配置即可:
+        增加并发：
+            默认scrapy开启的并发线程为32个，可以适当进行增加。在settings配置文件中修改CONCURRENT_REQUESTS = 100值为100,并发设置成了为100。
+
+        降低日志级别：
+            在运行scrapy时，会有大量日志信息的输出，为了减少CPU的使用率。可以设置log输出信息为INFO或者ERROR即可。在配置文件中编写：LOG_LEVEL = ‘INFO’
+
+        禁止cookie：
+            如果不是真的需要cookie，则在scrapy爬取数据时可以禁止cookie从而减少CPU的使用率，提升爬取效率。在配置文件中编写：COOKIES_ENABLED = False
+
+        禁止重试：
+            对失败的HTTP进行重新请求（重试）会减慢爬取速度，因此可以禁止重试。在配置文件中编写：RETRY_ENABLED = False
+
+        减少下载超时：
+            如果对一个非常慢的链接进行爬取，减少下载超时可以能让卡住的链接快速被放弃，从而提升效率。在配置文件中进行编写：DOWNLOAD_TIMEOUT = 10 超时时间为10s
+
+
+- scrapy的中间件
+    - 爬虫中间件
+    - 下载中间件（***）：处于引擎和下载器之间
+        - 作用：批量拦截所有的请求和响应
+        - 为什么拦截请求
+            - 篡改请求的头信息（UA伪装）
+            - 修改请求对应的ip（代理）
+        - 为什么拦截响应
+            - 篡改响应数据，篡改响应对象
+     - 爬取网易新闻的新闻标题和内容
+
+    - selenium在scrapy中的使用流程
+        - 在爬虫类中定义一个bro的属性，就是实例化的浏览器对象
+        - 在爬虫类重写父类的一个closed(self,spider)，在方法中关闭bro
+        - 在中间件中进行浏览器自动化的操作
+    - 作业：
+        - 网易新闻
+        - http://sc.chinaz.com/tupian/xingganmeinvtupian.html网站中的图片数据进行爬取
