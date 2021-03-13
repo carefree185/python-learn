@@ -528,6 +528,10 @@ class HuyaSpider(scrapy.Spider):
 
 解析出来的数据，可以交给管道进行数据保存。
 
+### 3.3 基于CrawlSpider全站数据爬取
+
+
+
 
 ****
 
@@ -846,6 +850,84 @@ class NewsspiderDownloaderMiddleware:
     * request对象和response对象是一一对应的关系，可以通过请求的`url`进行判
     
 * `spider`: 爬虫类实例化对象，可以获取到爬虫对象的属性和方法。这样就可以进行
+
+# 八 FilePipeline和ImagePipeline
+**专门用作于二进制数据下载和持久化存储的管道类**, 该管道类由`scrapy`封装实现
+提供如下几个可自定义接口
+1. `get_media_requests(self, item, info)`: 对媒体资源发起请求
+2. `file_path(self, request, response=None, info=None, *, item=None)`: 返回媒体资源的文件名
+    * 文件保存路径需要在配置文件中指定
+    * `FilePipeline`, 该管道需要指定`FILES_STORE=path`
+    * `ImagePipeline`, 该管道需要指定`IMAGES_STORE=path`
+3. `item_completed`: 当对单个项目的所有图像请求均已完成（下载完成或由于某些原因失败）时，将调用该方法, 将item返回传递给下一个管道类
+
+## 8.1 使用`scrapy`默认写好的管道
+
+`Item`**类**编写
+```python
+import scrapy
+
+class MyItem(scrapy.Item):
+    # ... other item fields ...
+    image_urls = scrapy.Field()
+    # file_urls = scrapy.Field()
+    images = scrapy.Field()
+    # files = scrapy.Field()
+```
+* `image_urls`或`file_urls`: 保存媒体数据所在的url
+  * 可以使用`IMAGES_URLS_FIELD `和`FILES_URLS_FIELD`替换`image_urls`和`file_urls`
+* `images`或`files`: 保存媒体url访问的结果
+  * 可以使用`IMAGES_RESULT_FIELD` 和`FILES_RESULT_FIELD`替换`images`和`files`
+
+* 如果存在多个`ImagePipeline`子类且不同的管道类中具有不同的设置，可以使用`类名_IMAGES_URLS_FIELD`代替
+
+**启用管道**
+
+* 图像管道`ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}`
+* 文件管道`ITEM_PIPELINES = {'scrapy.pipelines.files.FilesPipeline': 1}`
+
+## 8.1 案例，爬取站长素材图片
+
+站长素材，图片使用的反爬技术是**图片冷加载**: (响应返会的`html`对于图片数据，将图片`url`或者
+`base64`编码的数据，存放在一个伪属性中，当图片被滑动到浏览器窗口的可视化区域时将伪属性中的属性
+值被加载到真实属性中。)
+
+**pipelines.py**, 继承`ImagePipeline`
+
+```python
+import scrapy
+from itemadapter import ItemAdapter
+from scrapy.pipelines.images import ImagesPipeline
+
+
+class ImagespiderPipeline(ImagesPipeline):
+    def get_media_requests(self, item, info):
+        """
+        对媒体资源发起请求
+        """
+        yield scrapy.Request(item['image_url'])
+
+    def file_path(self, request, response=None, info=None, *, item=None):
+        """
+        返回媒体资源的文件名
+        :param request:
+        :param response:
+        :param info:
+        :param item:
+        :return:
+        """
+        return request.url.split('/')[-1]
+
+    def item_completed(self, results, item, info):
+        """
+        将item提交给下一个管道类
+        :param results:
+        :param item:
+        :param info:
+        :return:
+        """
+        return item
+```
 
 
 
