@@ -847,3 +847,5 @@ class NewsspiderDownloaderMiddleware:
     
 * `spider`: 爬虫类实例化对象，可以获取到爬虫对象的属性和方法。这样就可以进行
 
+
+
