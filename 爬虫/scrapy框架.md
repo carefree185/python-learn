@@ -568,47 +568,282 @@ class HuyaSpider(scrapy.Spider):
 
 # 五、请求传参
 
+所谓请求传参就是**将本次请求使用到的变量，传递给本次手动发起的请求的回调函数中**，主要作用就是完成数据的
+深度爬取，**数据在不同页面进行获取**时，就可以使用该机制。
+
+`scrapy.Request(url,callback,meta)`，其中`url`是要请求的地址，`callback`数据继续
+的回调函数，`meta`是将本次请求使用的变量，传递到本次手动发起请求的回调函数中。
+
+## 5.1 案例，4567kan电影及详情的爬取
+```python
+import scrapy
+from ..items import MoviespiderItem
 
 
-- scrapy的请求传参
-    - 作用：实现深度爬取。
-    - 使用场景：如果使用scrapy爬取的数据没有存在同一张页面中
-    - 传递item：yield scrapy.Request(url,callback,meta)
-    - 接收item：response.meta
+class MovieSpider(scrapy.Spider):
+    name = 'movie'
+    # allowed_domains = ['www.xxxx.com']
+    start_urls = ['https://www.4567kan.com/index.php/vod/show/id/1.html']
+    url = 'https://www.4567kan.com/index.php/vod/show/id/%d.html'
+    page = 1
 
-- 提升scrapy爬取数据的效率
-    - 在配置文件中进行相关的配置即可:
-        增加并发：
-            默认scrapy开启的并发线程为32个，可以适当进行增加。在settings配置文件中修改CONCURRENT_REQUESTS = 100值为100,并发设置成了为100。
+    def parse(self, response):
+        print("正在爬取第%d页" % self.page)
+        li_list = response.xpath('/html/body/div[1]/div/div/div/div[2]/ul/li')
+        for li in li_list:
+            title = li.xpath("./div[@class='stui-vodlist__box']/a/@title").extract_first()
+            detail_url = "https://www.4567kan.com" + li.xpath("./div[@class='stui-vodlist__box']/a/@href").extract_first()
 
-        降低日志级别：
-            在运行scrapy时，会有大量日志信息的输出，为了减少CPU的使用率。可以设置log输出信息为INFO或者ERROR即可。在配置文件中编写：LOG_LEVEL = ‘INFO’
+            yield scrapy.Request(detail_url, callback=self.parse_detail, meta={"title": title})
 
-        禁止cookie：
-            如果不是真的需要cookie，则在scrapy爬取数据时可以禁止cookie从而减少CPU的使用率，提升爬取效率。在配置文件中编写：COOKIES_ENABLED = False
+        tail = response.xpath('/html/body/div[1]/div/ul/li[10]/a/@href').extract_first()
+        tail = tail.split('/')[-1].split('.')[0]
+        tail = int(tail)
+        if self.page < tail:
+            self.page += 1
+            next_url = self.url % self.page
+            yield scrapy.Request(next_url, callback=self.parse)
 
-        禁止重试：
-            对失败的HTTP进行重新请求（重试）会减慢爬取速度，因此可以禁止重试。在配置文件中编写：RETRY_ENABLED = False
+    def parse_detail(self, response):
+        item = MoviespiderItem()
+        title = response.meta['title']
+        desc = response.xpath('/html/body/div[1]/div/div/div/div[2]/p[5]/span[2]/text()').extract_first()
+        item['title'] = title
+        item['desc'] = desc
+        yield item
+```
 
-        减少下载超时：
-            如果对一个非常慢的链接进行爬取，减少下载超时可以能让卡住的链接快速被放弃，从而提升效率。在配置文件中进行编写：DOWNLOAD_TIMEOUT = 10 超时时间为10s
+# 六 提升scrapy爬取数据的效率
+
+**在配置文件中进行相关的配置即可**
+
+1. **增加并发**：`CONCURRENT_REQUESTS`
+   
+   默认`scrapy`开启的并发线程为`32`个，可以适当进行增加。在`settings`配置文件中
+   修改`CONCURRENT_REQUESTS = 100`值为`100`,并发设置成了为`100`。
+
+2. **降低日志级别**：`LOG_LEVEL`
+   
+   在运行`scrapy`时，会有大量日志信息的输出，为了减少`CPU`的使用率。
+   可以设置`log`输出信息为`INFO`或者`ERROR`即可。在配置文件中编写：
+   `LOG_LEVEL = ‘INFO’`
+
+3. **禁止cookie**：`COOKIES_ENABLED`
+   
+    如果不是真的需要`cookie`，则在`scrapy`爬取数据时可以禁止`cookie`从而减少
+   `CPU`的使用率，提升爬取效率。在配置文件中编写：`COOKIES_ENABLED = False`
+
+4. **禁止重试**：`RETRY_ENABLED`
+   
+   对失败的`HTTP`进行重新请求（重试）会减慢爬取速度，因此可以禁止重试。
+   在配置文件中编写：`RETRY_ENABLED = False`
+
+5. **减少下载超时**：`DOWNLOAD_TIMEOUT`
+   
+    如果对一个非常慢的链接进行爬取，减少下载超时可以能让卡住的链接快速被放弃，
+   从而提升效率。在配置文件中进行编写：`DOWNLOAD_TIMEOUT = 10` 超时时间为`10s`
+
+# 七 scrapy的中间件
+`scrapy`中间件有**爬虫中间件**和**下载中间件**
+- **爬虫中间件**: 位于引擎和爬虫之间，作用是拦截请求或者`item`
+  
+- **下载中间件**: 处于引擎和下载器之间
+  
+    - 作用：**批量拦截所有的请求和响应**
+      
+    - 为什么拦截请求: 篡改请求对象的信息
+        - **篡改请求的头信息**（UA伪装）
+        - **修改请求对应的ip**（代理）
+      
+    - 为什么拦截响应：篡改响应对象
+        - **篡改响应数据**
+        - **篡改响应对象**
+    
+
+## 7.1 下载中间件
+
+在`scrapy`工程项目中`middlewares.py`中编写的就行中间件。下载中间件模板为
+```python
+class MoviespiderDownloaderMiddleware:
+    # Not all methods need to be defined. If a method is not defined,
+    # scrapy acts as if the downloader middleware does not modify the
+    # passed objects.
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # This method is used by Scrapy to create your spiders.
+        s = cls()
+        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        return s
+
+    def process_request(self, request, spider):
+        # Called for each request that goes through the downloader
+        # middleware.
+
+        # Must either:
+        # - return None: continue processing this request
+        # - or return a Response object
+        # - or return a Request object
+        # - or raise IgnoreRequest: process_exception() methods of
+        #   installed downloader middleware will be called
+        return None
+
+    def process_response(self, request, response, spider):
+        # Called with the response returned from the downloader.
+
+        # Must either;
+        # - return a Response object
+        # - return a Request object
+        # - or raise IgnoreRequest
+        return response
+
+    def process_exception(self, request, exception, spider):
+        # Called when a download handler or a process_request()
+        # (from other downloader middleware) raises an exception.
+
+        # Must either:
+        # - return None: continue processing this exception
+        # - return a Response object: stops process_exception() chain
+        # - return a Request object: stops process_exception() chain
+        pass
+
+    def spider_opened(self, spider):
+        spider.logger.info('Spider opened: %s' % spider.name)
+```
+其中需要我们操作的只有如下几个方法
+1. `process_request`: 拦截正常的请求对象，给请求对象进行`UA`伪装，或者代理`ip`的设置
+    * `UA`伪装: `request.headers['User-Agent']=UA`
+    * `IP`代理: `request.meta['proxy']=IP:PORT`
+    
+2. `process_response`: 拦截响应对象
+
+3. `process_exception`: 拦截发生异常的请求对象，修正后使用`return`语句进行请求重发操作
+
+## 7.2 接入selenium
+
+爬虫在爬取某些需要动态加载(`ajax`请求加载)的数据时，如果直接通过下载器下载回来的`response`
+对象是不符合的需求的响应对象。
+
+在不符合的需求的响应对象数据解析，那么将解析不到数据。**可以通过下载中间将响应对象拦截，
+并篡改为符合要求的响应对象**。
+
+**selenium在scrapy中的使用流程**
+1. 在**爬虫类**中定义一个`driver`的属性，就是实例化的浏览器对象
+2. 在**爬虫类**重写父类的一个`closed(self,spider)`，在方法中关闭`driver`
+3. 在中间件中进行浏览器自动化的操作
 
 
-- scrapy的中间件
-    - 爬虫中间件
-    - 下载中间件（***）：处于引擎和下载器之间
-        - 作用：批量拦截所有的请求和响应
-        - 为什么拦截请求
-            - 篡改请求的头信息（UA伪装）
-            - 修改请求对应的ip（代理）
-        - 为什么拦截响应
-            - 篡改响应数据，篡改响应对象
-     - 爬取网易新闻的新闻标题和内容
+## 7.3 案例，爬取网易新闻的新闻标题和内容
 
-    - selenium在scrapy中的使用流程
-        - 在爬虫类中定义一个bro的属性，就是实例化的浏览器对象
-        - 在爬虫类重写父类的一个closed(self,spider)，在方法中关闭bro
-        - 在中间件中进行浏览器自动化的操作
-    - 作业：
-        - 网易新闻
-        - http://sc.chinaz.com/tupian/xingganmeinvtupian.html网站中的图片数据进行爬取
+该案例，需要使用到`scrapy`的管道，中间件，请求传参，接入`selenium`
+* 管道，用于保存获取到的数据
+* 中间件，用于拦截响应，修改响应对象
+* 请求传参，深度爬取
+* 接入`selenium`, 获取ajax加载的数据
+
+**spider.py**
+```python
+import scrapy
+from selenium import webdriver
+from ..items import NewsspiderItem
+
+
+class NewsSpider(scrapy.Spider):
+    name = 'news'
+    # allowed_domains = ['www.xxx.com']
+    start_urls = ['https://news.163.com/']
+    model_url_list = []
+
+    driver = webdriver.Chrome()
+
+    def parse(self, response):
+        # 解析出板块对应的url
+        li_list = response.xpath('//*[@id="index2016_wrap"]/div[1]/div[2]/div[2]/div[2]/div[2]/div/ul/li')
+        index = [4, 5, 7, 8]
+        for i in index:
+            li = li_list[i]
+            model_url = li.xpath('./a/@href').extract_first()
+            self.model_url_list.append(model_url)
+            yield scrapy.Request(model_url, callback=self.parse_model)
+
+    def parse_model(self, response):
+        # response对象此时是不符合需求的，由于获取的新闻是通过ajax加载出来的数据，要在中间件中拦截响应对象，并修改
+        div_list = response.xpath('/html/body/div/div[3]/div[4]/div[1]/div/div/ul/li/div/div')
+        for div in div_list:
+            title = div.xpath('./div/div/h3/a/text()').extract_first()
+            detail_url = div.xpath('./div/div/h3/a/@href').extract_first()
+            if not (title and detail_url):
+                continue
+
+            yield scrapy.Request(detail_url, callback=self.parse_detail, meta={"title": title})
+
+    def parse_detail(self, response):
+        title = response.meta['title']
+        detail = response.xpath('//*[@id="content"]/div[2]//text()').extract()
+        detail = ''.join(detail)
+        item = NewsspiderItem()
+        item['title'] = title
+        item['detail'] = detail
+        yield item
+
+    def close(self, reason):
+        self.driver.quit()
+        super(NewsSpider, self).close(self, reason)
+```
+
+**item.py**
+```python
+import scrapy
+
+
+class NewsspiderItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    title = scrapy.Field()
+    detail = scrapy.Field
+```
+
+**pipelines.py**
+```python
+from itemadapter import ItemAdapter
+import json
+
+
+class NewsspiderPipeline:
+    fp = None
+    news_list = []
+
+    def open_spider(self, spider):
+        self.fp = open('news.json', 'w', encoding='utf-8')
+
+    def process_item(self, item, spider):
+        self.news_list.append({'title': item['title'], 'detail': item['detail']})
+        return item
+
+    def close_spider(self, spider):
+        json.dump(self.news_list, self.fp, ensure_ascii=False)
+        self.fp.close()
+```
+
+**middlewares.py**
+```python
+from itemadapter import is_item, ItemAdapter
+from scrapy.http import HtmlResponse
+
+
+class NewsspiderDownloaderMiddleware:
+
+    def process_response(self, request, response, spider):
+        if request.url in spider.model_url_list:
+            driver = spider.driver
+            driver.get(request.url)
+            body = driver.page_source
+            response = HtmlResponse(url=request.url, body=body, request=request, encoding='utf-8')
+            return response
+        return response
+```
+* 此处难点是**如何确定不符合需求的响应**，
+    * request对象和response对象是一一对应的关系，可以通过请求的`url`进行判
+    
+* `spider`: 爬虫类实例化对象，可以获取到爬虫对象的属性和方法。这样就可以进行
+
