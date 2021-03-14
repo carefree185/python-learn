@@ -530,8 +530,78 @@ class HuyaSpider(scrapy.Spider):
 
 ### 3.3 基于CrawlSpider全站数据爬取
 
+#### 3.3.1 简介
+**一种基于scrapy进行全站数据爬取的一种新的技术手段**。
+
+`CrawlSpider`就是`Spider`的一个子类, 比`Spider`多出爬取全站数据的功能
+- 连接提取器：`LinkExtractor(allow='正则')`，提取符合正则规则的`url`
+- 规则解析器：`Rule(linke, callback, follow)`, 对请求到的链接发送请求，并调用回调函数进行解析
+    * `follow = True`: 将每个链接都会被当作起始`url`
+**创建爬虫时使用的命令**: `scrapy genspider -t crawl spiderName www.xxx.com`
+只多了一个`-t crawl`
+      
+
+#### 3.2 案例，站长素材全站图片爬取
+分析，以图片的第一页为起始地址，使用`url`规则提取器提取分页的`url`，并且指定`follow=True`
+(可以将提取到的url作为起始地址)，由于我需要拿到质量较高的图片，可以访问图片的详情页，获取图片
+数据的url，使用`ImagePipeline`进行图片数据的下载
+
+**爬虫类**
+```python
+import scrapy
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+from ..items import SuncrawlItem
 
 
+class SunSpider(CrawlSpider):
+    name = 'sun'
+    # allowed_domains = ['www.xxx.com']
+    start_urls = ['https://sc.chinaz.com/tupian/']
+
+    rules = (
+        Rule(LinkExtractor(allow=r'index_[0-9.]{1,}html'), follow=True),
+        Rule(LinkExtractor(allow=r'/[0-9.]{1,}htm'), callback="parse_item")
+    )
+
+    def parse_item(self, response):
+        image_url = "https:" + response.xpath('//div[@class="imga"]/a/@href').extract_first()
+        item = SuncrawlItem()
+        item['url'] = image_url
+        yield item
+```
+**item类**
+```python
+import scrapy
+
+
+class SuncrawlItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    url = scrapy.Field()
+```
+**管道类**
+```python
+import scrapy
+from itemadapter import ItemAdapter
+from scrapy.pipelines.images import ImagesPipeline
+
+
+class SuncrawlPipeline(ImagesPipeline):
+
+    def get_media_requests(self, item, info):
+        yield scrapy.Request(item['url'])
+
+    def file_path(self, request, response=None, info=None, *, item=None):
+        return request.url.split('/')[-1]
+
+    def item_completed(self, results, item, info):
+        return item
+```
+**配置文件设置**
+```python
+IMAGES_STORE = './images'
+```
 
 ****
 
@@ -929,5 +999,225 @@ class ImagespiderPipeline(ImagesPipeline):
         return item
 ```
 
+# 九、scrapy分布式爬虫
+
+## 9.1 简介
+需要搭建一个分布式的机群，然后在机群的每一台电脑中执行同一组程序，
+让其对某一个网站的数据进行联合分布爬取
+
+**原生的scrapy是不能进行分布式搭建**，由于因为**调度器不可以被共享**且
+**管道不可以被共享**
+
+## 9.2 scrapy-redis实现分布式爬取
+
+使用`scrapy`和`scrapy-redis`实现分布式爬取，由于`scrapy-redis`提供了**可被共享的调度器和管道**
+
+**使用流程**
+1. 创建工程
+2. 创建爬虫文件(a. Spider爬虫，b. CrawlSpider爬虫)
+3. 修改爬虫类
+4. `settings`配置文件的修改
 
 
+### 9.2.1 修改爬虫类
+**首先**
+
+对于**Spider爬虫**
+```python
+from scrapy_redis.spiders import RedisSpider
+class FbsSpider(RedisSpider):
+    pass
+```
+先导包，然后替换爬虫类的父类为`RedisSpider`
+
+对于**CrawlSpider爬虫**
+```python
+from scrapy_redis.spiders import RedisCrawlSpider
+class FbsSpider(RedisCrawlSpider):
+    pass
+```
+先导包，然后替换爬虫类的父类为`RedisCrawlSpider`
+
+**然后**
+
+删除爬虫类`allowed_domains`和`start_urls`属性
+
+添加一个新属性`redis_key = 'fbsQueue'`，表示的是可以被共享的调度器队列的名称，
+**值任意即可**
+
+**最后**，其他的使用和常规爬虫一致
+
+### 9.2.2 settings配置
+
+**UA伪装**
+```python
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'
+```
+
+**robots协议不遵守**
+```python
+ROBOTSTXT_OBEY = False
+```
+
+**开启scrapy-redis的管道类**
+```python
+ITEM_PIPELINES = {
+   'scrapy_redis.pipelines.RedisPipeline': 300,
+}
+```
+
+**指定调度器**
+```python
+# 增加了一个去重容器类的配置, 作用使用Redis的set集合来存储请求的指纹数据, 从而实现请求去重的持久化
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# 使用scrapy-redis组件自己的调度器
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# 配置调度器是否要持久化, 也就是当爬虫结束了, 要不要清空Redis中请求队列和去重指纹的set。如果是True, 就表示要持久化存储, 就不清空数据, 否则清空数据
+SCHEDULER_PERSIST = True
+```
+
+**指定存放数据的redis数据库**
+```python
+REDIS_HOST = 'redis服务的ip地址'
+REDIS_PORT = 6379
+```
+
+**redis配置文件修改**
+```
+关闭默认绑定：56Line：#bind 127.0.0.1
+关闭保护模式：75Line：protected-mode no
+```
+保护模式如果打开，其他连接只能读取数据，不能写入数据
+
+### 9.2.3 启动
+
+**启动redis服务**
+
+**启动爬虫**,进入爬虫类所在的文件夹执行: `scrapy runspider 爬虫类文件`
+
+**向调度器提交一个起始`url`**
+
+
+## 9.3 案例，分布式爬虫爬取站长素材图片
+
+**爬虫文件**
+```python
+import scrapy
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy_redis.spiders import RedisCrawlSpider
+from items import DistributedspiderItem
+
+
+class FbsSpider(RedisCrawlSpider):
+    name = 'fbs'
+    redis_key = 'fbsQueue'
+    rules = (
+        Rule(LinkExtractor(allow=r'index[_0-9.]{1,}html'), follow=True),
+        Rule(LinkExtractor(allow=r'/[0-9.]{1,}htm'), callback="parse_item")
+    )
+
+    def parse_item(self, response):
+        image_url = "https:" + response.xpath('//div[@class="imga"]/a/@href').extract_first()
+        item = DistributedspiderItem()
+        item['image_url'] = image_url
+        print(item)
+        yield item
+```
+* `CrawlSpider`爬虫文件，解析出图片资源的地址，返回给`item`
+
+**items.py**
+```python
+import scrapy
+
+
+class DistributedspiderItem(scrapy.Item):
+    image_url = scrapy.Field()
+```
+
+**settings.py**
+```python
+import os
+import sys
+
+BASE_DIR = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+sys.path.insert(0, os.path.join(BASE_DIR, 'distributedSpider'))
+
+BOT_NAME = 'distributedSpider'
+
+SPIDER_MODULES = ['distributedSpider.spiders']
+NEWSPIDER_MODULE = 'distributedSpider.spiders'
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+# USER_AGENT = 'distributedSpider (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'
+
+# Obey robots.txt rules
+ROBOTSTXT_OBEY = False
+
+
+ITEM_PIPELINES = {
+    'scrapy_redis.pipelines.RedisPipeline': 300,
+    'distributedSpider.pipelines.DistributedspiderPipeline': 299
+}
+
+# 增加了一个去重容器类的配置, 作用使用Redis的set集合来存储请求的指纹数据, 从而实现请求去重的持久化
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# 使用scrapy-redis组件自己的调度器
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# 配置调度器是否要持久化, 也就是当爬虫结束了, 要不要清空Redis中请求队列和去重指纹的set。如果是True, 就表示要持久化存储, 就不清空数据, 否则清空数据
+SCHEDULER_PERSIST = True
+
+REDIS_HOST = '121.5.72.146'
+REDIS_PORT = 6379
+
+project_dir = os.path.abspath(os.path.dirname(__file__))
+IMAGES_STORE = os.path.join(project_dir, 'images')
+```
+
+**pipelines.py**
+```python
+import scrapy
+from itemadapter import ItemAdapter
+from scrapy.pipelines.images import ImagesPipeline
+
+
+class DistributedspiderPipeline(ImagesPipeline):
+
+    def get_media_requests(self, item, info):
+        yield scrapy.Request(item['image_url'])
+
+    def file_path(self, request, response=None, info=None, *, item=None):
+        return request.url.split('/')[-1]
+
+    def item_completed(self, results, item, info):
+        return item
+```
+* 该管道类，用于下载图片
+
+
+# 十 增量式爬虫
+监测网站数据更新的情况，爬取网站最新更新的数据
+
+增量式爬虫的核心机制就**去重**，可以使用`redis`的`set`数据类型进行去重，也可以使用
+其他的方式去重。
+
+应用场景: 网站数据更新较为频繁的网站，就可以使用增量式爬虫。
+
+对于有唯一标识的数据，将唯一标识存放在redis的set中，每次爬取到数据都检测唯一标识是否
+在redis中，在则不保存，不在则保存
+
+对于没有唯一标识的数据，可以使用`hashlib`模块生成`md5`码用于唯一标识该条数据。
+
+# 十一 常见的反爬策略及对于解决方法
+
+* `robots`协议: 选择不遵守
+* `UA`检测: 进行`UA`请求头伪装
+* 验证码: 字符型验证码图像识别，或者接入打码平台；滑动验证码使用`selenium`解决；点触验证码交给打码平台，然后使用selenium
+* ip访问频率限制: 代理池
+* 登录验证: cookie和session
+* 动态变化的请求参数: 通常在页面中携带
+* js加密: 转为python代码或PyExecJS模拟执行js代码
+* js混淆: 反混淆
+* 图片懒加载
+* `selenium`检测
