@@ -238,3 +238,9 @@ python学习笔记
 ## 12.9 [scrapy](./爬虫/scrapy框架.md)
 
 
+# 十三、数据分析
+## 13.1 [numpy](./数据分析/numpy.md)
+## 13.2 [matplotlib](./数据分析/matplotlib.md)
+
+# 十四、flask
+
