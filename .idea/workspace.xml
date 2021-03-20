@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e91748cd-c23d-4a92-8a74-59c6778354a9" name="Default Changelist" comment="绘制统计图，动态图，3d图">
-      <change beforePath="$PROJECT_DIR$/数据分析/code/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/code/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据分析/matplotlib.md" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/matplotlib.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数据分析/code/data/aapl.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/数据分析/code/numpy高级.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/数据分析/numpy高级.md" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/numpy高级.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -53,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/数据分析/code/data" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -65,11 +67,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dyp\Desktop\python-learn\数据分析\code\data" />
       <recent name="C:\Users\dyp\Desktop\python-learn\爬虫\distributedSpider" />
       <recent name="C:\Users\dyp\Desktop\python-learn\爬虫\sunCrawl" />
       <recent name="C:\Users\dyp\Desktop\python-learn\爬虫\imageSpider" />
       <recent name="C:\Users\dyp\Desktop\python-learn\爬虫\newsSpider" />
-      <recent name="C:\Users\dyp\Desktop\python-learn\爬虫\huyaSpider" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dyp\Desktop\python-learn\数据分析\.img" />
@@ -168,7 +170,7 @@
       <workItem from="1615993106349" duration="16000" />
       <workItem from="1616152260026" duration="41000" />
       <workItem from="1616152339568" duration="1981000" />
-      <workItem from="1616206874476" duration="12962000" />
+      <workItem from="1616206874476" duration="20000000" />
     </task>
     <task id="LOCAL-00001" summary="requests模块使用，豆瓣分类排行榜，药监局数据爬取">
       <created>1615008410591</created>
@@ -387,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616244499761</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="绘制统计图，动态图，3d图">
+      <created>1616244707410</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1616244707410</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
