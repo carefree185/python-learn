@@ -234,5 +234,17 @@ np.average(array, weights=weights)  # 计算加权平均值
 * 成交量加权平均价格: 体现了市场对当前交易价格的认可度，更加的接近真实价格
 
 ```python
-
+import numpy as np
+closing_prices, volumes = np.loadtxt(
+    './data/aapl.csv', delimiter=',',
+    usecols=(6, 7), unpack=True)
+vwap, wsum = 0, 0
+for closing_price, volume in zip(
+        closing_prices, volumes):
+    vwap += closing_price * volume
+    wsum += volume
+vwap /= wsum
+print(vwap)
+vwap = np.average(closing_prices, weights=volumes)
+print(vwap)
 ```
