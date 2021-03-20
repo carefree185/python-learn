@@ -239,8 +239,13 @@ python学习笔记
 
 
 # 十三、数据分析
+
 ## 13.1 [numpy基础](./数据分析/numpy基础.md)
+
 ## 13.2 [matplotlib](./数据分析/matplotlib.md)
+
+## 13.3 [numpy高级](./数据分析/numpy高级.md)
+
 
 # 十四、flask
 
