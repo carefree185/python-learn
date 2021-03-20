@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e91748cd-c23d-4a92-8a74-59c6778354a9" name="Default Changelist" comment="matplotlib 基本绘图和图像对象">
-      <change afterPath="$PROJECT_DIR$/数据分析/.img/matplotlib-color.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/数据分析/numpy高级.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据分析/code/matplotlib.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/code/matplotlib.ipynb" afterDir="false" />
+    <list default="true" id="e91748cd-c23d-4a92-8a74-59c6778354a9" name="Default Changelist" comment="绘制统计图，动态图，3d图">
+      <change beforePath="$PROJECT_DIR$/数据分析/code/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/code/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/数据分析/matplotlib.md" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/matplotlib.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +168,7 @@
       <workItem from="1615993106349" duration="16000" />
       <workItem from="1616152260026" duration="41000" />
       <workItem from="1616152339568" duration="1981000" />
-      <workItem from="1616206874476" duration="12571000" />
+      <workItem from="1616206874476" duration="12962000" />
     </task>
     <task id="LOCAL-00001" summary="requests模块使用，豆瓣分类排行榜，药监局数据爬取">
       <created>1615008410591</created>
@@ -384,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615893227963</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="绘制统计图，动态图，3d图">
+      <created>1616244499761</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1616244499761</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +429,8 @@
     <MESSAGE value="CrawlSpider、分布式(scrapy-redis)、增量式爬虫、常见反爬策略及解决方式" />
     <MESSAGE value="numpy基础，ndarray对象的创建及相关属性操作" />
     <MESSAGE value="matplotlib 基本绘图和图像对象" />
-    <option name="LAST_COMMIT_MESSAGE" value="matplotlib 基本绘图和图像对象" />
+    <MESSAGE value="绘制统计图，动态图，3d图" />
+    <option name="LAST_COMMIT_MESSAGE" value="绘制统计图，动态图，3d图" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python_learn$first.coverage" NAME="first Coverage Results" MODIFIED="1615374564566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/爬虫/firstBlood/firstBlood/spiders" />
