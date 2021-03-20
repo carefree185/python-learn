@@ -162,7 +162,8 @@ plt.show()
 算术平均值是对真实值的一种无偏估计
 
 $$
-s = [s_1, s_2,\cdots, s_n] \\
+s = [s_1, s_2,\cdots, s_n]
+
 m = \frac{\sum_i^n s_i}{n}
 $$
 * `s`: 样本
@@ -213,8 +214,10 @@ print(mean)
 ### 2.2 加权平均
 
 $$
-s = [s_1, s_2, \cdots, s_n] \\
-w = [w_1, w_2, \cdots, w_n] \\
+s = [s_1, s_2, \cdots, s_n]
+
+w = [w_1, w_2, \cdots, w_n]
+
 a = \frac{\sum_i^n s_iw_i}{\sum_i^n w_i}
 $$
 
