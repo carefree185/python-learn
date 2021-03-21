@@ -248,3 +248,141 @@ print(vwap)
 vwap = np.average(closing_prices, weights=volumes)
 print(vwap)
 ```
+
+## 三 最值 中位数 标准差
+
+### 3.1 最值
+
+样本中的最大值和最小值
+
+**`np.max() np.min() np.ptp()`** 返回一个数组中最大值/最小值/极差
+
+```python
+import numpy as np
+# 产生9个介于[10, 100)区间的随机数
+a = np.random.randint(10, 100, 9)
+print(a)
+print(np.max(a), np.min(a), np.ptp(a))
+```
+
+**`np.argmax() np.argmin()`** 返回一个数组中最大/最小元素的下标
+```python
+import numpy as np
+# 产生9个介于[10, 100)区间的随机数
+a = np.random.randint(10, 100, 9)
+print(np.argmax(a), np.argmin(a))
+```
+
+**`np.maximum() np.minimum()`** 将两个同维数组中对应元素中最大/最小元素构成一个新的数组
+```python
+import numpy as np
+# 产生9个介于[10, 100)区间的随机数
+a = np.random.randint(10, 100, 9)
+b = np.random.randint(100, 1000, 9)
+print(np.maximum(a, b), np.minimum(a, b), sep='\n')
+```
+* 保留对于位置较大或者较小的元素，构成新的数组
+
+**案例，股票波动性**
+```python
+import numpy as np
+highest_prices, lowest_prices = np.loadtxt(
+    './data/aapl.csv', delimiter=',',
+    usecols=(4, 5), dtype='f8, f8', unpack=True)
+max_price = np.max(highest_prices)
+min_price = np.min(lowest_prices)
+print(min_price, '~', max_price)
+```
+
+**案例，查看AAPL股票最大最小值的日期**，分析为什么这一天出现最大最小值
+```python
+import numpy as np
+dates, highest_prices, lowest_prices = np.loadtxt(
+    './data/aapl.csv', delimiter=',',
+    usecols=(1, 4, 5), dtype='U10, f8, f8',
+    unpack=True)
+max_index = np.argmax(highest_prices)
+min_index = np.argmin(lowest_prices)
+print(dates[min_index], dates[max_index])
+```
+**案例，观察最高价与最低价的波动范围**，分析这支股票底部是否坚挺
+```python
+import numpy as np
+dates, highest_prices, lowest_prices = np.loadtxt(
+    './data/aapl.csv', delimiter=',',
+    usecols=(1, 4, 5), dtype='U10, f8, f8',
+    unpack=True)
+highest_ptp = np.ptp(highest_prices)
+lowest_ptp = np.ptp(lowest_prices)
+print(lowest_ptp, highest_ptp)
+```
+
+### 3.2 中位数
+
+将多个样本按照大小排序，取中间位置的元素。
+
+**若样本数量为奇数，中位数为最中间的元素**
+
+$[1, 2000, 3000, 4000, 10000000]$
+
+**若样本数量为偶数，中位数为最中间的两个元素的平均值**
+
+$[1,2000,3000,4000,5000,10000000]$
+
+**numpy提供的中位数API**
+```python
+import numpy as np
+array = np.arange(10, 20, 10)
+size = array.size
+sorted_array = np.msort(array)  # 排序
+
+median = np.median(array)  # 计算中位数api
+# 自己算
+median = (sorted_array[int((size - 1) / 2)] + sorted_array[int(size / 2)]) / 2  # 计算中位数
+```
+
+**案例：分析中位数的算法**
+```python
+import numpy as np
+closing_prices = np.loadtxt( './data/aapl.csv', 
+	delimiter=',', usecols=(6, ), unpack=True)
+size = closing_prices.size
+sorted_prices = np.msort(closing_prices)
+median = (sorted_prices[int((size - 1) / 2)] + sorted_prices[int(size / 2)]) / 2
+print(median)
+median = np.median(closing_prices)
+print(median)
+```
+
+### 3.3 方差 标准差
+现在获得样本数据$s=\[s_1, s_2, s_3,\cdots, s_n\]$，为了计算其标准差则要先计算其方差。
+
+
+方差计算公式: $\sigma^2=\frac{(s_1 - \overline{s})^2 +...+(s_n - \overline{s})^2}{n}$
+* $\overline{s}$: 表示`s`的平均值(期望)
+    * 期望计算公式: $\overline{s}=\sum_i^n {s_ip_i}$, 其中$p_i$表示$s_i$出现的概率
+
+标准差: $\sigma = \sqrt{\sigma^2}$
+
+离差: $s_i - \overline{s}$: 离差和等于0
+
+**标准差用于衡量数据的离散程度，标准差越小，数据离散程度越小，否则越大。**
+
+**方差，标准差的相关计算**
+```python
+import numpy as np
+closing_prices = np.loadtxt(
+    './data/aapl.csv', delimiter=',', usecols=(6,), unpack=True)
+mean = np.mean(closing_prices)         # 算数平均值
+devs = closing_prices - mean           # 离差
+dsqs = devs ** 2                       # 离差方
+pvar = np.sum(dsqs) / dsqs.size        # 总体方差
+pstd = np.sqrt(pvar)                   # 总体标准差
+svar = np.sum(dsqs) / (dsqs.size - 1)  # 样本方差
+sstd = np.sqrt(svar)                   # 样本标准差
+print(pstd, sstd)
+pstd = np.std(closing_prices)          # 总体标准差
+sstd = np.std(closing_prices, ddof=1)  # 样本标准差
+print(pstd, sstd)
+```
+
