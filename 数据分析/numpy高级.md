@@ -567,3 +567,53 @@ b = [8, 7, 6]		  卷积核  kernel
 c = numpy.convolve(a, b, 卷积类型)
 ```
 
+**案例，卷积计算移动均线**
+```python
+import datetime as dt
+import numpy as np
+import matplotlib.pyplot as plt
+
+def dmy2ymd(dmy):
+    dmy = str(dmy, encoding='utf-8')
+    date = dt.datetime.strptime(dmy, '%d-%m-%Y').date()
+    ymd = date.strftime('%Y-%m-%d')
+    return ymd
+
+dates, closing_prices = np.loadtxt('./data/aapl.csv', delimiter=',',
+    usecols=(1, 6), unpack=True, dtype='M8[D], f8', converters={1: dmy2ymd})
+
+# 5日移动均线
+sma52 = np.convolve( closing_prices, np.ones(5) / 5, 'valid')
+plt.plot(dates[4:], sma52, c='limegreen', alpha=0.5,
+        linewidth=1, label='SMA-5(2)')
+# 10日移动均线
+sma10 = np.convolve(closing_prices, np.ones(10) / 10, 'valid')
+plt.plot(dates[9:], sma10, c='dodgerblue',linewidth=1,label='SMA-10')
+
+plt.legend()
+plt.show()
+```
+
+## 加权卷积
+
+**案例，基于成交量加权的移动均线**
+```python
+import datetime as dt
+import numpy as np
+import matplotlib.pyplot as plt
+
+def dmy2ymd(dmy):
+    dmy = str(dmy, encoding='utf-8')
+    date = dt.datetime.strptime(dmy, '%d-%m-%Y').date()
+    ymd = date.strftime('%Y-%m-%d')
+    return ymd
+
+dates, closing_prices = np.loadtxt('./data/aapl.csv', delimiter=',',
+    usecols=(1, 6), unpack=True, dtype='M8[D], f8', converters={1: dmy2ymd})
+
+weights = np.exp(np.linspace(-1, 0, 5))
+weights /= weights.sum()
+sma5 = np.convolve(closing_prices, weights[::-1], 'valid')
+plt.plot(dates[4:], sma5, c='limegreen', alpha=0.5,
+        linewidth=6, label='SMA-5')
+```
