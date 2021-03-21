@@ -466,7 +466,7 @@ print(np.apply_along_axis(apply, axis=0, arr=ary))
 * 可以通过指定`axis`参数实现轴向汇总
 
 ## 4.1 移动平均线
-$N日移动平均线=\frac{N日收盘价之和}/{N}$
+$N日移动平均线=\frac{N日收盘价之和}{N}$
 
 **案例，绘制5日均线**
 ```python
