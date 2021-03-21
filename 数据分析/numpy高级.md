@@ -617,3 +617,50 @@ sma5 = np.convolve(closing_prices, weights[::-1], 'valid')
 plt.plot(dates[4:], sma5, c='limegreen', alpha=0.5,
         linewidth=6, label='SMA-5')
 ```
+
+
+# 六 布林带
+
+布林带由三条线组成：
+
+中轨：移动平均线
+
+上轨：中轨+2x5日收盘价标准差	（顶部的压力）
+
+下轨：中轨-2x5日收盘价标准差 （底部的支撑力）
+
+**布林带收窄代表稳定的趋势，布林带张开代表有较大的波动空间的趋势**。
+
+**案例，绘制5日均线的布林带**
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from datetime import datetime
+def dmy2ymd(dmy):
+    dmy = str(dmy, encoding='utf-8')
+    date = datetime.strptime(dmy, '%d-%m-%Y').date()
+    ymd = date.strftime('%Y-%m-%d')
+    return ymd
+
+dates, closing_prices = np.loadtxt('./data/aapl.csv', delimiter=',',
+    usecols=(1, 6), unpack=True, dtype='M8[D], f8', converters={1: dmy2ymd})
+
+
+weights = np.exp(np.linspace(-1, 0, 5))
+weights /= weights.sum()
+em5 = np.convolve(closing_prices, weights[::-1], 'valid')
+stds = np.zeros(em5.size)
+for i in range(stds.size):
+    stds[i] = closing_prices[i:i + 5].std()
+stds *= 2
+lowers = em5 - stds
+uppers = em5 + stds
+
+plt.plot(dates, closing_prices, c='lightgray', label='Closing Price')
+plt.plot(dates[4:], em5, c='dodgerblue', label='Medio')
+plt.plot(dates[4:], lowers, c='limegreen', label='Lower')
+plt.plot(dates[4:], uppers, c='orangered', label='Upper')
+
+plt.legend()
+plt.show()
+```
