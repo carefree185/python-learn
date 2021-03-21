@@ -373,6 +373,7 @@ print(median)
 import numpy as np
 closing_prices = np.loadtxt(
     './data/aapl.csv', delimiter=',', usecols=(6,), unpack=True)
+# 自己计算
 mean = np.mean(closing_prices)         # 算数平均值
 devs = closing_prices - mean           # 离差
 dsqs = devs ** 2                       # 离差方
@@ -381,8 +382,188 @@ pstd = np.sqrt(pvar)                   # 总体标准差
 svar = np.sum(dsqs) / (dsqs.size - 1)  # 样本方差
 sstd = np.sqrt(svar)                   # 样本标准差
 print(pstd, sstd)
+# api
 pstd = np.std(closing_prices)          # 总体标准差
 sstd = np.std(closing_prices, ddof=1)  # 样本标准差
 print(pstd, sstd)
+```
+
+## 四 时间数据处理和数据轴向汇总
+
+**时间数据处理**
+```python
+import numpy as np
+from datetime import datetime
+import matplotlib.pyplot as plt
+
+
+# 日期转换函数
+def dmy2wday(dmy):
+    # 将日-月-年 转为 年-月-日
+    dmy = str(dmy, encoding='utf-8')
+    time = datetime.strptime(dmy, '%d-%m-%Y').date()
+    wday = time.weekday()
+    return wday
+
+
+wdays, closing_prices = np.loadtxt('./data/aapl.csv',  # 读取文件
+                                   delimiter=',',  # 分隔符
+                                   usecols=(1, 6),  # 要读取的列
+                                   unpack=True,  # 拆包
+                                   converters={1: dmy2wday}  # 自定第几列使用的转换函数
+                                   )
+
+ave = np.zeros(5)
+for i in range(ave.size):
+    ave[i] = np.mean(closing_prices[wdays == i])
+
+plt.plot(ave)
+```
+
+**数据的轴向汇总**
+```python
+import numpy as np
+def func(data):
+    pass
+
+# func 	处理函数
+# axis 	轴向 [0,1] 0:列  1:行
+# array 	数组
+np.apply_along_axis(func, axis, array)
+```
+**沿着数组中所指定的轴向，调用处理函数，并将每次调用的返回值重新组织成数组返回**
+
+```python
+import numpy as np
+
+ary = np.arange(1,37).reshape((6, 6))
+
+def apply(data):
+    return np.mean(data)
+
+print(np.mean(ary, axis=0))
+print(np.apply_along_axis(apply, axis=0, arr=ary))
+```
+**轴向汇总时，可以使用api**
+
+|Function Name|	NaN-safe|Description
+|:---:|:---:|:---:|
+|`np.sum`|`np.nansum`|元素求和|
+|`np.prod`|`np.nanprod`|元素乘积|
+|`np.mean`|`np.nanmean`|计算元素均值|
+|`np.std`|`np.nanstd`|计算标准差|
+|`np.var`|`np.nanvar`|计算方差|
+|`np.min`|`np.nanmin`|寻找最小值|
+|`np.max`|`np.nanmax`|寻找最大值|
+|`np.argmin`|`np.nanargmin`|求最小值的索引|
+|`np.argmax`|`np.nanargmax`|求最大值的索引|
+|`np.median`|`np.nanmedian`|计算元素的中位数|
+|`np.percentile`|`np.nanpercentile`|计算元素的基于排名的统计|
+|`np.any`|`N/A`|是否有任何元素为真|
+|`np.all`|`N/A`|是否所有元素都为真|
+|`np.power`|`N/A`|幂运算|
+
+* 可以通过指定`axis`参数实现轴向汇总
+
+## 4.1 移动平均线
+$N日移动平均线=\frac{N日收盘价之和}/{N}$
+
+**案例，绘制5日均线**
+```python
+import datetime as dt
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.dates as md
+
+def dmy2ymd(dmy):
+    dmy = str(dmy, encoding='utf-8')
+    date = dt.datetime.strptime(dmy, '%d-%m-%Y').date()
+    ymd = date.strftime('%Y-%m-%d')
+    return ymd
+
+dates, closing_prices = np.loadtxt('./data/aapl.csv', delimiter=',',
+    usecols=(1, 6), unpack=True, dtype='M8[D], f8', converters={1: dmy2ymd})
+sma51 = np.zeros(closing_prices.size - 4)
+for i in range(sma51.size):
+    sma51[i] = closing_prices[i:i + 5].mean()
+# 开始绘制5日均线
+plt.figure('Sipltle Moving Average', facecolor='lightgray')
+plt.title('Sipltle Moving Average', fontsize=20)
+plt.xlabel('Date', fontsize=14)
+plt.ylabel('Price', fontsize=14)
+ax = plt.gca()
+# 设置水平坐标每个星期一为主刻度
+ax.xaxis.set_major_locator(md.WeekdayLocator( byweekday=md.MO))
+# 设置水平坐标每一天为次刻度
+ax.xaxis.set_minor_locator(md.DayLocator())
+# 设置水平坐标主刻度标签格式
+ax.xaxis.set_major_formatter(md.DateFormatter('%d %b %Y'))
+plt.tick_params(labelsize=10)
+plt.grid(linestyle=':')
+dates = dates.astype(md.datetime.datetime)
+plt.plot(dates, closing_prices, c='lightgray', label='Closing Price')
+plt.plot(dates[4:], sma51, c='orangered', label='SMA-5(1)')
+plt.legend()
+plt.gcf().autofmt_xdate()
+plt.show()
+```
+
+# 五 卷积
+
+设函数$f(\vec x) g(\vec x)$，$\vec x$为$n$维向量，则$f(\vec x)$与$g(\vec x)$卷积定义如下
+做卷积运算的结果为:
+
+$$
+\begin{aligned}
+    C(\vec x)=f(\vec x)\ast g(\vec x)=\int_{-\infty}^{+\infty}f(\vec y)g(\vec x -\vec y)d^{n}\vec y
+\end{aligned}
+$$
+
+**一维的情况**
+$$
+\begin{aligned}
+   f(x)\ast g( x)=\int_{-\infty}^{+\infty}f( y)g(x - y)d y
+\end{aligned}
+$$
+
+**二维情况**
+$$
+\begin{aligned}
+f(x,y)\ast g(x,y)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(\alpha,\beta)g(x - \alpha,y-\beta)d \alpha d\beta
+\end{aligned}
+$$
+
+**三维情况**
+$$
+\begin{aligned}
+f(x,y,z)\ast g(x,y,z)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(\alpha,\beta,\gamma)g(x - \alpha,y-\beta,z-\gamma)d \alpha d\beta d\gamma
+\end{aligned}
+$$
+
+**离散情况**
+$$
+\begin{equation}y[n]=\sum_{k=-\infty}^{\infty} x[k] h[n-k]\end{equation}
+$$
+
+**卷积计算过程**
+```
+a = [1, 2, 3, 4, 5]   源数组
+b = [8, 7, 6]		  卷积核  kernel
+使用b作为卷积核，对a数组执行卷积运算的过程如下：
+
+			   44  65  86           有效卷积 (valid)
+           23  44  65  86  59       同维卷积 (same)
+        8  23  44  65  86  59  30   完全卷积 (full)
+        
+0   0   1   2   3   4   5   0   0
+6   7   8   反转，对应乘积求和，移动卷积核，知道卷积核变量完成源数组
+	6   7   8
+    	6   7   8
+        	6   7   8
+            	6   7   8
+                	6   7   8
+                    	6   7   8
+
+c = numpy.convolve(a, b, 卷积类型)
 ```
 

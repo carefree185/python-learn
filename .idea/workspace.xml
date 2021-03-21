@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e91748cd-c23d-4a92-8a74-59c6778354a9" name="Default Changelist" comment="计算股票收盘价的成交量加权的平均值">
+    <list default="true" id="e91748cd-c23d-4a92-8a74-59c6778354a9" name="Default Changelist" comment="最值 中位数 标准差">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/数据分析/code/numpy高级.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/code/numpy高级.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/数据分析/numpy高级.md" beforeDir="false" afterPath="$PROJECT_DIR$/数据分析/numpy高级.md" afterDir="false" />
@@ -170,7 +170,7 @@
       <workItem from="1616152260026" duration="41000" />
       <workItem from="1616152339568" duration="1981000" />
       <workItem from="1616206874476" duration="20374000" />
-      <workItem from="1616298509422" duration="6162000" />
+      <workItem from="1616298509422" duration="18710000" />
     </task>
     <task id="LOCAL-00001" summary="requests模块使用，豆瓣分类排行榜，药监局数据爬取">
       <created>1615008410591</created>
@@ -431,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616252318490</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="最值 中位数 标准差">
+      <created>1616308636054</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1616308636054</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +457,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bs4 和 xpath解析网页数据" />
     <MESSAGE value="bs4解析数据爬虫三国演义" />
     <MESSAGE value="xpath解析数据爬取糗事百科、彼岸桌面、中国历史天气城市名称" />
     <MESSAGE value="代理、cookie、session及字符验证码的处理和超级鹰打码平台接入和古诗文网站的模拟登录" />
@@ -475,7 +481,8 @@
     <MESSAGE value="平均值计算" />
     <MESSAGE value="格式修改" />
     <MESSAGE value="计算股票收盘价的成交量加权的平均值" />
-    <option name="LAST_COMMIT_MESSAGE" value="计算股票收盘价的成交量加权的平均值" />
+    <MESSAGE value="最值 中位数 标准差" />
+    <option name="LAST_COMMIT_MESSAGE" value="最值 中位数 标准差" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python_learn$first.coverage" NAME="first Coverage Results" MODIFIED="1615374564566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/爬虫/firstBlood/firstBlood/spiders" />
