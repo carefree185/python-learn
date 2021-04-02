@@ -267,5 +267,32 @@ b += df.iloc[-1]['close']*300
 (b - a)/a  # 收益率
 ```
 
+## 三 空值None与NaN
+`None`是python自带的类型NoneType；而NaN是float类型。
+
+`None`不能参与数据运算。而NaN可以参与运算，且返回的值始终为NaN
+
+### 3.1 pandas中的None和NaN
+在pandas中None和NaN都被是做为NaN。一个float类型
+
+### 3.2 pandas中数据清洗
+
+* `isnull()`: 非空为False
+* `notnull()`: 空为True
+* `any(axis=0)`: 有True返回Ture
+* `all(axis=0)`: 有False返回False
+    * `axis=0`: 表示按列检测
+    * `axis=1`: 表示按行检测
+
+* `dropna(axis=0)`: 删除空值
+    * `axis=0`: 表示行
+    * `axis=1`: 表示列
+* `fillna(value,method,axis)`: 填充
+    * value: 填充的值(可选)
+    * method: 覆盖方式(可选)
+      * `bfill`向后
+      * `ffill`向前
+    * axis: 轴向
+
 
 
