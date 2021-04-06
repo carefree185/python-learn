@@ -299,5 +299,11 @@ b += df.iloc[-1]['close']*300
 并形成`DataFrame`,常用的数据读取方法为：`read_csv`，
 主要可以读取文本类型的数据
 
+## 五 常用数学统计方法
+![](./.img/pandas常用数学统计方法.png)
+![](./.img/pandas常用数学统计方法2.png)
+![](./.img/pandas协方差.png)
+![](./.img/pandas相关性.png)
+![](./.img/相关分析函数.png)
 
-
+![](./.img/pandas数据特征分析.png)
