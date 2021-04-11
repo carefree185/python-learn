@@ -252,6 +252,7 @@ python学习笔记
 # 十四、flask
 ## 14.1 [flask介绍](./flask/flask介绍.md)
 ## 14.1 [flask-response](./flask/response.md)
+## 14.2 [flask-request](./flask/request.md)
 
 
 # 十五、机器学习
