@@ -255,6 +255,7 @@ python学习笔记
 ## 14.2 [flask-request](./flask/request.md)
 ## 14.3 [flask-session](./flask/session.md)
 ## 14.4 [flask-模板语法](./flask/模板语法.md)
+## 14.5 [flask-路由](./flask/路由.md)
 
 
 # 十五、机器学习
