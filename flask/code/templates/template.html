@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jinjia2</title>
+</head>
+<body>
+<h2>字符串</h2>
+{{ my_str }}
+<h2>整数</h2>
+{{ my_int }}
+<h2>列表</h2>
+{{ my_array }}
+<h2>字典</h2>
+{{ my_dict }}
+
+<h2>for循环和if语句</h2>
+{% for item in my_array %}
+
+    {% if item!= 7 %}
+        {{ item }}
+        <hr>
+    {% endif %}
+
+{% endfor %}
+
+<table>
+    <tbody>
+    <tr>
+        <th>name</th>
+        <th>age</th>
+    </tr>
+    <tr>
+    <!--
+        {% for item in my_dict %}
+            <td>{{ item }}:{{ my_dict[item] }}</td>
+        {% endfor %}
+    -->
+        {% for key, value in my_dict.items() %}
+            <td>{{ key }}:{{ value }}</td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+
+<h2>特殊用法</h2>
+{# 对于列表可以直接使用 名称.index 进行取值 #}
+{{ my_array.0 }}
+{# 对于字典也可以使用 名称.key进行取值 #}
+{{ my_dict.name }}
+{# 全局函数调用 #}
+{{ add(10, 20) }}
+
+<h2>其他操作</h2>
+
+{% macro my_input(ty, na) %}
+    {{ na }}: <label>
+    <input type="{{ ty }}" name="{{ na }}">
+</label>
+{% endmacro %}
+{{ my_input("text", "username") }}
+
+</body>
+</html>
